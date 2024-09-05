@@ -1,5 +1,6 @@
 # SoftwareVentas
 
-Integrantes:
-Miguel Fernando Pimiento Escobar
+### Integrantes:  
+- Miguel Fernando Pimiento Escobar  
+- Juan Diego Roa Porras  
 
