@@ -1,4 +1,4 @@
-# SoftwareVentas
+# universeGame
 
 ### Integrantes:  
 - Miguel Fernando Pimiento Escobar  
