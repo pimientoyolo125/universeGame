@@ -2,5 +2,6 @@
 
 ### Integrantes:  
 - Miguel Fernando Pimiento Escobar  
-- Juan Diego Roa Porras  
+- Juan Diego Roa Porras
+- Andres Felipe Muñoz Aguilar
 
