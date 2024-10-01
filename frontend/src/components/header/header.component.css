@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
+.header-basic {
+    background-color: rgba(27, 99, 146, 1);
+    width: 100vw;
+    height: min-content;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
