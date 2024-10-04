@@ -1,10 +1,10 @@
 create table usuarios (
-  correo text primary key,
+  id bigint primary key generated always as identity,
+  correo text not null unique,
   contrasena text not null,
   nombre text not null,
   apellido text not null,
   telefono text,
-  direccion text,
-  id_tipo_usuario bigint not null,
-  constraint fk_tipo_usuario foreign key (id_tipo_usuario) references tipo_usuario (id)
+  idtipousuario bigint not null,
+  constraint fk_tipo_usuario foreign key (idtipousuario) references tipousuario (id)
 );
