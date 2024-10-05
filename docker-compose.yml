@@ -3,6 +3,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    restart: always
     networks:
       - my_network
 
@@ -12,6 +13,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "4200:4200"
+    restart: always
     networks:
       - my_network
 
