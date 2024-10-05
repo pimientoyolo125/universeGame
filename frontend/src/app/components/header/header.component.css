@@ -1,0 +1,140 @@
+/*General*/
+* {
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Public Sans', sans-serif;
+}
+
+.header-basic {
+    background-color: rgba(27, 99, 146, 1);
+    width: 100vw;
+    height: max-content;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-size: 13px;
+}
+
+/*Para las dos Filas*/
+.firstRow, .secondRow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#left-column{
+    padding-left: 10px;
+    align-items: center;
+}
+
+#left-column > p{
+    margin: 0px;
+}
+
+#right-column{
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+#right-column > p{
+    margin-bottom: 0px;
+}
+
+#right-column > .btn {
+    width: min-content;
+    padding: 3px;
+    margin: 2px;
+    background-color: rgba(27, 99, 146, 1);
+}
+
+.form-select {
+    display: inline;
+    color: white;
+    width: min-content;
+    background-color: rgba(27, 99, 146, 1);
+    appearance: none;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23ffffff'><polygon points='0,0 100,0 50,50'/></svg>") right no-repeat;
+    padding-right: 16px;
+    font-size: 14px;
+    border: 0;
+}
+
+option.headerSelectOptions{
+    background-color: rgba(27, 99, 146, 1);
+    border-color: rgba(27, 99, 146, 1);
+    font-size: 14px;
+}
+
+.vertical-line {
+    width: 1px; 
+    background-color: white; 
+    height: 25px; 
+    margin: 0 10px;
+}
+
+.horizontal-line {
+    height: 2px; 
+    width: 100vw;
+    background-color: white; 
+    opacity: 0.2;
+    margin: 10 0; 
+}
+
+/*2da Fila*/
+.secondRow {
+    justify-content: center;
+}
+
+#left-column-2r{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+#left-column-2r > h4{
+    margin: 0;
+    display: inline;
+    margin-right: 12px;
+}
+
+#left-column-2r > img{
+    margin: 3px;
+}
+
+#buscador {
+    width: 50vw;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.input-group {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#buscador .form-control:focus {
+    border-color: white; /* O el color que desees */
+    box-shadow: none; /* Esto elimina el sombreado azul */
+    border-right-color: gray;
+}
+
+.input-group > .btn{
+    background-color: white;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-left-color: gray;
+    color: black;
+}
+
+#right-column-2r > button
+{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.icon-large {
+    font-size: 24px; 
+}
