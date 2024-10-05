@@ -1,7 +1,6 @@
 create table productos (
   id bigint primary key generated always as identity,
-  id_tipo_producto bigint not null,
-  id_inventario bigint not null,
+  idtipoproducto bigint not null,
   nombre text not null,
   descripcion text not null,
   imagen text,
@@ -9,8 +8,7 @@ create table productos (
   marca text,
   color text,
   modelo int,
-  constraint fk_tipo_producto foreign key (id_tipo_producto) references tipo_producto (id)
+  cantidad int not null,
+  impuesto double precision not null,
+  constraint fk_tipo_producto foreign key (idtipoproducto) references tipoproducto (id)
 );
-
-alter table productos
-add constraint fk_inventario foreign key (id_inventario) references inventarios (id);
