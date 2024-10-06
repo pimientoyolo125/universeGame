@@ -21,8 +21,12 @@ export class AppComponent {
   valor: string = 'Valor antes de actualizar';
 
   ngOnInit() {
-    this.appService.getTest().subscribe((data:string) => {
+    this.appService.getTest().subscribe(
+      (data:string) => {
       this.valor = data;
+    },
+    (error) => {
+      console.log(error);
     });
   }
 }
