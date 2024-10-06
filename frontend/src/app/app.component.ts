@@ -24,6 +24,7 @@ export class AppComponent {
     this.appService.getTest().subscribe(
       (data:string) => {
       this.valor = data;
+      this.valor = "Este valor fue cargado desde el backend: " + this.valor;
     },
     (error) => {
       console.log(error);
