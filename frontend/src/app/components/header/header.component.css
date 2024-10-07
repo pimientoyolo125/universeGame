@@ -25,7 +25,7 @@ p {
 }
 
 #left-column{
-    padding-left: 10px;
+    padding-left: 20px;
     align-items: center;
 }
 
@@ -36,7 +36,7 @@ p {
 #right-column{
     display: flex;
     align-items: center;
-    padding-right: 10px;
+    padding-right: 20px;
 }
 
 #right-column > p{
@@ -60,6 +60,10 @@ p {
     padding-right: 16px;
     font-size: 14px;
     border: 0;
+}
+
+#right-column .form-select:focus {
+    box-shadow: none; /* Esto elimina el sombreado azul */
 }
 
 option.headerSelectOptions{
@@ -115,8 +119,12 @@ option.headerSelectOptions{
     padding-bottom: 0px;
 }
 
+#buscador .form-control {
+    color: #77878F; 
+}
+
 #buscador .form-control:focus {
-    border-color: white; /* O el color que desees */
+    border-color: white; 
     box-shadow: none; /* Esto elimina el sombreado azul */
     border-right-color: gray;
 }

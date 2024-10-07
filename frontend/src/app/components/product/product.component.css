@@ -1,0 +1,41 @@
+.card-img-top {
+    object-fit: contain;
+    display: block;;
+}
+
+.card {
+    width: fit-content;
+    display: flex;
+    justify-items: center;
+    max-width: 200px;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card-body > p{
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.row > button {
+    width: 90px;
+    background-color: #FA8232;
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #FA8232;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 13px;
+}
+
+.row > button:hover {
+    background-color: #1B6392;
+    border: 1px solid #1B6392;
+}

@@ -1,0 +1,55 @@
+<div id="content">
+    <div id="header">
+        <app-header></app-header>
+    </div>
+
+    <h1>Ha buscado este producto: {{ searchString }}</h1>
+    <div id="page-content" style="width: 100vw; margin-bottom: 10px;">
+        <div id="left-column">
+            <div class="row">
+                <p style="font-size: 16px; font-weight: 500; margin-bottom: 2px;">Brands:</p>
+            </div>
+            <div id="brands" class="brands-container">
+                <div *ngFor="let brand of brands" class="form-check">
+                    <input class="form-check-input" type="checkbox" [id]="brand.name" [checked]="brand.selected"
+                        (change)="brandSelected(brand)" />
+                    <label class="form-check-label" [for]="brand.name">
+                        {{ brand.name }}
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div id="right-column" style="margin-left: 10px;">
+            <div class="row" style="margin-bottom: 20px; justify-items: center;">
+                <div class="col">
+                    <p style="display: inline; padding-right: 10px;">Sort by:</p>
+                    <select class="form-select" style="margin-right: 10px; width: min-content;" aria-label="Sort by select"
+                        [(ngModel)]="selectedSort" (change)="onSortChange($event)">
+                        <option value="1" class="headerSelectOptions">Most Recent</option>
+                        <option value="2" class="headerSelectOptions">Most Old</option>
+                    </select>
+                </div>
+    
+                <div class="col">
+                    <p style="display: inline; padding-right: 10px;">Category:</p>
+                    <select class="form-select" style="margin-right: 10px; width: min-content;"
+                        [(ngModel)]="selectedCategory" (change)="onCategoryChange($event)" aria-label="Category select">
+                        <option value="1" class="headerSelectOptions">All</option>
+                        <option value="2" class="headerSelectOptions">Consoles</option>
+                        <option value="3" class="headerSelectOptions">Games</option>
+                        <option value="4" class="headerSelectOptions">Controllers</option>
+                        <option value="5" class="headerSelectOptions">Accessories</option>
+                        <option value="6" class="headerSelectOptions">Recorders</option>
+                        <option value="7" class="headerSelectOptions">TV's & Monitors</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <app-footer></app-footer>
+    </div>
+</div>
