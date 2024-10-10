@@ -1,21 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
+import { RouterOutlet, RouterLink, Router, RouterModule } from '@angular/router';
 import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent],
+  imports: [RouterOutlet, RouterLink, RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
 
   constructor(
-    private appService: AppService
+    private appService: AppService,
+    private router: Router
   ) { }
-
+  
   title = 'universeGame';
 
   valor: string = 'Valor antes de actualizar';

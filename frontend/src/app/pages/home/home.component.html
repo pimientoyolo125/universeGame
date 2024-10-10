@@ -1,0 +1,66 @@
+<div id="content">
+    <div id="header">
+        <app-header></app-header>
+    </div>
+
+    <div id="page-content">
+        <div id="categories">
+            <h5>Categories</h5>
+            <div id="card-categories">
+                <button class="card" (click)="onSearch(2)">
+                    <img src="https://i.imgur.com/XUCBkRT.jpg" class="card-img-top" alt="Console Image">
+                    <div class="card-body">
+                        <p class="card-text">Consoles</p>
+                    </div>
+                </button>
+
+                <button class="card" (click)="onSearch(3)">
+                    <img src="https://i.imgur.com/atfG77l.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Games</p>
+                    </div>
+                </button>
+
+                <button class="card" (click)="onSearch(6)">
+                    <img src="https://i.imgur.com/82wYsSm.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Recorders</p>
+                    </div>
+                </button>
+
+                <button class="card" (click)="onSearch(5)">
+                    <img src="https://i.imgur.com/y4M5Duc.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Accesories</p>
+                    </div>
+                </button>
+
+                <button class="card" (click)="onSearch(4)">
+                    <img src="https://i.imgur.com/33Pr6jn.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Controllers</p>
+                    </div>
+                </button>
+
+                <button class="card" (click)="onSearch(7)">
+                    <img src="https://i.imgur.com/jjQtXYZ.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">TV & Monitors</p>
+                    </div>
+                </button>
+            </div>
+
+            <div id="latest-Products" style="margin-bottom: 20px;">
+                <h5>Latest Products</h5>
+                <div class="row">
+                    <div style="margin-left: 20px; display: in;">
+                        <app-product [product]="latestProduct"></app-product>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <app-footer></app-footer>
+    </div>
+</div>
