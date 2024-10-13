@@ -2,6 +2,7 @@ package universeGame.backend.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import universeGame.backend.exception.CustomException;
 import universeGame.backend.model.Producto;
 import universeGame.backend.repository.ProductoRepository;
 import universeGame.backend.service.interfaces.ProductoService;
@@ -15,7 +16,9 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public Producto getById(Long id){
-        return productoRepository.findById(id).orElse(null);
+        return productoRepository.findById(id).orElseThrow(
+                () -> new CustomException("No se encontro el producto")
+        );
     }
 
     @Override
