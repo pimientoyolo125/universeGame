@@ -6,4 +6,6 @@ import universeGame.backend.model.Usuario;
 
 @Repository
 public interface UsuarioRepository  extends JpaRepository<Usuario, Long> {
+
+    boolean existsByCorreo(String correo);
 }

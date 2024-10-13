@@ -1,6 +1,8 @@
 package universeGame.backend.exception;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
@@ -15,7 +17,7 @@ public class GlobalException {
     ){
         ErrorResponse error = new ErrorResponse();
         error.setMessage(e.getMessage());
-        error.setCodigo(400);
+        error.setCode(400);
         error.setRute(request.getDescription(false));
 
         return ResponseEntity.badRequest().body(error);
@@ -28,9 +30,28 @@ public class GlobalException {
     ){
         ErrorResponse error = new ErrorResponse();
         error.setMessage(e.getMessage());
-        error.setCodigo(500);
+        error.setCode(500);
         error.setRute(request.getDescription(false));
 
         return ResponseEntity.internalServerError().body(error);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> handleValidationExceptions(
+            MethodArgumentNotValidException ex,
+            WebRequest request
+    ) {
+        ErrorResponse error = new ErrorResponse();
+        error.setMessage("Errores de validación");
+        error.setCode(400);
+        error.setRute(request.getDescription(false));
+
+        FieldError firstError = ex.getBindingResult().getFieldErrors().stream().findFirst().orElse(null);
+
+        if (firstError != null) {
+            error.setMessage(firstError.getDefaultMessage());
+        }
+
+        return ResponseEntity.badRequest().body(error);
     }
 }
