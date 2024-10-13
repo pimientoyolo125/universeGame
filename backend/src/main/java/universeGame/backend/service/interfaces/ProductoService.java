@@ -1,7 +1,12 @@
 package universeGame.backend.service.interfaces;
 
-import org.springframework.stereotype.Service;
+import universeGame.backend.model.Producto;
 
-@Service
+import java.util.List;
+
 public interface ProductoService {
+
+    Producto getById(Long id);
+
+    List<Producto> listarProductos();
 }
