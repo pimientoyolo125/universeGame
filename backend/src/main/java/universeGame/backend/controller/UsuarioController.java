@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import universeGame.backend.dto.UsuarioDTO;
+import universeGame.backend.dto.UsuarioLoginDTO;
 import universeGame.backend.dto.UsuarioRegisterDTO;
+import universeGame.backend.mappers.UsuarioMapper;
 import universeGame.backend.model.Usuario;
 import universeGame.backend.service.interfaces.UsuarioService;
 
@@ -22,12 +25,25 @@ public class UsuarioController {
 
     @PostMapping("/registrar")
     @Schema(description = "Registrar un usuario")
-    public ResponseEntity<Usuario> registrar(
+    public ResponseEntity<UsuarioDTO> registrar(
             @RequestBody @Valid UsuarioRegisterDTO usuarioRegisterDTO
     ) {
         Usuario usuario = usuarioService.register(usuarioRegisterDTO);
-        return ResponseEntity.ok(usuario);
+        UsuarioDTO usuarioDTO = UsuarioMapper.INSTANCE.toUsuarioDTO(usuario);
+        return ResponseEntity.ok(usuarioDTO);
     }
+
+
+    @PostMapping("/login")
+    @Schema(description = "Iniciar sesión")
+    public ResponseEntity<UsuarioDTO> login(
+            @RequestBody @Valid UsuarioLoginDTO usuarioLoginDTO
+    ) {
+        Usuario usuarioSave = usuarioService.login(usuarioLoginDTO);
+        UsuarioDTO usuarioDTO = UsuarioMapper.INSTANCE.toUsuarioDTO(usuarioSave);
+        return ResponseEntity.ok(usuarioDTO);
+    }
+
 
     @Autowired
     public void setUsuarioService(UsuarioService usuarioService) {

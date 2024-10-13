@@ -49,7 +49,7 @@ public class GlobalException {
         FieldError firstError = ex.getBindingResult().getFieldErrors().stream().findFirst().orElse(null);
 
         if (firstError != null) {
-            error.setMessage(firstError.getDefaultMessage());
+            error.setMessage(firstError.getField() + ": " + firstError.getDefaultMessage());
         }
 
         return ResponseEntity.badRequest().body(error);

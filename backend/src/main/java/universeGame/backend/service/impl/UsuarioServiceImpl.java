@@ -3,6 +3,7 @@ package universeGame.backend.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import universeGame.backend.dto.UsuarioLoginDTO;
 import universeGame.backend.dto.UsuarioRegisterDTO;
 import universeGame.backend.exception.CustomException;
 import universeGame.backend.mappers.UsuarioMapper;
@@ -46,6 +47,25 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         return usuarioRepository.save(usuario);
     }
+
+
+    @Override
+    public Usuario login(UsuarioLoginDTO usuarioLoginDTO) {
+
+        usuarioLoginDTO.setCorreo(usuarioLoginDTO.getCorreo().trim().toLowerCase());
+
+        Usuario usuarioBD = usuarioRepository.findByCorreoIgnoreCase(usuarioLoginDTO.getCorreo())
+                .orElseThrow(
+                        () -> new CustomException("El correo no está registrado")
+                );
+
+        if(!passwordEncoder.matches(usuarioLoginDTO.getContrasena(), usuarioBD.getContrasena())) {
+            throw new CustomException("La contraseña es incorrecta");
+        }
+
+        return usuarioBD;
+    }
+
 
     //--------validation ---------------------
 
