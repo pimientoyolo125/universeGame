@@ -24,13 +24,13 @@
 
             <div class="vertical-line"></div>
 
-            <select class="form-select" style="margin-right: 10px;" aria-label="Disabled select example">
+            <select class="form-select" id="lang" style="margin-right: 10px;" aria-label="Disabled select example">
                 <option value="1" class="headerSelectOptions">ENG</option>
                 <option value="2" class="headerSelectOptions">SPA</option>
             </select>
 
 
-            <select class="form-select" aria-label="Disabled select example">
+            <select class="form-select" id="coin" aria-label="Disabled select example">
                 <option value="1" class="headerSelectOptions">COP</option>
                 <option value="2" class="headerSelectOptions">USD</option>
                 <option value="2" class="headerSelectOptions">EUR</option>
@@ -48,7 +48,7 @@
 
         <div id="buscador">
             <div class="input-group">
-                <input type="search" [(ngModel)]="stringProduct" (keydown)="onKeydown($event)" class="form-control" placeholder="Search for anything..." aria-label="Search" aria-describedby="search-addon"/>
+                <input type="search" id="barraBusqueda" [(ngModel)]="stringProduct" (keydown)="onKeydown($event)" class="form-control" placeholder="Search for anything..." aria-label="Search" aria-describedby="search-addon"/>
                 <button (click)="onSearch()" type="button" class="btn" data-mdb-ripple-init>
                     <i class="bi bi-search icon-large" style="color: black;"></i>
                 </button>

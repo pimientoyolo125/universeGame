@@ -14,7 +14,7 @@ export class AppService {
     private http: HttpClient
   ) { }
 
-  getTest() {
-    return this.http.get(this.url+'/usuario/test', { responseType: 'text' });
+  getProducts(): Observable<any> {
+    return this.http.get(this.url+ '/producto/listar');
   }
 }

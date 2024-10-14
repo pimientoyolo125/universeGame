@@ -17,17 +17,4 @@ export class AppComponent {
   ) { }
   
   title = 'universeGame';
-
-  valor: string = 'Valor antes de actualizar';
-
-  ngOnInit() {
-    this.appService.getTest().subscribe(
-      (data:string) => {
-      this.valor = data;
-      this.valor = "Este valor fue cargado desde el backend: " + this.valor;
-    },
-    (error) => {
-      console.log(error);
-    });
-  }
 }
