@@ -51,30 +51,30 @@ Este proyecto se enfoca en la creación de un sistema web para la gestión de pr
 ---
 
 ## Mockups del Proyecto
-El diseño de las interfaces del sistema se realizó en [Figma](https://www.figma.com/design/Px9t7FmwK8RroCbln7mFxq/UniverseGame---Templates-V2?node-id=279-19819&node-type=canvas), mostrando las diferentes vistas del aplicativo web. A continuación, se listan las principales vistas:
+El diseño de las interfaces del sistema se realizó en [Figma](https://www.figma.com/design/Px9t7FmwK8RroCbln7mFxq/UniverseGame---Templates-V2?node-id=279-19819&node-type=canvas), mostrando las diferentes Vistas del aplicativo web. A continuación, se listan las principales Vistas:
 
 1. **Vista Principal**
-<img alt="Vista Principal" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/vistas/2A_Vista_Principal_241014.png">
+<img alt="Vista Principal" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Vista_Principal_241014.png">
 
 2. **Búsqueda de Productos con Filtros**
-<img alt="Búsqueda de Productos con Filtros" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/vistas/2A_Busqueda_Productos_Filtros_241014.png">
+<img alt="Búsqueda de Productos con Filtros" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Busqueda_Productos_Filtros_241014.png">
 
 3. **Detalle de Producto**
-<img alt="Detalle de Producto" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/vistas/2A_Detalle_Producto_241014.png">
+<img alt="Detalle de Producto" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Detalle_Producto_241014.png">
 
 4. **Modal de registro**
-<img alt="Modal de registro" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/vistas/2A_Modal_Registro_241014.png">
+<img alt="Modal de registro" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Modal_Registro_241014.png">
 
 5. **Carrito de Compras**
-<img alt="Carrito de Compras" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/vistas/2A_Carrito_241014.png">
+<img alt="Carrito de Compras" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Carrito_241014.png">
     
 6. **Vista Administrador - Inventario**
-<img alt="Vista Administrador - Inventario" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/vistas/2A_Inventario_Administrador_241014.png">
+<img alt="Vista Administrador - Inventario" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Inventario_Administrador_241014.png">
 
 7. **Vista Administrador - Reportes**
-<img alt="Vista Administrador - Reportes" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/vistas/2A_Reportes_Administrador_241014.png">
+<img alt="Vista Administrador - Reportes" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Reportes_Administrador_241014.png">
 
-**Resumen de vistas**
+**Resumen de Vistas**
 [Video](https://www.youtube.com/watch?v=Qvt7hDnW-MU&ab_channel=JuanDiegoRoaPorras)
 [Figma](https://www.figma.com/design/Px9t7FmwK8RroCbln7mFxq/UniverseGame)
 
