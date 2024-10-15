@@ -40,13 +40,30 @@ html, body {
     border: 1px solid (222, 226, 230)
 }
 
-#right-column {
-    display: flex;
-    justify-items: flex-start;
-    align-items: flex-start;
+.row {
+    margin-bottom: 20px;
+    justify-content: left;
 }
 
-.col {
-    margin-bottom: 10px;
-    width: 150px;
+@media (max-width: 754px) {
+    #page-content{
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .row {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+
+    .col-md-6 {
+        width: 100%; 
+    }
+
+    .row {
+        margin: 0; 
+    }
 }

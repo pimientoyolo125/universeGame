@@ -3,10 +3,9 @@
         <app-header></app-header>
     </div>
 
-    <h1>Ha buscado este producto: {{ searchString }}</h1>
-    <div id="page-content" style="width: 100vw; margin-bottom: 10px;">
-        <div id="left-column">
-            <div class="row">
+    <div id="page-content" style="width: 100vw; margin-bottom: 10px; margin-top: 25px;">
+        <div id="col-md-4" style="margin: 0px 10px; margin-bottom: 20px;">
+            <div>
                 <p style="font-size: 16px; font-weight: 500; margin-bottom: 2px;">Brands:</p>
             </div>
             <div id="brands" class="brands-container">
@@ -21,9 +20,9 @@
         </div>
         
     
-        <div id="right-column" style="margin-left: 10px;">
-            <div class="row" style="margin-bottom: 20px; justify-items: center;">
-                <div class="col">
+        <div id="col-md-8" style="margin-left: 10px;">
+            <div class="row" >
+                <div class="col-md-6" style="width: fit-content;">
                     <p style="display: inline; padding-right: 10px;">Sort by:</p>
                     <select class="form-select" style="margin-right: 10px; width: min-content;" aria-label="Sort by select"
                         [(ngModel)]="selectedSort" (change)="onSortChange($event)">
@@ -32,7 +31,7 @@
                     </select>
                 </div>
     
-                <div class="col">
+                <div class="col-md-6" style="width: fit-content;">
                     <p style="display: inline; padding-right: 10px;">Category:</p>
                     <select class="form-select" style="margin-right: 10px; width: min-content;"
                         [(ngModel)]="selectedCategory" (change)="onCategoryChange($event)" aria-label="Category select">
@@ -46,6 +45,22 @@
                     </select>
                 </div>
             </div>
+
+            <div class="col-md-12" style="margin: 20px 10px;">
+                <div class="row" style="display: flex; justify-content: space-evenly; margin-right: 25px;">
+                    <div *ngFor="let product of paginatedProducts" style="width: fit-content; padding: 0px; margin:0px 8px">
+                        <app-product [product]="product" style="display: inline-block;"></app-product>
+                    </div>
+                </div>
+            </div>
+            
+            <ngb-pagination class="d-flex justify-content-center paginator"
+                [(page)]="currentPage"
+                [pageSize]="itemsPerPage"
+                [collectionSize]="filteredProducts.length"
+                (pageChange)="onPageChange($event)"
+                aria-label="Default pagination">
+            </ngb-pagination>
         </div>
     </div>
 
