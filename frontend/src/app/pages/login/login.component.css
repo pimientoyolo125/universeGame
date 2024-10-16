@@ -1,0 +1,26 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;     
+    overflow-x: hidden;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#page-content {
+    flex: 1;    
+    display: flex;
+    justify-content: center;           
+}
+
+.card {
+    width: 600px;
+    height: fit-content;
+    align-self: top;
+    justify-content: center;
+}

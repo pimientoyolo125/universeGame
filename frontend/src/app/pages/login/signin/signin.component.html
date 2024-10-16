@@ -1,0 +1,18 @@
+<div style="padding: 10px;">
+    <form>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label" style="display: block;">Password</label>
+            <div class="password-toggle" style="display: flex; align-items: center;">
+                <input type="{{ isPasswordVisible ? 'text' : 'password' }}" class="form-control" name="password"
+                  id="password" placeholder="8+ Characters" required>
+                <i class="bi" [ngClass]="isPasswordVisible ? 'bi-eye' : 'bi-eye-slash'"
+                  (click)="togglePasswordVisibility()" style="cursor: pointer;"></i>
+              </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+    </form>
+</div>

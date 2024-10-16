@@ -31,6 +31,10 @@ export class HeaderComponent implements OnInit{
     this.router.navigate(['/']); // Redirige a la ruta de inicio
   }
 
+  goLogin() {
+    this.router.navigate(['/login']); 
+  }
+
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.stringProduct = params['q'];
