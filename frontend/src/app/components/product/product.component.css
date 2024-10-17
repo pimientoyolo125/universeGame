@@ -1,26 +1,52 @@
 .card-img-top {
     object-fit: contain;
-    display: block;;
+    display: block;
+    padding: 5px;
+    height: 150px;
+}
+
+.card-img-top:hover {
+    cursor: pointer;
 }
 
 .card {
-    width: fit-content;
+    width: 200px;
     display: flex;
     justify-items: center;
-    max-width: 200px;
-    margin: 0px;
+    margin: 5px 0px;
     padding: 0px;
-
 }
+
+.title{
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2; /* Limita a 2 líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; 
+    text-align: center;
+  }
 
 .row {
     display: flex;
     justify-content: space-evenly;
 }
 
-.card-body > p{
+.card-body {
+    padding: 10px;
+}
+
+#modalArea > p{
     text-align: center;
-    margin-bottom: 2px;
+    margin-bottom: 8px;
+}
+
+#titleContainer {
+    display: flex;
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    height: 42px;
 }
 
 .row > button {
@@ -35,7 +61,143 @@
     font-size: 13px;
 }
 
+.quantity {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid gray;
+    border-right: 0px;
+    border-left: 0px;
+    width: fit-content;
+    height: 27px;
+    margin: 5px 0px;
+    margin-bottom: 10px;
+}
+
+.quantity > p{ 
+    padding: 0 10px;
+    height: 26px;
+    text-align: center;
+    display: inline;
+    border-top: 0px;
+}
+
+.quantity > button {
+    width: 30px;
+    height: 26px;
+    background-color: #FA8232;
+    color: white;
+    border: 1px solid gray;
+    border-top: 0px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.quantity > button:hover {
+    background-color: #1B6392;
+}
+
 .row > button:hover {
     background-color: #1B6392;
     border: 1px solid #1B6392;
+}
+
+#modalArea:hover {
+    cursor: pointer;
+}
+
+.btn-close{
+    background-color: #FA8232;
+    border: 1px solid black;
+    color: white;
+}
+
+.btn-close:focus {
+    outline: none; /* Elimina el contorno (outline) */
+    box-shadow: none; /* Elimina cualquier sombra que pueda aparecer */
+}
+
+#modalContainer {
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+}
+
+#img-container {
+    display: flex;
+    justify-content: center;
+
+}
+
+#img-container > img {
+    width: 80%;
+    min-width: 200px;
+    Height: 400px;
+    object-fit: contain;
+    padding: 5px;
+    margin:0px 5px;
+}
+
+.col-md-6 > h6 {
+    text-align: center;
+}
+
+.col {
+    display: flex;
+    justify-content: center;
+}
+
+.col > p {
+    display: inline;
+    font-size: 18px;
+    margin: 0px 2.5px;
+}
+
+.col > .quantity {
+    margin: 5px 10px;
+    width: 100%;
+    font-size: 18px;
+}
+
+.col > button {
+    width: 100%;
+    background-color: #FA8232;
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #FA8232;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 16px;
+}
+
+.col > button:hover {
+    background-color: #1B6392;
+    border: 1px solid #1B6392;
+}
+
+@media (max-width: 992px) {
+    #modalContainer {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    #img-container {
+        width: 100%; 
+        display: flex;
+        justify-content: center;
+    }
+
+    img {
+        max-width: 100%; 
+        height: auto; 
+    }
+
+    .col-md-6 {
+        width: 100%; 
+    }
+
+    .row {
+        margin: 0; 
+    }
 }
