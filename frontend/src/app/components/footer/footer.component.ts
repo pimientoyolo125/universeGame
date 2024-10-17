@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-footer',
@@ -9,9 +10,10 @@ import { Router } from '@angular/router';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private viewportScroller: ViewportScroller) {}
 
   onSearch(categorie:number) {
     this.router.navigate(['/search'], { queryParams: { q: '', c:categorie } });
+    
   }
 }

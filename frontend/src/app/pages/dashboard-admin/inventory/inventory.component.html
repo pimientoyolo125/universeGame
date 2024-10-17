@@ -1,0 +1,51 @@
+<div id="container" style="margin-top: 25px; margin-left: 15px; margin-right: 25px;">
+    <p style="font-size: 20; font-weight: 500;">INVENTORY</p>
+    
+    <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
+    
+    <div class="row align-items-center" style="margin-bottom: 10px;">
+        <div class="col-md-6" style="margin-left: 5px; width: fit-content;">
+            <p class="mb-0 me-2" >Search by name:</p> 
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-6" style="width: fit-content;">
+            <p style="display: inline; padding-right: 10px;">Category:</p>
+            <select class="form-select" style="margin-right: 10px; width: min-content;"
+                [(ngModel)]="selectedCategory" (change)="onCategoryChange($event)" aria-label="Category select">
+                <option value="1" class="headerSelectOptions">All</option>
+                <option value="2" class="headerSelectOptions">Consoles</option>
+                <option value="3" class="headerSelectOptions">Games</option>
+                <option value="4" class="headerSelectOptions">Controllers</option>
+                <option value="5" class="headerSelectOptions">Accessories</option>
+                <option value="6" class="headerSelectOptions">Recorders</option>
+                <option value="7" class="headerSelectOptions">TV's & Monitors</option>
+            </select>
+        </div>
+    </div>  
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col" >ID</th>
+                <th scope="col" >NAME</th>
+                <th scope="col" >PRICE</th>
+                <th scope="col" >TAX</th>
+                <th scope="col" >PRICE AFTER TAXES</th>
+                <th scope="col" >STOCK</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td scope="row">{{ product.id }}</td>
+                <td>{{ product.nombre }}</td>
+                <td>{{ redondearPrecio(product) }}</td>
+                <td>{{ getImpuesto(product)}}%</td>
+                <td>{{ getPrecioImpuesto(product)}}</td>
+                <td>{{ product.cantidad}}</td>
+            </tr>
+            <tr *ngIf="products.length === 0">
+                <td colspan="6" style="text-align: center">No products found</td>
+            </tr>
+        </tbody>
+    </table>    
+</div>

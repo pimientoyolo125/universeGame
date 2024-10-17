@@ -7,6 +7,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { AppService } from '../../app.service';
 import { ProductComponent } from '../../components/product/product.component';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-search-products',
@@ -44,7 +45,9 @@ export class SearchProductsComponent implements OnInit {
   itemsPerPage: number = 8;
 
   searchString: string | null = null;
-  constructor(private route: ActivatedRoute, private appService: AppService) {}
+  constructor(private route: ActivatedRoute, private appService: AppService, 
+    private viewportScroller: ViewportScroller
+  ) {}
 
   brandSelected(brand:{ name: string; selected: boolean }): void {
     brand.selected = !brand.selected 
@@ -89,6 +92,7 @@ export class SearchProductsComponent implements OnInit {
       this.searchString = params['q'];
       this.selectedCategory = params['c'];
       this.getProducts();
+      this.viewportScroller.scrollToPosition([0, 0]);
     });
   }
 
