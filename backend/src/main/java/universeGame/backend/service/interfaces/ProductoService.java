@@ -9,4 +9,6 @@ public interface ProductoService {
     Producto getById(Long id);
 
     List<Producto> listarProductos();
+
+    List<String> listarMarcas();
 }

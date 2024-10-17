@@ -26,6 +26,13 @@ public class ProductoServiceImpl implements ProductoService {
         return productoRepository.findAll();
     }
 
+    @Override
+    public List<String> listarMarcas(){
+        return productoRepository.findMarcas();
+    }
+
+    //------setter----------
+
     @Autowired
     public void setProductoRepository(ProductoRepository productoRepository){
         this.productoRepository = productoRepository;

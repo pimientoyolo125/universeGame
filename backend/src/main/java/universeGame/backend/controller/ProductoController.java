@@ -40,7 +40,12 @@ public class ProductoController {
         return ResponseEntity.ok(productoDTOs);
     }
 
-
+    @GetMapping("/listar/marcas")
+    @Schema(description = "Listar todas las marcas de los productos")
+    public ResponseEntity<List<String>> listarMarcas(){
+        List<String> marcas = productoService.listarMarcas();
+        return ResponseEntity.ok(marcas);
+    }
 
     @Autowired
     public void setProductoService(ProductoService productoService){
