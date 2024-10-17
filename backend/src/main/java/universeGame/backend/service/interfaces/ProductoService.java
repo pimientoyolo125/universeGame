@@ -11,4 +11,6 @@ public interface ProductoService {
     List<Producto> listarProductos();
 
     List<String> listarMarcas();
+
+    List<Producto> listarProductosFiltrados(String nombre, String marca, Long idTipo, boolean ascendenteModelo);
 }

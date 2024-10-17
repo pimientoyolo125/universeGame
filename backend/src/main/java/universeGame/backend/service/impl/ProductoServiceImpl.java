@@ -31,6 +31,18 @@ public class ProductoServiceImpl implements ProductoService {
         return productoRepository.findMarcas();
     }
 
+    @Override
+    public List<Producto> listarProductosFiltrados(String nombre, String marca, Long idTipo, boolean ascendenteModelo){
+
+        nombre = nombre.toUpperCase().trim();
+        marca = marca.toUpperCase().trim();
+
+        if(ascendenteModelo){
+            return productoRepository.findProductosFiltradosAsc(nombre, marca, idTipo);
+        }
+        return productoRepository.findProductosFiltradosDesc(nombre, marca, idTipo);
+    }
+
     //------setter----------
 
     @Autowired

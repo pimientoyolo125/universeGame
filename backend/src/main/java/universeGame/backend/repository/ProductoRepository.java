@@ -15,4 +15,21 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
             "GROUP BY p.marca " +
             "ORDER BY COUNT(p) DESC")
     List<String> findMarcas();
+
+
+    @Query("SELECT p " +
+            "FROM Producto p " +
+            "WHERE (:nombre IS NULL OR UPPER(p.nombre) LIKE %:nombre%) " +
+            "AND (:marca IS NULL OR UPPER(p.marca) LIKE %:marca%) " +
+            "AND (:idTipo IS NULL OR p.tipoProducto.id = :idTipo) " +
+            "ORDER BY p.modelo DESC ")
+    List<Producto> findProductosFiltradosDesc(String nombre, String marca, Long idTipo);
+
+    @Query("SELECT p " +
+            "FROM Producto p " +
+            "WHERE (:nombre IS NULL OR UPPER(p.nombre) LIKE %:nombre%) " +
+            "AND (:marca IS NULL OR UPPER(p.marca) LIKE %:marca%) " +
+            "AND (:idTipo IS NULL OR p.tipoProducto.id = :idTipo) " +
+            "ORDER BY p.modelo ASC ")
+    List<Producto> findProductosFiltradosAsc(String nombre, String marca, Long idTipo);
 }
