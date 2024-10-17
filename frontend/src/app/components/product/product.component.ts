@@ -1,5 +1,5 @@
 import { Component, Input, inject, TemplateRef} from '@angular/core';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product',

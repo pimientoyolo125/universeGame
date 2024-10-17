@@ -4,16 +4,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatMenuModule, MatButtonModule, NgbDropdownModule, FormsModule],
+  imports: [CommonModule, MatMenuModule, MatButtonModule, NgbDropdownModule, FormsModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
   stringProduct: string = '';
+  admin: boolean = true; //Temporal Mientras terminamos el Login
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 
@@ -29,6 +31,22 @@ export class HeaderComponent implements OnInit{
 
   goHome() {
     this.router.navigate(['/']); // Redirige a la ruta de inicio
+  }
+
+  goLogin() {
+    this.router.navigate(['/login']); 
+  }
+
+  goShoppingCart() {
+    this.router.navigate(['/account/shoppingCart']); 
+  }
+
+  goOrderHistory() {
+    this.router.navigate(['/account/orderHistory']); 
+  }
+
+  goInventory() {
+    this.router.navigate(['/manager/inventory']); 
   }
 
   ngOnInit(): void {

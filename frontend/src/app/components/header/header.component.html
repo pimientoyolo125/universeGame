@@ -56,16 +56,20 @@
         </div>
 
         <div id="right-column-2r">
-            <button class="btn rounded-0 border-0" style="border-right: 10px;" aria-label="person">
+            <button class="btn rounded-0 border-0" (click)="goLogin()"  style="border-right: 10px;" aria-label="person">
                 <i class="bi bi-person icon-large"></i>
             </button>
 
-            <button class="btn rounded-0 border-0" style="border-right: 10px;" aria-label="cart">
+            <button class="btn rounded-0 border-0" (click)="goShoppingCart()" style="border-right: 10px;" aria-label="cart">
                 <i class="bi bi-cart icon-large"></i>
             </button>
 
-            <button class="btn rounded-0 border-0" style="border-right: 10px;" aria-label="truck">
+            <button class="btn rounded-0 border-0" (click)="goOrderHistory()" style="border-right: 10px;" aria-label="truck">
                 <i class="bi bi-truck icon-large"></i>
+            </button>
+
+            <button *ngIf="admin === true" class="btn rounded-0 border-0" (click)="goInventory()" style="border-right: 10px;" aria-label="truck">
+                <i class="bi bi-shop icon-large"></i>
             </button>
         </div>
     </div>
