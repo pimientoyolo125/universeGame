@@ -17,7 +17,7 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public Producto getById(Long id){
         return productoRepository.findById(id).orElseThrow(
-                () -> new CustomException("No se encontro el producto")
+                () -> new CustomException("Product not found")
         );
     }
 
@@ -34,8 +34,12 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public List<Producto> listarProductosFiltrados(String nombre, String marca, Long idTipo, boolean ascendenteModelo){
 
-        nombre = nombre.toUpperCase().trim();
-        marca = marca.toUpperCase().trim();
+        if(nombre != null){
+            nombre = nombre.toUpperCase().trim();
+        }
+        if(marca != null){
+            marca = marca.toUpperCase().trim();
+        }
 
         if(ascendenteModelo){
             return productoRepository.findProductosFiltradosAsc(nombre, marca, idTipo);
