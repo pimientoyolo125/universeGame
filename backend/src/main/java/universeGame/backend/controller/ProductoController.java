@@ -44,20 +44,22 @@ public class ProductoController {
         return ResponseEntity.ok(marcas);
     }
 
-    @GetMapping("/listar/filtro")
+    @PostMapping("/listar/filtro")
     @Schema(description = "Listar productos filtrados por nombre, marcas, tipo, ordenar por modelo")
     public ResponseEntity<List<ProductoDTO>> listarProductosFiltrados(
             @RequestParam(value = "nombre", required = false, defaultValue = "")
             String nombre,
 
-            @RequestBody(required = false)
-            List<String> marcas,
-
             @RequestParam(value = "idTipo", required = false)
             Long idTipo,
 
             @RequestParam(value = "ascendenteModelo", required = false, defaultValue = "false")
-            boolean ascendenteModelo
+            boolean ascendenteModelo,
+
+            @RequestBody(required = false)
+            @Schema(description = "Lista de marcas a filtrar",
+                    example = "[\"marca1\", \"marca2\"]")
+            List<String> marcas
             ){
 
         List<Producto> productos = productoService.listarProductosFiltrados(nombre, marcas, idTipo, ascendenteModelo);
