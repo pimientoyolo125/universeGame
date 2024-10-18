@@ -4,10 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import universeGame.backend.dto.ProductoDTO;
 import universeGame.backend.mappers.ProductoMapper;
 import universeGame.backend.model.Producto;
@@ -40,7 +37,33 @@ public class ProductoController {
         return ResponseEntity.ok(productoDTOs);
     }
 
+    @GetMapping("/listar/marcas")
+    @Schema(description = "Listar todas las marcas de los productos")
+    public ResponseEntity<List<String>> listarMarcas(){
+        List<String> marcas = productoService.listarMarcas();
+        return ResponseEntity.ok(marcas);
+    }
 
+    @GetMapping("/listar/filtro")
+    @Schema(description = "Listar productos filtrados por nombre, marca, tipo, ordenar por modelo")
+    public ResponseEntity<List<ProductoDTO>> listarProductosFiltrados(
+            @RequestParam(value = "nombre", required = false, defaultValue = "")
+            String nombre,
+
+            @RequestParam(value = "marca", required = false, defaultValue = "")
+            String marca,
+
+            @RequestParam(value = "idTipo", required = false)
+            Long idTipo,
+
+            @RequestParam(value = "ascendenteModelo", required = false, defaultValue = "false")
+            boolean ascendenteModelo
+            ){
+
+        List<Producto> productos = productoService.listarProductosFiltrados(nombre, marca, idTipo, ascendenteModelo);
+        List<ProductoDTO> productoDTOs = ProductoMapper.INSTANCE.toProductoDTOs(productos);
+        return ResponseEntity.ok(productoDTOs);
+    }
 
     @Autowired
     public void setProductoService(ProductoService productoService){

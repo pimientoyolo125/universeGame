@@ -40,7 +40,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         TipoUsuario tipoUsuario = tipoUsuarioRepository.findById(1L)
                 .orElseThrow(
-                        () -> new CustomException("Error con el tipo de usuario")
+                        () -> new CustomException("User type not found")
                 );
 
         usuario.setTipoUsuario(tipoUsuario);
@@ -56,11 +56,11 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         Usuario usuarioBD = usuarioRepository.findByCorreoIgnoreCase(usuarioLoginDTO.getCorreo())
                 .orElseThrow(
-                        () -> new CustomException("El correo no está registrado")
+                        () -> new CustomException("The email is not registered")
                 );
 
         if(!passwordEncoder.matches(usuarioLoginDTO.getContrasena(), usuarioBD.getContrasena())) {
-            throw new CustomException("La contraseña es incorrecta");
+            throw new CustomException("The password is incorrect");
         }
 
         return usuarioBD;
@@ -72,25 +72,25 @@ public class UsuarioServiceImpl implements UsuarioService {
     private void validCorreo(Usuario usuario) {
 
         if(!Pattern.matches(EMAIL_REGEX, usuario.getCorreo())) {
-            throw new CustomException("El correo no es válido");
+            throw new CustomException("The email is not valid");
         }
 
         if(usuarioRepository.existsByCorreo(usuario.getCorreo())) {
-            throw new CustomException("El correo ya está en uso");
+            throw new CustomException("Already exists an account with this email");
         }
     }
 
     private void validContrasena(Usuario usuario, UsuarioRegisterDTO usuarioRegisterDTO) {
         if(usuario.getContrasena().length() < 8) {
-            throw new CustomException("La contraseña debe tener al menos 8 caracteres");
+            throw new CustomException("Password must be at least 8 characters");
         }
 
         if(usuario.getContrasena().length() > 20) {
-            throw new CustomException("La contraseña debe tener como máximo 20 caracteres");
+            throw new CustomException("Password must be less than 20 characters");
         }
 
         if(!usuario.getContrasena().equals(usuarioRegisterDTO.getConfirmarContrasena())) {
-            throw new CustomException("Las contraseñas no coinciden");
+            throw new CustomException("The passwords don't match");
         }
     }
 
@@ -100,19 +100,19 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario.setTelefono(usuario.getTelefono().trim().replaceAll("\\s+", " "));
 
         if(!Pattern.matches(PHONE_REGEX, usuario.getTelefono())) {
-            throw new CustomException("El teléfono no es válido");
+            throw new CustomException("The phone number is not valid");
         }
 
-        if (usuario.getNombre().length() <= 3) {
-            throw new CustomException("El nombre debe tener mas de 3 caracteres");
+        if (usuario.getNombre().length() < 3) {
+            throw new CustomException("The name must have more than 3 characters");
         }
 
-        if (usuario.getApellido().length() <= 3) {
-            throw new CustomException("El apellido debe tener mas de 3 caracteres");
+        if (usuario.getApellido().length() < 3) {
+            throw new CustomException("The last name must have more than 3 characters");
         }
 
-        if (usuario.getTelefono().length() <= 6) {
-            throw new CustomException("El teléfono debe tener mas de 6 caracteres");
+        if (usuario.getTelefono().length() < 5) {
+            throw new CustomException("The phone number must have more than 5 characters");
         }
     }
 
