@@ -38,6 +38,10 @@ public class ProductoServiceImpl implements ProductoService {
             nombre = nombre.toUpperCase().trim();
         }
 
+        if(marcas != null && marcas.isEmpty()){
+            marcas = null;
+        }
+
         if(ascendenteModelo){
             return productoRepository.findProductosFiltradosAsc(nombre, marcas, idTipo);
         }

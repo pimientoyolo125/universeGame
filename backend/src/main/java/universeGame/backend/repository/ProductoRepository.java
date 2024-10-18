@@ -20,7 +20,7 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     @Query("SELECT p " +
             "FROM Producto p " +
             "WHERE (:nombre IS NULL OR UPPER(p.nombre) LIKE %:nombre%) " +
-            "AND ((:marcas IS NULL OR :marcas IS EMPTY) OR p.marca IN :marcas) " +
+            "AND (:marcas IS NULL OR p.marca IN :marcas) " +
             "AND (:idTipo IS NULL OR p.tipoProducto.id = :idTipo) " +
             "ORDER BY p.modelo DESC ")
     List<Producto> findProductosFiltradosDesc(String nombre, List<String> marcas, Long idTipo);
@@ -28,7 +28,7 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     @Query("SELECT p " +
             "FROM Producto p " +
             "WHERE (:nombre IS NULL OR UPPER(p.nombre) LIKE %:nombre%) " +
-            "AND ((:marcas IS NULL OR :marcas IS EMPTY) OR p.marca IN :marcas) " +
+            "AND (:marcas IS NULL OR p.marca IN :marcas) " +
             "AND (:idTipo IS NULL OR p.tipoProducto.id = :idTipo) " +
             "ORDER BY p.modelo ASC ")
     List<Producto> findProductosFiltradosAsc(String nombre, List<String> marcas, Long idTipo);
