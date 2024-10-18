@@ -23,6 +23,7 @@
 }
 
 .table {
-    overflow-x: scroll;
+    border-top: 1px solid rgb(214, 212, 212);
+    text-align: center;
 }
 

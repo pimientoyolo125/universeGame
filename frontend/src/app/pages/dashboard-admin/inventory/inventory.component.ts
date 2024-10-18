@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppService } from '../../../app.service';
 import { CommonModule } from '@angular/common';
+import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-inventory',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, NgbPagination],
   templateUrl: './inventory.component.html',
   styleUrl: './inventory.component.css'
 })
@@ -16,7 +17,10 @@ export class InventoryComponent implements OnInit{
   categories = [{ name: 'Consoles', id: 2 }, { name: 'Games', id: 3 }, { name: 'Controllers', id: 4 },
   { name: 'Accessories', id: 5 }, { name: 'Recorders', id: 6 }, { name: "TV's & Monitors", id: 7 }
   ];
+
   products: any[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
 
   ngOnInit(): void {
     this.getProducts(); 
@@ -56,5 +60,25 @@ export class InventoryComponent implements OnInit{
         console.error('Error fetching latest products', error);
       }
     );
+  }
+
+  getCategories(): void {
+    this.appService.getProducts().subscribe(
+      (response) => {
+        this.products = response.sort((a: any, b: any) => a.id - b.id); 
+      },
+      (error) => {
+        console.error('Error fetching latest products', error);
+      }
+    );
+  }
+
+  get paginatedProducts() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    return this.products.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
+  onPageChange(page: number): void {
+    this.currentPage = page;
   }
 }

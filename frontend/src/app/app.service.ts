@@ -17,4 +17,8 @@ export class AppService {
   getProducts(): Observable<any> {
     return this.http.get(this.url+ '/producto/listar');
   }
+
+  getCategories(): Observable<any> {
+    return this.http.get(this.url+ '/producto/listar');
+  }
 }
