@@ -30,7 +30,7 @@ export class SearchProductsComponent implements OnInit {
       this.selectedCategory = params['c'];
       this.getBrands();
       this.getCategories();
-      this.getProducts();
+      this.filterProducts();
       this.viewportScroller.scrollToPosition([0, 0]);
     });
   }
@@ -84,18 +84,6 @@ export class SearchProductsComponent implements OnInit {
     this.selectedCategory = +selectElement.value;
     this.filterProducts();
     //console.log('Selected Category:', this.selectedCategory);
-  }
-
-  getProducts(): void {
-    this.appService.getProducts().subscribe(
-      (response) => {
-        this.products = response.sort((a: any, b: any) => b.modelo - a.modelo); //Ordena de mas reciente a mas viejo
-        this.filterProducts();
-      },
-      (error) => {
-        console.error('Error fetching Products', error);
-      }
-    );
   }
 
   getBrands(): void {
