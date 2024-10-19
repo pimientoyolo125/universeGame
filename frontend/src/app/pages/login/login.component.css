@@ -24,3 +24,24 @@ html, body {
     align-self: top;
     justify-content: center;
 }
+
+.nav-link.active {
+    color: #FA8232;
+    font-weight: 500;
+}
+
+#tabLeft {
+    border-left: 0px;
+    border-top: 0px;
+}
+
+#tabRight {
+    border-right: 0px;
+    border-top: 0px;
+}
+
+.nav-link {
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}

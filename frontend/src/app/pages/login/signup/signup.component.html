@@ -1,26 +1,47 @@
 <div style="padding: 10px;">
     <form>
         <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name">
+            <p class="form-label">Name</p>
+            <input type="text" class="form-control" id="name" [(ngModel)]="regName" name="regName" autocomplete="Default Name">
         </div>
+
         <div class="mb-3">
-            <label for="name" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="name">
+            <p class="form-label">Last Name</p>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="regLastName" name="regLastName">
         </div>
+
         <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email">
+            <p class="form-label">Email address</p>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="regEmail" name="regEmail" autocomplete="def@def.com">
         </div>
+
         <div class="mb-3">
-            <label for="password" class="form-label" style="display: block;">Password</label>
+            <p class="form-label" style="display: block;">Password</p>
             <div class="password-toggle" style="display: flex; align-items: center;">
-                <input type="{{ isPasswordVisible ? 'text' : 'password' }}" class="form-control" name="password"
-                  id="password" placeholder="8+ Characters" required>
+                <input type="{{ isPasswordVisible ? 'text' : 'password' }}" class="form-control" id="password"
+                  placeholder="8+ Characters" required [(ngModel)]="regPassword" name="regPassword">
                 <i class="bi" [ngClass]="isPasswordVisible ? 'bi-eye' : 'bi-eye-slash'"
                   (click)="togglePasswordVisibility()" style="cursor: pointer;"></i>
-              </div>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+
+        <div class="mb-3">
+            <p class="form-label" style="display: block;">Confirm Password</p>
+            <div class="password-toggle" style="display: flex; align-items: center;">
+                <input type="{{ isPasswordVisible ? 'text' : 'password' }}" class="form-control" id="confirmPassword"
+                  placeholder="8+ Characters" required [(ngModel)]="regRepPassword" name="regRepPassword">
+                <i class="bi" [ngClass]="isPasswordVisible ? 'bi-eye' : 'bi-eye-slash'"
+                  (click)="togglePasswordVisibility()" style="cursor: pointer;"></i>
+            </div>
+        </div>
+        
+        <div class="d-flex" style="justify-content: center;">
+            <input class="form-check-input" type="checkbox" [checked]="regCheck" name="regCheck"/>
+            <p class="form-check-label" style="display: inline; width: fit-content; padding-left: 5px;">
+                Do you agree to UniverseGame <a>Terms of condition</a> and <a>Privacy Policy</a>.
+            </p>
+        </div>
+
+        <button (click)="signup()" class="btn btn-primary" style="width: 100%; margin-bottom: 10px;">Sign Up</button>
     </form>
 </div>
