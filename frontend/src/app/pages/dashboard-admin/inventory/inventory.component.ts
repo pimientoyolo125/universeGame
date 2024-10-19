@@ -13,25 +13,24 @@ import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 })
 export class InventoryComponent implements OnInit{
   constructor(private appService: AppService) {};
-
-  categories = [{ name: 'Consoles', id: 2 }, { name: 'Games', id: 3 }, { name: 'Controllers', id: 4 },
-  { name: 'Accessories', id: 5 }, { name: 'Recorders', id: 6 }, { name: "TV's & Monitors", id: 7 }
-  ];
-
+  
+  categories: any[] = [];
   products: any[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 10;
+  searchedString: string = ' ';
 
   ngOnInit(): void {
+    this.getCategories();
     this.getProducts(); 
-    console.log(this.products.length)
+    console.log(this.categories);
   }
 
   selectedCategory: number = 1;
   onCategoryChange(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
     this.selectedCategory = +selectElement.value;
-    //this.filterProducts();
+    this.filterProducts();
     //console.log('Selected Category:', this.selectedCategory);
   }
 
@@ -50,7 +49,6 @@ export class InventoryComponent implements OnInit{
     return precioRedondeado.toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
   }
 
-
   getProducts(): void {
     this.appService.getProducts().subscribe(
       (response) => {
@@ -63,12 +61,26 @@ export class InventoryComponent implements OnInit{
   }
 
   getCategories(): void {
-    this.appService.getProducts().subscribe(
+    this.appService.getCategories().subscribe(
       (response) => {
-        this.products = response.sort((a: any, b: any) => a.id - b.id); 
+        this.categories = response;
       },
       (error) => {
-        console.error('Error fetching latest products', error);
+        console.error('Error fetching categories', error);
+      }
+    );
+  }
+
+  filterProducts(): void {
+    this.appService.getFilteredProducts(
+      this.searchedString, ['', ''], (this.selectedCategory - 1), false
+    ).subscribe(
+      (response) => {
+        this.products = response.sort((a: any, b: any) => a.id - b.id);
+        //console.log(response.length);
+      },
+      (error) => {
+        console.error('Error fetching filteredProducts', error);
       }
     );
   }
@@ -80,5 +92,11 @@ export class InventoryComponent implements OnInit{
 
   onPageChange(page: number): void {
     this.currentPage = page;
+  }
+
+  onKeydown(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      this.filterProducts();
+    }
   }
 }

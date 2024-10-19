@@ -57,7 +57,6 @@ html, body {
         display: flex;
         justify-content: space-evenly;
     }
-    
 
     .col-md-6 {
         width: 100%; 

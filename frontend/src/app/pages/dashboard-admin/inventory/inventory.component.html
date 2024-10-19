@@ -1,4 +1,4 @@
-<div id="container" style="margin-top: 25px; margin-left: 15px; margin-right: 25px;">
+<div id="container" style="margin-top: 25px; margin-left: 15px; margin-right: 15px;">
     <p style="font-size: 20; font-weight: 500;">INVENTORY</p>
 
     <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
@@ -6,18 +6,24 @@
     <div class="row align-items-center" style="margin-bottom: 10px;">
         <div class="col-md-6" style="margin-left: 5px; width: fit-content;">
             <p class="mb-0 me-2">Search by name:</p>
-            <input type="text" class="form-control">
+            <div class="input-group">
+                <input type="search" id="buscadorFiltro" [(ngModel)]="searchedString" (keydown)="onKeydown($event)"
+                    class="form-control" aria-label="Search" aria-describedby="search-addon" />
+                <button (click)="filterProducts()" type="button" class="btn" data-mdb-ripple-init>
+                    <i class="bi bi-search icon-large"></i>
+                </button>
+            </div>
         </div>
         <div class="col-md-6" style="width: fit-content;">
             <p style="display: inline; padding-right: 10px;">Category:</p>
             <select class="form-select" style="margin-right: 10px; width: min-content;" [(ngModel)]="selectedCategory"
-                    (change)="onCategoryChange($event)" aria-label="Category select">
-              <option value="1" class="headerSelectOptions">All</option>
-              <option *ngFor="let category of categories" [value]="category.id" class="headerSelectOptions">
-                {{ category.name }}
-              </option>
+                (change)="onCategoryChange($event)" aria-label="Category select" id="selectCategoryInventory">
+                <option value="1" class="categorySelectOptions">All</option>
+                <option *ngFor="let category of categories" [value]="category.id + 1" class="categorySelectOptions">
+                    {{ category.nombre }}
+                </option>
             </select>
-          </div>          
+        </div>
     </div>
 
     <table class="table table-striped">
