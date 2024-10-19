@@ -22,6 +22,10 @@ export class AppService {
     return this.http.get(this.url+ '/tipo-producto/listar');
   }
 
+  getBrands(): Observable<any> {
+    return this.http.get(this.url+ '/producto/listar/marcas');
+  }
+
   getFilteredProducts(nombre:any, marca:string[], idTipo:number, sortAsc:boolean): 
   Observable<any> {
     var params = new HttpParams()
@@ -38,7 +42,6 @@ export class AppService {
     params.append('marca', m);
   });*/
 
-  // Hacer la solicitud GET con los parámetros
   return this.http.get(this.url + '/producto/listar/filtro', { params });
   }
 }

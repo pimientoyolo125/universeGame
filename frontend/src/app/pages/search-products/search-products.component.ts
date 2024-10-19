@@ -25,12 +25,15 @@ export class SearchProductsComponent implements OnInit {
     {name:'AVerMedia', selected:false}, {name:'LG', selected:false}, {name:'Samsung', selected:false},
     {name:'Others', selected:false}
   ];
+  brands2: string[] = [];
 
-  otherBrands = [
+  /*otherBrands = [
     "Razer", "Atlus", "Rybozen", "8bitdo", "Tatybo", "ConcernedApe", "Hauppauge",
     "SanDisk", "Voyee", "PerfectSight", "Gigastone", "Younik", "Purbhe", "ZedLabz", "Valve",
     "Amazon Basics", "Subang", "Allnice", "Supergiant Games","Konami" 
-  ];
+  ];*/
+
+  otherBrands: string[] = [];
 
   categories = [{name: 'Consoles', id:2 }, {name: 'Games', id:3 }, {name: 'Controllers', id:4 }, 
     {name: 'Accessories', id:5 }, {name: 'Recorders', id:6 }, {name: "TV's & Monitors", id:7 }
@@ -91,6 +94,7 @@ export class SearchProductsComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.searchString = params['q'];
       this.selectedCategory = params['c'];
+      this.getBrands();
       this.getProducts();
       this.viewportScroller.scrollToPosition([0, 0]);
     });
@@ -101,6 +105,18 @@ export class SearchProductsComponent implements OnInit {
       (response) => {
         this.products = response.sort((a: any, b: any) => b.modelo - a.modelo); //Ordena de mas reciente a mas viejo
         this.filterProducts();
+      },
+      (error) => {
+        console.error('Error fetching Products', error);
+      }
+    );
+  }
+
+  getBrands(): void {
+    this.appService.getBrands().subscribe(
+      (response) => {
+        this.brands2 = response.slice(0,9);
+        this.otherBrands = response.slice(9,response.length);
       },
       (error) => {
         console.error('Error fetching Products', error);
