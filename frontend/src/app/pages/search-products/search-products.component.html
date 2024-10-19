@@ -18,47 +18,44 @@
                 </div>
             </div>
         </div>
-        
-    
+
+
         <div id="col-md-8" style="margin-left: 10px;">
-            <div class="row" >
+            <div class="row">
                 <div class="col-md-6" style="width: fit-content;">
                     <p style="display: inline; padding-right: 10px;">Sort by:</p>
-                    <select class="form-select" style="margin-right: 10px; width: min-content;" aria-label="Sort by select"
-                        [(ngModel)]="selectedSort" (change)="onSortChange($event)">
+                    <select class="form-select" style="margin-right: 10px; width: min-content;"
+                        aria-label="Sort by select" [(ngModel)]="selectedSort" (change)="onSortChange($event)">
                         <option value="1" class="headerSelectOptions">Most Recent</option>
                         <option value="2" class="headerSelectOptions">Most Old</option>
                     </select>
                 </div>
-    
+
                 <div class="col-md-6" style="width: fit-content;">
                     <p style="display: inline; padding-right: 10px;">Category:</p>
                     <select class="form-select" style="margin-right: 10px; width: min-content;"
-                        [(ngModel)]="selectedCategory" (change)="onCategoryChange($event)" aria-label="Category select">
-                        <option value="1" class="headerSelectOptions">All</option>
-                        <option value="2" class="headerSelectOptions">Consoles</option>
-                        <option value="3" class="headerSelectOptions">Games</option>
-                        <option value="4" class="headerSelectOptions">Controllers</option>
-                        <option value="5" class="headerSelectOptions">Accessories</option>
-                        <option value="6" class="headerSelectOptions">Recorders</option>
-                        <option value="7" class="headerSelectOptions">TV's & Monitors</option>
+                        [(ngModel)]="selectedCategory" (change)="onCategoryChange($event)" aria-label="Category select"
+                        id="selectCategoryInventory">
+                        <option value="1" class="categorySelectOptions">All</option>
+                        <option *ngFor="let category of categories" [value]="category.id + 1"
+                            class="categorySelectOptions">
+                            {{ category.nombre }}
+                        </option>
                     </select>
                 </div>
             </div>
 
             <div class="col-md-12" style="margin: 20px 10px;">
                 <div class="row" style="display: flex; justify-content: space-evenly; margin-right: 25px;">
-                    <div *ngFor="let product of paginatedProducts" style="width: fit-content; padding: 0px; margin:0px 8px">
+                    <div *ngFor="let product of paginatedProducts"
+                        style="width: fit-content; padding: 0px; margin:0px 8px">
                         <app-product [product]="product" style="display: inline-block;"></app-product>
                     </div>
                 </div>
             </div>
-            
-            <ngb-pagination class="d-flex justify-content-center paginator"
-                [(page)]="currentPage"
-                [pageSize]="itemsPerPage"
-                [collectionSize]="filteredProducts.length"
-                (pageChange)="onPageChange($event)"
+
+            <ngb-pagination class="d-flex justify-content-center paginator" [(page)]="currentPage"
+                [pageSize]="itemsPerPage" [collectionSize]="products.length" (pageChange)="onPageChange($event)"
                 aria-label="Default pagination">
             </ngb-pagination>
         </div>
