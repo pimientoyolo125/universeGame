@@ -15,33 +15,27 @@ export class AppService {
   ) { }
 
   getProducts(): Observable<any> {
-    return this.http.get(this.url+ '/producto/listar');
+    return this.http.get(this.url + '/producto/listar');
   }
 
   getCategories(): Observable<any> {
-    return this.http.get(this.url+ '/tipo-producto/listar');
+    return this.http.get(this.url + '/tipo-producto/listar');
   }
 
   getBrands(): Observable<any> {
-    return this.http.get(this.url+ '/producto/listar/marcas');
+    return this.http.get(this.url + '/producto/listar/marcas');
   }
 
-  getFilteredProducts(nombre:any, marca:string[], idTipo:number, sortAsc:boolean): 
-  Observable<any> {
-    var params = new HttpParams()
-    .set('nombre', nombre)
-    .set('marca', marca[1])
-    .set('ascendenteModelo', sortAsc); 
-    
+  getFilteredProducts(nombre: any, marca: string[], idTipo: number, sortAsc: boolean):
+    Observable<any> {
+    let params = new HttpParams()
+      .set('nombre', nombre)
+      .set('ascendenteModelo', sortAsc);
+
     if (idTipo !== 0) {
       params = params.set('idTipo', idTipo);
     }
-    
-  /*// Para arrays, debes usar append:
-  marca.forEach(m => {
-    params.append('marca', m);
-  });*/
 
-  return this.http.get(this.url + '/producto/listar/filtro', { params });
+    return this.http.post(this.url + '/producto/listar/filtro', marca, {params});
   }
 }

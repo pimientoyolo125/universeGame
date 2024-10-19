@@ -23,7 +23,6 @@ export class InventoryComponent implements OnInit{
   ngOnInit(): void {
     this.getCategories();
     this.getProducts(); 
-    console.log(this.categories);
   }
 
   selectedCategory: number = 1;
@@ -73,11 +72,10 @@ export class InventoryComponent implements OnInit{
 
   filterProducts(): void {
     this.appService.getFilteredProducts(
-      this.searchedString, ['', ''], (this.selectedCategory - 1), false
+      this.searchedString, [], (this.selectedCategory - 1), false
     ).subscribe(
       (response) => {
         this.products = response.sort((a: any, b: any) => a.id - b.id);
-        //console.log(response.length);
       },
       (error) => {
         console.error('Error fetching filteredProducts', error);
