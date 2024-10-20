@@ -52,6 +52,7 @@
                         <app-product [product]="product" style="display: inline-block;"></app-product>
                     </div>
                 </div>
+                <img  *ngIf="products.length === 0" src="https://lh4.googleusercontent.com/proxy/ryuJ5WzyFP2o-OKlbqCHFH8Hlh9C5D7ZY18jfPSXxFqH9lZhyCJ-8lW0Im9M8nGfmKsdr3WFvn51uvs0sKe95cIsC3t0fmK4LakLag" alt="No Products Found">
             </div>
 
             <ngb-pagination class="d-flex justify-content-center paginator" [(page)]="currentPage"
