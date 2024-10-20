@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -9,13 +9,16 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, MatMenuModule, MatButtonModule, NgbDropdownModule, FormsModule],
+  imports: [CommonModule, MatMenuModule, MatButtonModule, NgbDropdownModule, FormsModule,
+    NgbModule
+  ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
   stringProduct: string = '';
   admin: boolean = true; //Temporal Mientras terminamos el Login
+  isMenuCollapsed = true;
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 

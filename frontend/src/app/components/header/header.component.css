@@ -120,7 +120,8 @@ option.headerSelectOptions{
 }
 
 #buscador .form-control {
-    color: #77878F; 
+    color: black;
+    font-size: 17px; 
 }
 
 #buscador .form-control:focus {
@@ -136,6 +137,7 @@ option.headerSelectOptions{
     border-left-color: gray;
     color: black;
 }
+
 .bi-search {
     color: inherit;
 }
@@ -154,4 +156,29 @@ option.headerSelectOptions{
 
 .icon-large {
     font-size: 24px; 
+}
+
+.nav-item {
+    width: fit-content; margin-right: 10px;
+    text-align: center;
+}
+
+.navbar-toggler-icon {
+    border-color: white;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler {
+    border-color: white;
+}
+
+.toggler-expanded {
+    border: 1px solid white;
+}
+
+@media (max-width: 991px)  {
+    .nav-item  {
+        margin-left: 14px;
+        margin-right: 0px;
+    }
 }

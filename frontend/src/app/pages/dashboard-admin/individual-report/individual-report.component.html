@@ -22,44 +22,46 @@
             </select>
         </div>
 
-        <div class="col-md-6">
-            <p>Date range:</p>
-            <div class="input-group">
-                <input
-                    class="form-control"
-                    placeholder="yyyy-mm-dd"
-                    name="dp1"
-                    [(ngModel)]="earliestDate"
-                    (ngModelChange)="onDateChange('earliest', $event)"
-                    ngbDatepicker
-                    #dp1="ngbDatepicker"
-                    style="width: 110px;"
-                />
-                <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp1.toggle()" type="button"></button>
+        <div class="row align-items-center" style="width: fit-content;">
+            <div class="col-md-6">
+                <p>Date range:</p>
+                <div class="input-group">
+                    <input
+                        class="form-control"
+                        placeholder="yyyy-mm-dd"
+                        name="dp1"
+                        [(ngModel)]="earliestDate"
+                        (ngModelChange)="onDateChange('earliest', $event)"
+                        ngbDatepicker
+                        #dp1="ngbDatepicker"
+                        style="width: 110px;"
+                    />
+                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp1.toggle()" type="button"></button>
+                </div>
             </div>
-        </div>
-
-        <div class="col-md-1 text-center align-self-center" style="width: fit-content;">
-            <br>
-            <p style="margin-left: 0px; margin-right: 0px; padding: 0px; width: fit-content;">
-                —
-            </p>
-        </div>
-        
-        <div class="col-md-6">
-            <p></p>
-            <div class="input-group">
-                <input
-                    class="form-control"
-                    placeholder="yyyy-mm-dd"
-                    name="dp2"
-                    [(ngModel)]="latestDate"
-                    (ngModelChange)="onDateChange('latest', $event)"
-                    ngbDatepicker
-                    #dp2="ngbDatepicker"
-                    style="width: 110px;"
-                />
-                <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp2.toggle()" type="button"></button>
+    
+            <div class="col-md-1 text-center align-self-center" style="width: fit-content;">
+                <br>
+                <p style="margin-left: 0px; margin-right: 0px; padding: 0px; width: fit-content;">
+                    —
+                </p>
+            </div>
+            
+            <div class="col-md-6">
+                <p></p>
+                <div class="input-group">
+                    <input
+                        class="form-control"
+                        placeholder="yyyy-mm-dd"
+                        name="dp2"
+                        [(ngModel)]="latestDate"
+                        (ngModelChange)="onDateChange('latest', $event)"
+                        ngbDatepicker
+                        #dp2="ngbDatepicker"
+                        style="width: 110px;"
+                    />
+                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp2.toggle()" type="button"></button>
+                </div>
             </div>
         </div>
     </div>

@@ -57,25 +57,40 @@
             </div>
         </div>
 
-        <div id="right-column-2r">
-            <button class="btn rounded-0 border-0" (click)="goLogin()" style="border-right: 10px;" aria-label="person">
-                <i class="bi bi-person icon-large"></i>
+        <nav class="navbar navbar-expand-lg" style="margin-right: 25px; width: fit-content;">
+            <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" style="border-color: white;"
+              aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon" style="color: white;"></span>
             </button>
+          
+            <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse justify-content-center" id="navbarToggler">
+              <ul class="navbar-nav justify-content-center" style="width: fit-content;">
 
-            <button class="btn rounded-0 border-0" (click)="goShoppingCart()" style="border-right: 10px;"
-                aria-label="cart">
-                <i class="bi bi-cart icon-large"></i>
-            </button>
+                <li class="nav-item d-flex">
+                  <button class="btn nav-link" (click)="goLogin()" aria-label="person">
+                    <i class="bi bi-person icon-large"></i>
+                  </button>
+                </li>
 
-            <button class="btn rounded-0 border-0" (click)="goOrderHistory()" style="border-right: 10px;"
-                aria-label="truck">
-                <i class="bi bi-truck icon-large"></i>
-            </button>
+                <li class="nav-item">
+                  <button class="btn nav-link" (click)="goShoppingCart()" aria-label="cart">
+                    <i class="bi bi-cart icon-large"></i>
+                  </button>
+                </li>
 
-            <button *ngIf="admin === true" class="btn rounded-0 border-0" (click)="goInventory()"
-                style="border-right: 10px;" aria-label="truck">
-                <i class="bi bi-shop icon-large"></i>
-            </button>
-        </div>
+                <li class="nav-item">
+                  <button class="btn nav-link" (click)="goOrderHistory()" aria-label="truck">
+                    <i class="bi bi-truck icon-large"></i>
+                  </button>
+                </li>
+                
+                <li *ngIf="admin === true" class="nav-item">
+                  <button class="btn nav-link" (click)="goInventory()" aria-label="inventory">
+                    <i class="bi bi-shop icon-large"></i> 
+                  </button>
+                </li>
+              </ul>
+            </div>
+        </nav>          
     </div>
 </header>
