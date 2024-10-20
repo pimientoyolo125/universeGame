@@ -42,33 +42,38 @@
 
     <div class="secondRow">
         <div id="left-column-2r" (click)="goHome()" style="cursor: pointer;">
-            <img src="assets/TemporalIcon.png" alt="Temporal Icon" width="48px" >
+            <img src="assets/TemporalIcon.png" alt="Temporal Icon" width="48px">
             <h4>UNIVERSEGAME</h4>
         </div>
 
         <div id="buscador">
             <div class="input-group">
-                <input type="search" id="barraBusqueda" [(ngModel)]="stringProduct" (keydown)="onKeydown($event)" class="form-control" placeholder="Search for anything..." aria-label="Search" aria-describedby="search-addon"/>
+                <input type="search" id="barraBusqueda" [(ngModel)]="stringProduct" (keydown)="onKeydown($event)"
+                    class="form-control" placeholder="Search for anything..." aria-label="Search"
+                    aria-describedby="search-addon" />
                 <button (click)="onSearch()" type="button" class="btn" data-mdb-ripple-init>
                     <i class="bi bi-search icon-large" style="color: black;"></i>
                 </button>
-              </div>
+            </div>
         </div>
 
         <div id="right-column-2r">
-            <button class="btn rounded-0 border-0" (click)="goLogin()"  style="border-right: 10px;" aria-label="person">
+            <button class="btn rounded-0 border-0" (click)="goLogin()" style="border-right: 10px;" aria-label="person">
                 <i class="bi bi-person icon-large"></i>
             </button>
 
-            <button class="btn rounded-0 border-0" (click)="goShoppingCart()" style="border-right: 10px;" aria-label="cart">
+            <button class="btn rounded-0 border-0" (click)="goShoppingCart()" style="border-right: 10px;"
+                aria-label="cart">
                 <i class="bi bi-cart icon-large"></i>
             </button>
 
-            <button class="btn rounded-0 border-0" (click)="goOrderHistory()" style="border-right: 10px;" aria-label="truck">
+            <button class="btn rounded-0 border-0" (click)="goOrderHistory()" style="border-right: 10px;"
+                aria-label="truck">
                 <i class="bi bi-truck icon-large"></i>
             </button>
 
-            <button *ngIf="admin === true" class="btn rounded-0 border-0" (click)="goInventory()" style="border-right: 10px;" aria-label="truck">
+            <button *ngIf="admin === true" class="btn rounded-0 border-0" (click)="goInventory()"
+                style="border-right: 10px;" aria-label="truck">
                 <i class="bi bi-shop icon-large"></i>
             </button>
         </div>

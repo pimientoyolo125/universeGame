@@ -14,15 +14,47 @@
     margin-left: 5px;
 }
 
+.input-group {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
 .form-control {
     display: block;
-    width: fit-content;
+    width: 200px;
     margin: 0px;
-    margin-right: 10px;
+    margin-left: 5px;
     padding: 2.5px;
 }
 
-.table {
-    overflow-x: scroll;
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #FA8232; 
 }
 
+.input-group > .btn{
+    background-color: white;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color: rgb(214, 212, 212);
+    border-color: rgb(214, 212, 212);
+    color: black;
+}
+
+.input-group >.btn:hover {
+    background-color: #FA8232;
+    border-color: #FA8232;
+    color: white;
+}
+
+.form-select:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #FA8232; 
+}
+
+.table {
+    border-top: 1px solid rgb(214, 212, 212);
+    text-align: center;
+}

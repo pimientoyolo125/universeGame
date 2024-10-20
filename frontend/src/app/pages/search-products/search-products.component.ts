@@ -19,38 +19,37 @@ import { ViewportScroller } from '@angular/common';
   styleUrl: './search-products.component.css'
 })
 export class SearchProductsComponent implements OnInit {
-  brands: { name: string; selected: boolean }[] = [
-    {name:'Xbox', selected:false}, {name:'Sony', selected:false}, {name:'Nintendo', selected:false}, 
-    {name:'Elgato', selected:false}, {name:'Acer', selected:false}, {name:'Microsoft', selected:false},
-    {name:'AVerMedia', selected:false}, {name:'LG', selected:false}, {name:'Samsung', selected:false},
-    {name:'Others', selected:false}
-  ];
 
-  otherBrands = [
-    "Razer", "Atlus", "Rybozen", "8bitdo", "Tatybo", "ConcernedApe", "Hauppauge",
-    "SanDisk", "Voyee", "PerfectSight", "Gigastone", "Younik", "Purbhe", "ZedLabz", "Valve",
-    "Amazon Basics", "Subang", "Allnice", "Supergiant Games","Konami" 
-  ];
+  constructor(private route: ActivatedRoute, private appService: AppService,
+    private viewportScroller: ViewportScroller
+  ) { }
 
-  categories = [{name: 'Consoles', id:2 }, {name: 'Games', id:3 }, {name: 'Controllers', id:4 }, 
-    {name: 'Accessories', id:5 }, {name: 'Recorders', id:6 }, {name: "TV's & Monitors", id:7 }
-  ];
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.searchString = params['q'];
+      this.selectedCategory = params['c'];
+      this.getBrands();
+      this.getCategories();
+      this.filterProducts();
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
+
+  searchString: string = '';
+  products: any[] = [];
+  brands: any[] = [];
+  otherBrands: string[] = [];
+  categories: any[] = [];
 
   selectedBrands: string[] = [];
-  selectedSort: number = 1; 
+  selectedSort: number = 1;
   selectedCategory: number = 1;
-  products: any[] = [];
-  filteredProducts: any[] = [];
+
   currentPage: number = 1;
   itemsPerPage: number = 8;
 
-  searchString: string | null = null;
-  constructor(private route: ActivatedRoute, private appService: AppService, 
-    private viewportScroller: ViewportScroller
-  ) {}
-
-  brandSelected(brand:{ name: string; selected: boolean }): void {
-    brand.selected = !brand.selected 
+  brandSelected(brand: { name: string; selected: boolean }): void {
+    brand.selected = !brand.selected
     if (brand.selected == true) {
       if (!this.selectedBrands.includes(brand.name)) {
         this.selectedBrands.push(brand.name)
@@ -59,7 +58,7 @@ export class SearchProductsComponent implements OnInit {
         }
         this.filterProducts();
       }
-    }else{
+    } else {
       if (this.selectedBrands.includes(brand.name)) {
         const index = this.selectedBrands.indexOf(brand.name);
         this.selectedBrands.splice(index, 1);
@@ -77,30 +76,25 @@ export class SearchProductsComponent implements OnInit {
     const selectElement = event.target as HTMLSelectElement
     this.selectedSort = +selectElement.value;
     this.filterProducts();
-    //console.log('Selected Sort:', this.selectedSort);
+    console.log('Selected Sort:', this.selectedSort);
   }
 
   onCategoryChange(event: Event) {
-    const selectElement = event.target as HTMLSelectElement; 
-    this.selectedCategory = +selectElement.value; 
+    const selectElement = event.target as HTMLSelectElement;
+    this.selectedCategory = +selectElement.value;
     this.filterProducts();
     //console.log('Selected Category:', this.selectedCategory);
-}
-
-  ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.searchString = params['q'];
-      this.selectedCategory = params['c'];
-      this.getProducts();
-      this.viewportScroller.scrollToPosition([0, 0]);
-    });
   }
 
-  getProducts(): void {
-    this.appService.getProducts().subscribe(
+  getBrands(): void {
+    this.appService.getBrands().subscribe(
       (response) => {
-        this.products = response.sort((a: any, b: any) => b.modelo - a.modelo); //Ordena de mas reciente a mas viejo
-        this.filterProducts();
+        this.brands = response.slice(0, 9).map((brand: any) => ({
+          name: brand,
+          selected: false
+        }));
+        this.brands = this.brands.concat({ name: 'Others', selected: false });
+        this.otherBrands = response.slice(9, response.length);
       },
       (error) => {
         console.error('Error fetching Products', error);
@@ -108,53 +102,33 @@ export class SearchProductsComponent implements OnInit {
     );
   }
 
+  getCategories(): void {
+    this.appService.getCategories().subscribe(
+      (response) => {
+        this.categories = response;
+      },
+      (error) => {
+        console.error('Error fetching categories', error);
+      }
+    );
+  }
+
   filterProducts(): void {
-    if (this.searchString == undefined || this.searchString == "" || this.searchString == " " ) {
-      if (this.selectedBrands.length > 0) {
-        this.filteredProducts = this.products.filter(product => this.selectedBrands.includes(product.marca));
+    this.appService.getFilteredProducts(
+      this.searchString, this.selectedBrands, (this.selectedCategory - 1), this.selectedSort==2
+    ).subscribe(
+      (response) => {
+        this.products = response
+      },
+      (error) => {
+        console.error('Error fetching filteredProducts', error);
       }
-      else{
-        this.filteredProducts = [...this.products];
-      }
-
-      if (this.selectedCategory != 1) {
-        var selectedCategoryName = this.categories.find(category => category.id == this.selectedCategory)?.name;
-        this.filteredProducts= this.filteredProducts.filter(product => product.tipoProducto.nombre === selectedCategoryName);
-      }
-
-      if (this.selectedSort == 2) {
-        this.filteredProducts  = this.filteredProducts.sort((a: any, b: any) => a.modelo - b.modelo)
-      }
-      //console.log(String(this.filteredProducts.length));
-    }
-    else{
-      //Filtramos por el nombre:
-      this.filteredProducts = this.products.filter(product => product.nombre.toLowerCase().
-      includes(this.searchString?.toLocaleLowerCase().trim()));
-
-      if (this.filteredProducts.length === 0) {
-        return;
-      }
-
-      if (this.selectedBrands.length > 0) {
-        this.filteredProducts = this.filteredProducts.filter(product => this.selectedBrands.includes(product.marca));
-      }
-
-      if (this.selectedCategory != 1) {
-        const selectedCategoryName = this.categories.find(category => category.id == this.selectedCategory)?.name;
-        this.filteredProducts= this.filteredProducts.filter(product => product.tipoProducto.nombre === selectedCategoryName);
-      }
-
-      if (this.selectedSort == 2) {
-        this.filteredProducts  = this.filteredProducts.sort((a: any, b: any) => a.modelo - b.modelo)
-      }
-      //console.log(String(this.filteredProducts.length));
-    }
+    );
   }
 
   get paginatedProducts() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    return this.filteredProducts.slice(startIndex, startIndex + this.itemsPerPage);
+    return this.products.slice(startIndex, startIndex + this.itemsPerPage);
   }
 
   onPageChange(page: number): void {
