@@ -136,6 +136,15 @@ option.headerSelectOptions{
     border-left-color: gray;
     color: black;
 }
+.bi-search {
+    color: inherit;
+}
+
+.input-group >.btn:hover {
+    background-color: #FA8232;
+    border-color: #FA8232;
+    color: white;
+}
 
 #right-column-2r > button
 {

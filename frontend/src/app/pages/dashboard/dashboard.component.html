@@ -3,7 +3,7 @@
         <app-header></app-header>
     </div>
 
-    <div id="page-content">
+    <div id="page-menu">
         <div class="d-flex col-4" style="height: fit-content; width: fit-content;">
             <div class="nav flex-column nav-pills me-3" style="margin: 25px" role="tablist" aria-orientation="vertical">
                 <a class="w-100 nav-item nav-link" routerLink="profile" routerLinkActive="active" style="flex: 1">
@@ -30,7 +30,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-8 page-content" style="margin-bottom: 25px;">
             <router-outlet></router-outlet>
         </div>
     </div>
