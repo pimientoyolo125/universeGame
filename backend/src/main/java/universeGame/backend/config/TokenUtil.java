@@ -21,9 +21,9 @@ public class TokenUtil {
         Date expirationDate = new Date(System.currentTimeMillis() + expiration);
 
         Map<String, Object> extra = new HashMap<>();
-        extra.put("email", email);
+        extra.put("correo", email);
         extra.put("nombre", nombre);
-        extra.put("type", type);
+        extra.put("tipo", type);
 
         return Jwts.builder()
                 .setSubject(email)
@@ -43,9 +43,14 @@ public class TokenUtil {
 
             String email = claims.getSubject();
 
+            if (email == null || email.isEmpty()) {
+                return null;
+            }
+
             return new UsernamePasswordAuthenticationToken(email, null, Collections.emptyList());
-        } catch (JwtException e){
-            return null;
+        } catch (JwtException | IllegalArgumentException e){
         }
+
+        return null;
     }
 }
