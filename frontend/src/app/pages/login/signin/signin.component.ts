@@ -14,19 +14,24 @@ import { Router } from '@angular/router';
   styleUrl: './signin.component.css'
 })
 export class SigninComponent {
-  isPasswordVisible: boolean = false; 
+  isPasswordVisible: boolean = false;
   logPassword: string = '';
   logEmail: string = '';
   error: string = '';
 
   constructor(
     private appService: AppService,
-    private tokenService:TokenService,
-    private router:Router
+    private tokenService: TokenService,
+    private router: Router
   ) { }
 
   togglePasswordVisibility() {
-    this.isPasswordVisible = !this.isPasswordVisible; 
+    this.isPasswordVisible = !this.isPasswordVisible;
+  }
+
+  assignPasswordValue(event: any) {
+    this.logPassword = event.target.value;
+    console.log(this.logPassword);
   }
 
   login(): void {
@@ -37,7 +42,7 @@ export class SigninComponent {
       (response) => {
         if (response.message == 'Successful login') {
           this.tokenService.setToken(response.token);
-          this.router.navigate(['/']); 
+          this.router.navigate(['/']);
           //console.log(this.tokenService.getToken());
         }
       },
