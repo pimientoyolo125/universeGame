@@ -9,4 +9,6 @@ public interface UsuarioService {
     Usuario register(UsuarioRegisterDTO usuarioRegisterDTO);
 
     Usuario login(UsuarioLoginDTO usuarioLoginDTO);
+
+    Usuario findByCorreo(String correo);
 }

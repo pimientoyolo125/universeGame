@@ -1,22 +1,26 @@
 package universeGame.backend.mappers;
 
+import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import universeGame.backend.dto.DetalleVentaDTO;
-import universeGame.backend.model.DetalleVenta;
+import universeGame.backend.dto.DetalleCarritoDTO;
+import universeGame.backend.model.DetalleCarrito;
 
 import java.util.List;
 
 @Mapper
 public interface DetalleCarritoMapper {
 
-    DetalleVentaMapper INSTANCE = Mappers.getMapper(DetalleVentaMapper.class);
+    DetalleCarritoMapper INSTANCE = Mappers.getMapper(DetalleCarritoMapper.class);
 
-    DetalleVenta toDetalleVenta(DetalleVentaDTO dto);
+    @InheritInverseConfiguration
+    DetalleCarrito toDetalleCarrito(DetalleCarritoDTO dto);
 
-    DetalleVentaDTO toDetalleVentaDTO(DetalleVenta entity);
+    @Mapping(target = "idCarrito", source = "carrito.id")
+    DetalleCarritoDTO toDetalleCarritoDTO(DetalleCarrito entity);
 
-    List<DetalleVentaDTO> toDetalleVentaDTOs(List<DetalleVenta> entities);
+    List<DetalleCarritoDTO> toDetalleCarritoDTOs(List<DetalleCarrito> entities);
 
-    List<DetalleVenta> toDetalleVenta(List<DetalleVentaDTO> dtos);
+    List<DetalleCarrito> toDetalleCarritos(List<DetalleCarritoDTO> dtos);
 }
