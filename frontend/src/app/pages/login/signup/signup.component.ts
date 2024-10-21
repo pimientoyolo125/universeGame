@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ModalErrorComponent } from '../../../modal-error/modal-error.component';
+import { ModalErrorComponent } from '../../../components/modal-error/modal-error.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
