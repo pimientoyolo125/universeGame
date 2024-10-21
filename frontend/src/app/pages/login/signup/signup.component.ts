@@ -159,7 +159,7 @@ export class SignupComponent {
     //  feedback de que tiene que rellenar estos 
     //  campos faltantes
     auxString += (this.regName === '') ? "Name, " : "";
-    auxString += (this.regLastName === '') ? "Lastname, " : "";
+    auxString += (this.regLastName === '') ? "Last Name, " : "";
     auxString += (this.regPhoneNumber === 0) ? "Telephone number, " : "";
     auxString += (this.regEmail === '') ? "E-mail, " : "";
     auxString += (this.regPassword === '') ? "Password, " : "";
@@ -185,7 +185,7 @@ export class SignupComponent {
     //  si regPhoneNumber no es un número o si
     //   tiene más de 10 dígitos, entonces, lanza 
     //   un error
-    (isNaN(this.regPhoneNumber) || this.regPhoneNumber.toString().length <= 10) ? errorMessages.push("Phone number must be a 10 digits number") : null;
+    (isNaN(this.regPhoneNumber) || this.regPhoneNumber.toString().length !== 10 ) ? errorMessages.push("Phone number must be a 10 digits number") : null;
 
 
     // ==================== se repitió la contraseña 2 veces? ====================
