@@ -34,3 +34,7 @@
     padding: 20px 20px 20px 20px;
     text-align: justify;
 }
+
+.modal-body ul li{
+    margin-bottom: 5px;
+}
