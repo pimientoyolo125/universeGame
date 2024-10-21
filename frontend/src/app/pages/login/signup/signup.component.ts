@@ -189,12 +189,15 @@ export class SignupComponent {
 
 
     // ==================== se repitió la contraseña 2 veces? ====================
-    ( this.regPassword !== this.regRepPassword ) ? errorMessages.push("Confirm password must be the same as password") : null;
+    (this.regPassword !== this.regRepPassword) ? errorMessages.push("Confirm password must be the same as password") : null;
 
 
     // ============ la contraseña y confirmar contraseña tiene más de 8 caracteres ============
-    ( this.regPassword.length <= 8  ) ? errorMessages.push("Password must be more than 8 characters long") : null;
-    ( this.regRepPassword.length <= 8  ) ? errorMessages.push("Confirm password must be more than 8 characters long") : null;
+    (this.regPassword.length <= 8) ? errorMessages.push("Password must be more than 8 characters long") : null;
+    (this.regRepPassword.length <= 8) ? errorMessages.push("Confirm password must be more than 8 characters long") : null;
+
+    // ================== Comprobar si se aceptaron los TyC ==================
+    ( this.regCheck ) ? errorMessages.push("Please accept Terms and Conditions") : null;
 
     //  Finalmente, si hubo algun error, entonces, 
     //  se registró como un string en la lista de 
