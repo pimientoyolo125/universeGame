@@ -185,7 +185,7 @@ export class SignupComponent {
     //  si regPhoneNumber no es un número o si
     //   tiene más de 10 dígitos, entonces, lanza 
     //   un error
-    (isNaN(this.regPhoneNumber) || this.regPhoneNumber.toString().length > 10) ? errorMessages.push("Phone number must be a 10 digits number") : null;
+    (isNaN(this.regPhoneNumber) || this.regPhoneNumber.toString().length <= 10) ? errorMessages.push("Phone number must be a 10 digits number") : null;
 
 
     // ==================== se repitió la contraseña 2 veces? ====================
@@ -197,7 +197,7 @@ export class SignupComponent {
     (this.regRepPassword.length <= 8) ? errorMessages.push("Confirm password must be more than 8 characters long") : null;
 
     // ================== Comprobar si se aceptaron los TyC ==================
-    ( this.regCheck ) ? errorMessages.push("Please accept Terms and Conditions") : null;
+    ( !this.regCheck ) ? errorMessages.push("Please accept Terms and Conditions") : null;
 
     //  Finalmente, si hubo algun error, entonces, 
     //  se registró como un string en la lista de 
