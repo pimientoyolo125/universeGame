@@ -3,12 +3,15 @@ package universeGame.backend.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import universeGame.backend.dto.UsuarioLoginDTO;
 import universeGame.backend.dto.UsuarioRegisterDTO;
 import universeGame.backend.exception.CustomException;
 import universeGame.backend.mappers.UsuarioMapper;
+import universeGame.backend.model.Carrito;
 import universeGame.backend.model.TipoUsuario;
 import universeGame.backend.model.Usuario;
+import universeGame.backend.repository.CarritoRepository;
 import universeGame.backend.repository.TipoUsuarioRepository;
 import universeGame.backend.repository.UsuarioRepository;
 import universeGame.backend.service.interfaces.UsuarioService;
@@ -21,12 +24,14 @@ public class UsuarioServiceImpl implements UsuarioService {
     private UsuarioRepository usuarioRepository;
     private PasswordEncoder passwordEncoder;
     private TipoUsuarioRepository tipoUsuarioRepository;
+    private CarritoRepository carritoRepository;
 
 
     private static final String EMAIL_REGEX = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
     private static final String PHONE_REGEX = "^[+\\d\\s().-]*$";
 
     @Override
+    @Transactional
     public Usuario register(UsuarioRegisterDTO usuarioRegisterDTO) {
         Usuario usuario = UsuarioMapper.INSTANCE.toUsuarioRegister(usuarioRegisterDTO);
 
@@ -45,11 +50,19 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         usuario.setTipoUsuario(tipoUsuario);
 
-        return usuarioRepository.save(usuario);
+        Usuario usuarioSave =  usuarioRepository.save(usuario);
+
+        Carrito carrito = new Carrito();
+        carrito.setUsuario(usuarioSave);
+        carrito.setTotal(0.0);
+        carritoRepository.save(carrito);
+
+        return usuarioSave;
     }
 
 
     @Override
+    @Transactional
     public Usuario login(UsuarioLoginDTO usuarioLoginDTO) {
 
         usuarioLoginDTO.setCorreo(usuarioLoginDTO.getCorreo().trim().toLowerCase());
@@ -134,5 +147,10 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     public void setTipoUsuarioRepository(TipoUsuarioRepository tipoUsuarioRepository) {
         this.tipoUsuarioRepository = tipoUsuarioRepository;
+    }
+
+    @Autowired
+    public void setCarritoRepository(CarritoRepository carritoRepository) {
+        this.carritoRepository = carritoRepository;
     }
 }
