@@ -18,6 +18,8 @@ export class SigninComponent {
   logPassword: string = '';
   logEmail: string = '';
   error: string = '';
+  isPasswordFocused: boolean = false;
+
 
   constructor(
     private appService: AppService,
@@ -32,6 +34,11 @@ export class SigninComponent {
   assignPasswordValue(event: any) {
     this.logPassword = event.target.value;
     console.log(this.logPassword);
+  }
+
+  onPasswordFocus(){
+    this.isPasswordFocused = true;
+    console.log("esta focused input contraseña")
   }
 
   login(): void {

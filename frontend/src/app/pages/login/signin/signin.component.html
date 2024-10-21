@@ -13,16 +13,17 @@
             <div class="password-toggle" style="display: flex; align-items: center;">
                 <input type="{{ isPasswordVisible ? 'text' : 'password' }}" class="form-control" name="password"
                     [(ngModel)]="logPassword" id="logPassword" placeholder="8+ Characters"
-                    (input)="assignPasswordValue($event)">
+                    (input)="assignPasswordValue($event)"  (focus)="onPasswordFocus()" >
                 <i class="bi" [ngClass]="isPasswordVisible ? 'bi-eye' : 'bi-eye-slash'"
                     (click)="togglePasswordVisibility()" style="cursor: pointer;"></i>
             </div>
 
-            <p *ngIf="logPassword.length <= 8" style="color: red; font-weight: bold;">* La contraseña debe tener mínimo 8 caracteres * </p>
+            <p *ngIf="isPasswordFocused && logPassword.length <= 8"  style="color: red; font-weight: bold;">* La contraseña debe tener mínimo
+                8 caracteres * </p>
 
             <!-- El parrafo de error de roa: <p *ngIf="error !== ''" style="color: red; margin-top: 5px;"><b style="font-weight: 500;">Error:</b>
                 {{error}}</p> -->
-                
+
         </div>
 
         <button class="btn btn-primary mb-3" style="width: 100%;" (click)="login()">
