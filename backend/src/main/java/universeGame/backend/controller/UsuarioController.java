@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import universeGame.backend.config.TokenUtil;
+import universeGame.backend.dto.LoginResponseDTO;
 import universeGame.backend.dto.UsuarioDTO;
 import universeGame.backend.dto.UsuarioLoginDTO;
 import universeGame.backend.dto.UsuarioRegisterDTO;
@@ -40,7 +41,7 @@ public class UsuarioController {
 
     @PostMapping("/login")
     @Schema(description = "Iniciar sesión")
-    public ResponseEntity<String> login(
+    public ResponseEntity<LoginResponseDTO> login(
             @RequestBody @Valid UsuarioLoginDTO usuarioLoginDTO
     ) {
         Usuario usuarioSave = usuarioService.login(usuarioLoginDTO);
@@ -49,9 +50,11 @@ public class UsuarioController {
                 usuarioSave.getCorreo(),
                 usuarioSave.getTipoUsuario().getId());
 
-        return ResponseEntity.ok()
-                .header("Authorization", "Bearer " + token)
-                .body("Successful login");
+        LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
+        loginResponseDTO.setToken(token);
+        loginResponseDTO.setMessage("Successful login");
+
+        return ResponseEntity.ok(loginResponseDTO);
     }
 
 
