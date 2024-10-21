@@ -12,7 +12,7 @@ html, body {
     height: 100vh;
 }
 
-#page-content {
+#page-menu {
     flex: 1;    
     display: flex;
     justify-content: center;          
@@ -36,4 +36,16 @@ a:hover {
     cursor: pointer;
     background-color: #fdbd5d;
     color:black
+}
+
+@media (max-width:768px) {
+    #page-menu {
+        width: 98vw;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .page-content {
+        width: 98vw;
+    }
 }

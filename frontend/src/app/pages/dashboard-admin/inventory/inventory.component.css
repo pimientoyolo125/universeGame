@@ -9,14 +9,32 @@
     margin: 5px;
 }
 
+.col-md-6 {
+    margin-left: 5px; 
+    margin-bottom: 10px; 
+    width: fit-content;
+}
+
 .col-md-6 > p{
     width: fit-content;
     margin-left: 5px;
+    display: inline;
+    padding-right: 10px;
+}
+
+.col-md-6 > .form-select, .col-md-6 > div{
+    margin-right: 10px; 
+    margin-left: 10px; 
+    width: fit-content;
 }
 
 .input-group {
     padding-top: 0px;
     padding-bottom: 0px;
+}
+
+.input-group > input {
+    margin-left: 0px;
 }
 
 .form-control {
@@ -48,10 +66,20 @@
     color: white;
 }
 
+.input-group > input:hover {
+    border-color: #FA8232;
+}
+
 .form-select:focus {
     outline: none;
     box-shadow: none;
     border-color: #FA8232; 
+    box-shadow: 1px 1px 1px #FA8232;
+}
+
+.form-select:hover {
+    border-color: #FA8232; 
+    box-shadow: 1px 1px 1px #FA8232;
 }
 
 .table {

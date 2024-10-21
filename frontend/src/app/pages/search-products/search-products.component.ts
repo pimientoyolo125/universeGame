@@ -26,7 +26,9 @@ export class SearchProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.searchString = params['q'];
+      if (params['q'] != undefined) {
+        this.searchString = params['q'];
+      }
       this.selectedCategory = params['c'];
       this.getBrands();
       this.getCategories();
@@ -119,6 +121,7 @@ export class SearchProductsComponent implements OnInit {
     ).subscribe(
       (response) => {
         this.products = response
+        //console.log(this.products.length)
       },
       (error) => {
         console.error('Error fetching filteredProducts', error);
