@@ -15,8 +15,9 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent {
   isPasswordVisible: boolean = false; 
-  errPassword: string = '';
-  errEmail: string = '';
+  logPassword: string = '';
+  logEmail: string = '';
+  error: string = '';
 
   constructor(
     private appService: AppService,
@@ -27,12 +28,9 @@ export class SigninComponent {
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible; 
   }
-  
-  logPassword: string = '';
-  logEmail: string = '';
 
   login(): void {
-    console.log("Email: ", this.logEmail, " and ", "Password: ", this.logPassword);
+    //console.log("Email: ", this.logEmail, " and ", "Password: ", this.logPassword); 
     this.appService.login(
       this.logEmail.trim(), this.logPassword.trim()
     ).subscribe(
@@ -42,13 +40,10 @@ export class SigninComponent {
           this.router.navigate(['/']); 
           //console.log(this.tokenService.getToken());
         }
-        else{
-          //this.errPassword = 'response.error.message';
-          console.log(this.errPassword);  
-        }
       },
       (error) => {
-        console.error('Error fetching filteredProducts', error);
+        //console.error('Error fetching filteredProducts', error);
+        this.error = error.error.message;
       }
     );
   }

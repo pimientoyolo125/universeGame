@@ -13,8 +13,8 @@
                 [(ngModel)]="logPassword" id="logPassword" placeholder="8+ Characters">
                 <i class="bi" [ngClass]="isPasswordVisible ? 'bi-eye' : 'bi-eye-slash'"
                     (click)="togglePasswordVisibility()" style="cursor: pointer;"></i>
-                <p *ngIf="errPassword !== ''">{{errPassword}}</p>
             </div>
+            <p *ngIf="error !== ''" style="color: red; margin-top: 5px;"><b style="font-weight: 500;">Error:</b> {{error}}</p>
         </div>
 
         <button class="btn btn-primary mb-3" style="width: 100%;" (click)="login()">
