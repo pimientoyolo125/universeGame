@@ -40,7 +40,7 @@ public class UsuarioController {
 
     @PostMapping("/login")
     @Schema(description = "Iniciar sesión")
-    public ResponseEntity<?> login(
+    public ResponseEntity<String> login(
             @RequestBody @Valid UsuarioLoginDTO usuarioLoginDTO
     ) {
         Usuario usuarioSave = usuarioService.login(usuarioLoginDTO);
@@ -49,11 +49,9 @@ public class UsuarioController {
                 usuarioSave.getCorreo(),
                 usuarioSave.getTipoUsuario().getId());
 
-        Map<String, String> response = new HashMap<>();
-        response.put("token", token);
-        response.put("mensaje", "Successful login");
-
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok()
+                .header("Authorization", "Bearer " + token)
+                .body("Successful login");
     }
 
 
