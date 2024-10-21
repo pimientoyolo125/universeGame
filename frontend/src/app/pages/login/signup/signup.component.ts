@@ -124,7 +124,20 @@ export class SignupComponent {
   // que debe seguir para corregir sus errores en el 
   // formulario
   basicVerifications() {
+    this.regName;
+    this.regLastName;
+    
+    this.regPhoneNumber;
+    this.regEmail;
+    this.regPassword;
+    this.regRepPassword;
+    this.regCheck;
+    this.isPasswordFocused;
+    this.isPasswordFocused2;
 
+    if( this.regName === '' ){
+      alert('Recuerde rellenar todos los campos')
+    }
   }
 
 }
