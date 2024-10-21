@@ -131,24 +131,80 @@ export class SignupComponent {
   // que debe seguir para corregir sus errores en el 
   // formulario
   basicVerifications() {
+
+    let errorMessages: string[] = [];
+    let auxString: string = '';
+
     this.regName;
     this.regLastName;
 
     this.regPhoneNumber;
+
     this.regEmail;
+
+
     this.regPassword;
     this.regRepPassword;
+
     this.regCheck;
-    this.isPasswordFocused;
-    this.isPasswordFocused2;
 
-    
-    if (this.regName === '') {
 
-      // Esta es la lista que quieres mostrar en el modal
-      const errorMessages: string[] = ["Name cannot be empty", "Password must be at least 8 characters"];
+    // ==================== seccion que chequea que no falte nigun valor ====================
 
-      this.openErrorModal( errorMessages );
+    // aqui hay condiciones consecutivas que, cuando
+    //  se cumplen, añaden el nombre de un campo 
+    //  del forms al string auxiliar, esto generando 
+    //  un string que contienen todos esos campos 
+    //  que le falta al usuario, para luego darle 
+    //  feedback de que tiene que rellenar estos 
+    //  campos faltantes
+    auxString += (this.regName === '') ? "Name, " : "";
+    auxString += (this.regLastName === '') ? "Lastname, " : "";
+    auxString += (this.regPhoneNumber === 0) ? "Telephone number, " : "";
+    auxString += (this.regEmail === '') ? "E-mail, " : "";
+    auxString += (this.regPassword === '') ? "Password, " : "";
+    auxString += (this.regRepPassword === '') ? "Confirm password, " : "";
+
+
+    //  esto es una version abreviada de un if que, 
+    //  en caso de que la longitud del string auxiliar 
+    //  donde se almacenan los campos que faltan en 
+    //  el form sea mayor que 0, entonces, se insesrta 
+    //  en la primera posicion de la lista de strings 
+    //  con los errores el string que informa que 
+    //  faltan varios campos en el formulario, diciendo
+    //   así: "faltan los siguientes campos: nombre,
+    //    numero, etc."
+    if (auxString.length > 0) {
+      auxString = auxString.slice(0, -2)
+      errorMessages.push("The following fields are empty: " + auxString)
+    }
+
+    // ==================== el phone numer es un número válido? ====================
+
+    //  si regPhoneNumber no es un número o si
+    //   tiene más de 10 dígitos, entonces, lanza 
+    //   un error
+    (isNaN(this.regPhoneNumber) || this.regPhoneNumber.toString().length > 10) ? errorMessages.push("Phone number must be a 10 digits number") : null;
+
+
+    // ==================== se repitió la contraseña 2 veces? ====================
+    ( this.regPassword !== this.regRepPassword ) ? errorMessages.push("Confirm password must be the same as password") : null;
+
+
+    // ============ la contraseña y confirmar contraseña tiene más de 8 caracteres ============
+    ( this.regPassword.length <= 8  ) ? errorMessages.push("Password must be more than 8 characters long") : null;
+    ( this.regRepPassword.length <= 8  ) ? errorMessages.push("Confirm password must be more than 8 characters long") : null;
+
+    //  Finalmente, si hubo algun error, entonces, 
+    //  se registró como un string en la lista de 
+    //  strings que dan feedback sobre los errores 
+    //  en el formatCurrency, por tanto, si hay 
+    //  algun string dentro de la Lista, se abre 
+    //  el modal que informa de los errores
+    if (errorMessages.length > 0) {
+
+      this.openErrorModal(errorMessages);
 
     }
   }
@@ -160,7 +216,7 @@ export class SignupComponent {
   // parametro la lista de errores, para mostrarle 
   // feedback al usuario de qué es lo que 
   // tiene que corregir
-  openErrorModal( listOfErrorMessages: string[] ) {
+  openErrorModal(listOfErrorMessages: string[]) {
 
     const modalRef = this.modalService.open(ModalErrorComponent);
     modalRef.componentInstance.errorList = listOfErrorMessages;  // Pasar la lista de errores
