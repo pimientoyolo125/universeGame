@@ -4,9 +4,32 @@
 
 #titleModalLabel {
     color: #FA8232;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
 }
 
-#modal-footer button {
+.modal-footer button {
     background-color: #FA8232;
     border-color: #FA8232;
+}
+
+.modal-header {
+    height: 60px;
+    padding: 0 20px 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+#headerDangerIcon {
+    color: #FA8232;
+    font-size: 25px;
+    margin: 0 13px 0 0;
+}
+
+.modal-body{
+    position: relative;
+    flex: 1 1 auto;
+    padding: 20px 20px 20px 30px;
 }
