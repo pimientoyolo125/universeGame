@@ -2,14 +2,16 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="titleModalLabel">Error</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"  (click)="activeModal.close()"></button>
         </div>
         <div class="modal-body">
-          ...
+            <ul>
+                <li *ngFor="let error of errorList">{{ error }}</li>
+              </ul>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" (click)="closeErrorModal()" data-bs-dismiss="modal">Close</button>
+          <button type="button"  class="btn btn-secondary" (click)="closeErrorModal()" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

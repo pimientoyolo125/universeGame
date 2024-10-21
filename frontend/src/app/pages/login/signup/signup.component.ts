@@ -44,11 +44,11 @@ export class SignupComponent {
 
 
     this.auxPhoneNumber = this.auxPhoneNumber.replace(/\s+/g, ''); // Aquí lo que se hace es primero tomar 
-                                                                    // la variable auxiliar para el número de 
-                                                                    // teléfono Eliminar sus espacios luego 
-                                                                    // de que se eliminara sus espacios 
-                                                                    // se convierte de tipo string a tipo 
-                                                                    // number
+    // la variable auxiliar para el número de 
+    // teléfono Eliminar sus espacios luego 
+    // de que se eliminara sus espacios 
+    // se convierte de tipo string a tipo 
+    // number
     this.regPhoneNumber = Number(this.auxPhoneNumber);
 
     this.regEmail = this.regEmail.replace(/\s+/g, ''); // más de lo mismo: reemplazar espacios
@@ -142,9 +142,13 @@ export class SignupComponent {
     this.isPasswordFocused;
     this.isPasswordFocused2;
 
+    
     if (this.regName === '') {
 
-      this.openErrorModal();
+      // Esta es la lista que quieres mostrar en el modal
+      const errorMessages: string[] = ["Name cannot be empty", "Password must be at least 8 characters"];
+
+      this.openErrorModal( errorMessages );
 
     }
   }
@@ -156,7 +160,10 @@ export class SignupComponent {
   // parametro la lista de errores, para mostrarle 
   // feedback al usuario de qué es lo que 
   // tiene que corregir
-  openErrorModal() {
-    this.modalService.open(ModalErrorComponent);
+  openErrorModal( listOfErrorMessages: string[] ) {
+
+    const modalRef = this.modalService.open(ModalErrorComponent);
+    modalRef.componentInstance.errorList = listOfErrorMessages;  // Pasar la lista de errores
+
   }
 }

@@ -1,3 +1,12 @@
-#errorModal{
+#errorModal {
     display: block;
+}
+
+#titleModalLabel {
+    color: #FA8232;
+}
+
+#modal-footer button {
+    background-color: #FA8232;
+    border-color: #FA8232;
 }
