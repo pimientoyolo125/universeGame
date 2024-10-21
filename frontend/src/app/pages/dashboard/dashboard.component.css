@@ -45,7 +45,7 @@ a:hover {
         flex-direction: column;
     }
 
-    .page-content {
+    #page-content {
         width: 98vw;
     }
 }

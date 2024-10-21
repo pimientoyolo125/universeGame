@@ -4,8 +4,8 @@
     </div>
 
     <div id="page-menu">
-        <div class="d-flex col-4" style="height: fit-content; width: fit-content;">
-            <div class="nav flex-column nav-pills me-3" style="margin: 25px" role="tablist" aria-orientation="vertical">
+        <div class="col-4" style="height: fit-content; width: fit-content; margin: 25px;">
+            <div class="nav flex-column nav-pills me-3"  role="tablist" aria-orientation="vertical">
                 <a class="w-100 nav-item nav-link" routerLink="profile" routerLinkActive="active" style="flex: 1">
                     <i class="bi bi-person icon-large"></i>
                     Profile
@@ -30,7 +30,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-8 page-content" style="margin-bottom: 25px; overflow-x: auto;">
+        <div class="col-8" id="page-content" style="margin-bottom: 25px;">
             <router-outlet></router-outlet>
         </div>
     </div>

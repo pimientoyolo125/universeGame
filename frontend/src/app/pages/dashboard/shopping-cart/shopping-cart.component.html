@@ -1,1 +1,43 @@
-<p>shopping-cart works!</p>
+<div class="d-flex" id="container" style="margin-top: 25px; margin-left: 0px;">
+    <div class="col-9">                
+        <p>SHOPPING CART</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">PRODUCTS</th>
+                    <th scope="col">PRICE</th>
+                    <th scope="col">TAX</th>
+                    <th scope="col">$ AFTER TAXES</th>
+                    <th scope="col">QUANTITY</th>
+                    <th scope="col">SUBTOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>{{ product.nombre }}</td>
+                    <td>COP ${{ redondearPrecio(product) }}</td>
+                    <td><b style="font-weight: 500;">{{ getImpuesto(product)}}%</b></td>
+                    <td>COP ${{ getPrecioImpuesto(product)}}</td>
+                    <td>{{ product.cantidad}}</td>
+                    <td>COP ${{ getPrecioImpuesto(product)}}</td>
+                </tr>
+                <tr *ngIf="products.length === 0">
+                    <td colspan="6" style="text-align: center">No products found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-4">
+        <p style="font-size: 18px; font-weight: 500; margin: 5px; text-align: center;"> Cart Summary</p>
+        <p><b style="font-weight: 500;">Sub-Total: </b>  COP $10.985.450</p>
+        <p><b style="font-weight: 500;">Shipping: </b> Free </p>
+        <p><b style="font-weight: 500;">Discount: </b> COP $0</p>
+        <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
+        <p> <b style="font-weight: 500;">Total:</b>  COP $10.985.450</p>
+        <div class="d-flex justify-content-center">
+            <button>PROCEED TO CHECKOUT <i class="bi bi-arrow-right"></i></button>
+        </div>
+
+    </div>
+</div>
