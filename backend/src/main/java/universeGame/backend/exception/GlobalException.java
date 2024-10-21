@@ -42,7 +42,7 @@ public class GlobalException {
             WebRequest request
     ) {
         ErrorResponse error = new ErrorResponse();
-        error.setMessage("Errores de validación");
+        error.setMessage("Validations failed");
         error.setCode(400);
         error.setRute(request.getDescription(false));
 

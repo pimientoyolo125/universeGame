@@ -9,12 +9,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import universeGame.backend.config.TokenUtil;
+import universeGame.backend.dto.LoginResponseDTO;
 import universeGame.backend.dto.UsuarioDTO;
 import universeGame.backend.dto.UsuarioLoginDTO;
 import universeGame.backend.dto.UsuarioRegisterDTO;
 import universeGame.backend.mappers.UsuarioMapper;
 import universeGame.backend.model.Usuario;
 import universeGame.backend.service.interfaces.UsuarioService;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/usuario")
@@ -36,12 +41,20 @@ public class UsuarioController {
 
     @PostMapping("/login")
     @Schema(description = "Iniciar sesión")
-    public ResponseEntity<UsuarioDTO> login(
+    public ResponseEntity<LoginResponseDTO> login(
             @RequestBody @Valid UsuarioLoginDTO usuarioLoginDTO
     ) {
         Usuario usuarioSave = usuarioService.login(usuarioLoginDTO);
-        UsuarioDTO usuarioDTO = UsuarioMapper.INSTANCE.toUsuarioDTO(usuarioSave);
-        return ResponseEntity.ok(usuarioDTO);
+        String token = TokenUtil.createToken(
+                usuarioSave.getNombre(),
+                usuarioSave.getCorreo(),
+                usuarioSave.getTipoUsuario().getId());
+
+        LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
+        loginResponseDTO.setToken(token);
+        loginResponseDTO.setMessage("Successful login");
+
+        return ResponseEntity.ok(loginResponseDTO);
     }
 
 
