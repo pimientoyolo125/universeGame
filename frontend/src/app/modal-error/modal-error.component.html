@@ -1,18 +1,22 @@
 <div class="modal" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="titleModalLabel">Error</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"  (click)="activeModal.close()"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <i id="headerDangerIcon" class="bi bi-exclamation-triangle-fill" ></i>
+                <h1 class="modal-title" id="titleModalLabel">Error en el formulario</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="activeModal.close()"></button>
+            </div>
+            <div class="modal-body">
+                <p>Por favor, vuelva al formulario y resuleva los siguientes errores</p>
+                <ul>
+                    <li *ngFor="let error of errorList">{{ error }}</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeErrorModal()"
+                    data-bs-dismiss="modal">Close</button>
+            </div>
         </div>
-        <div class="modal-body">
-            <ul>
-                <li *ngFor="let error of errorList">{{ error }}</li>
-              </ul>
-        </div>
-        <div class="modal-footer">
-          <button type="button"  class="btn btn-secondary" (click)="closeErrorModal()" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
