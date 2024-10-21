@@ -6,7 +6,6 @@ import universeGame.backend.exception.CustomException;
 import universeGame.backend.model.Carrito;
 import universeGame.backend.model.Usuario;
 import universeGame.backend.repository.CarritoRepository;
-import universeGame.backend.repository.UsuarioRepository;
 import universeGame.backend.service.interfaces.CarritoService;
 import universeGame.backend.service.interfaces.UsuarioService;
 
@@ -23,6 +22,15 @@ public class CarritoServiceImpl implements CarritoService {
 
         return carritoRepository
                 .findByUsuarioId(usuario.getId())
+                .orElseThrow(
+                        () -> new CustomException("Cart not found")
+                );
+    }
+
+    @Override
+    public Carrito obtenerCarritoPorId(Long id) {
+        return carritoRepository
+                .findById(id)
                 .orElseThrow(
                         () -> new CustomException("Cart not found")
                 );
