@@ -41,8 +41,11 @@ export class SignupComponent {
     // de que se eliminara sus espacios 
     // se convierte de tipo string a tipo 
     // number
-    this.regPhoneNumber = Number( this.auxPhoneNumber.replace(/\s+/g, '') );
+    this.auxPhoneNumber = this.auxPhoneNumber.replace(/\s+/g, '');
+    this.regPhoneNumber = Number( this.auxPhoneNumber );
 
+    this.regEmail = this.regEmail.replace(/\s+/g, '');
+    
     console.log("Email: ", this.regEmail, " and ", "Password: ", this.regPassword);
     console.log("Name: ", this.regName, " and ", "LastName: ", this.regLastName);
     console.log("Numero de telefono: ", this.regPhoneNumber);
