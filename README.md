@@ -2,7 +2,7 @@
 
 ### Integrantes:
 - **Juan Diego Roa Porras** - 2210086
-- **Andrés Felipe Muñoz Aguilar** - 2210087(changes done)
+- **Andrés Felipe Muñoz Aguilar** - 2210087
 - **Miguel Fernando Pimiento Escobar** - 2210054
 - **Santiago Andrés Delgado Quiceno** - 2211799
 
