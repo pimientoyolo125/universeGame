@@ -40,7 +40,7 @@ export class ShoppingCartComponent implements OnInit{
     ).subscribe(
       (response) => {
         this.products = response.slice(0, 3);
-        console.log(response.length);
+        //console.log(response.length);
       },
       (error) => {
         console.error('Error fetching filteredProducts', error);

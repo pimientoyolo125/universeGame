@@ -7,12 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AppService {
-
   url = environment.Url;
-
-  constructor(
-    private http: HttpClient
-  ) { }
+  
+  constructor( private http: HttpClient) {}
 
   getProducts(): Observable<any> {
     return this.http.get(this.url + '/producto/listar');
@@ -37,5 +34,10 @@ export class AppService {
     }
 
     return this.http.post(this.url + '/producto/listar/filtro', marca, {params});
+  }
+
+  login(correo:string, contrasena:string): Observable<any> {
+    const body = { correo, contrasena };
+    return this.http.post(this.url + '/usuario/login', body);
   }
 }

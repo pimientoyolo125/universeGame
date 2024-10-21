@@ -13,6 +13,7 @@
                 [(ngModel)]="logPassword" id="logPassword" placeholder="8+ Characters">
                 <i class="bi" [ngClass]="isPasswordVisible ? 'bi-eye' : 'bi-eye-slash'"
                     (click)="togglePasswordVisibility()" style="cursor: pointer;"></i>
+                <p *ngIf="errPassword !== ''">{{errPassword}}</p>
             </div>
         </div>
 
@@ -41,7 +42,6 @@
                 </svg>
                 <span class="text-center flex-grow-1">Sign In with Apple</span>
             </button>
-        </div>
-        
+        </div> 
     </form>
 </div>
