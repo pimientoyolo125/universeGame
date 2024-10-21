@@ -19,7 +19,7 @@ export class SigninComponent {
   logEmail: string = '';
   error: string = '';
   isPasswordFocused: boolean = false;
-
+  isEmailFocused: boolean = false;
 
   constructor(
     private appService: AppService,
@@ -33,12 +33,19 @@ export class SigninComponent {
 
   assignPasswordValue(event: any) {
     this.logPassword = event.target.value;
-    console.log(this.logPassword);
+    //console.log(this.logPassword);
   }
 
   onPasswordFocus(){
     this.isPasswordFocused = true;
-    console.log("esta focused input contraseña")
+    this.error = '';
+    //console.log("esta focused input contraseña")
+  }
+
+  onEmailFocus(){
+    this.isEmailFocused = true;
+    this.error = '';
+    //console.log("esta focused input contraseña")
   }
 
   login(): void {
@@ -54,7 +61,7 @@ export class SigninComponent {
         }
       },
       (error) => {
-        //console.error('Error fetching filteredProducts', error);
+        console.error('Error fetching filteredProducts', error);
         this.error = error.error.message;
       }
     );
