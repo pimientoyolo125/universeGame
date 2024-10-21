@@ -8,4 +8,6 @@ public interface CarritoService {
 
     Carrito obtenerCarritoPorId(Long id);
 
+    Carrito vaciarCarrito(String correoUsuario);
+
 }
