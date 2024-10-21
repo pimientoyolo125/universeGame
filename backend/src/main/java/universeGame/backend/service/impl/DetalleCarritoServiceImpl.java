@@ -82,6 +82,22 @@ public class DetalleCarritoServiceImpl implements DetalleCarritoService {
         return detalleCarritoRepository.save(detalleCarrito);
     }
 
+    @Override
+    @Transactional
+    public void eliminarDetalleCarrito(Long idDetalleCarrito) {
+        DetalleCarrito detalleCarrito = getById(idDetalleCarrito);
+
+        Carrito carrito = carritoService.obtenerCarritoPorId(detalleCarrito.getCarrito().getId());
+
+        Producto producto = productoService.getById(detalleCarrito.getProducto().getId());
+
+        carrito.setTotal(carrito.getTotal() - (producto.getPrecio() * detalleCarrito.getCantidad()));
+
+        carritoRepository.save(carrito);
+
+        detalleCarritoRepository.deleteById(idDetalleCarrito);
+    }
+
     // validation
 
     private DetalleCarrito getCarritoAgrearDetalleCarrito(Carrito carrito, Producto producto) {

@@ -10,4 +10,6 @@ public interface DetalleCarritoService {
     DetalleCarrito actualizarDetalleCarrito(Long idDetalleCarrito, Integer cantidad);
 
     DetalleCarrito getById(Long idDetalleCarrito);
+
+    void eliminarDetalleCarrito(Long idDetalleCarrito);
 }

@@ -38,6 +38,15 @@ public class DetalleCarritoController {
         return ResponseEntity.ok(DetalleCarritoMapper.INSTANCE.toDetalleCarritoDTO(detalleCarrito));
     }
 
+    @DeleteMapping("/eliminar/{idDetalleCarrito}")
+    @Schema(description = "Eliminar un detalle del carrito")
+    public ResponseEntity<Void> eliminarDetalleCarrito(
+            @PathVariable Long idDetalleCarrito
+            ) {
+        detalleCarritoService.eliminarDetalleCarrito(idDetalleCarrito);
+        return ResponseEntity.noContent().build();
+    }
+
 
 
 
