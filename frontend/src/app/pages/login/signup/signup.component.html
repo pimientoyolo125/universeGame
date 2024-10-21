@@ -3,12 +3,17 @@
         <div class="mb-3">
             <p class="form-label">Name</p>
             <input type="text" class="form-control" id="name" [(ngModel)]="regName" name="regName"
-                autocomplete="Default Name">
+                autocomplete="Default Name" placeholder="Jhon/Jane">
         </div>
 
         <div class="mb-3">
             <p class="form-label">Last Name</p>
-            <input type="text" class="form-control" id="lastName" [(ngModel)]="regLastName" name="regLastName">
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="regLastName" name="regLastName" placeholder="Doe">
+        </div>
+
+        <div class="mb-3">
+            <p class="form-label">Telephone Number</p>
+            <input type="text" class="form-control" id="phoneNumber" placeholder="312 3456789"  [(ngModel)]="regPhoneNumber" name="regPhoneNumber">
         </div>
 
         <div class="mb-3">
@@ -22,13 +27,14 @@
             <div class="password-toggle" style="display: flex; align-items: center;">
                 <input type="{{ isPasswordVisible ? 'text' : 'password' }}" class="form-control" id="password"
                     placeholder="8+ Characters" required [(ngModel)]="regPassword" name="regPassword"
-                    (input)="assignPasswordValue($event)"  (focus)="onPasswordFocus()">
+                    (input)="assignPasswordValue($event)" (focus)="onPasswordFocus()">
                 <i class="bi" [ngClass]="isPasswordVisible ? 'bi-eye' : 'bi-eye-slash'"
                     (click)="togglePasswordVisibility()" style="cursor: pointer;"></i>
             </div>
 
 
-            <p *ngIf="isPasswordFocused && regPassword.length <= 8"  style="color: red; font-weight: bold;">* La contraseña debe tener mínimo
+            <p *ngIf="isPasswordFocused && regPassword.length <= 8" style="color: red; font-weight: bold;">* La
+                contraseña debe tener mínimo
                 8 caracteres * </p>
         </div>
 
@@ -37,13 +43,14 @@
             <div class="password-toggle" style="display: flex; align-items: center;">
                 <input type="{{ isPasswordVisible ? 'text' : 'password' }}" class="form-control" id="confirmPassword"
                     placeholder="8+ Characters" required [(ngModel)]="regRepPassword" name="regRepPassword"
-                    (input)="assignPasswordValue2($event)"  (focus)="onPasswordFocus2()">
+                    (input)="assignPasswordValue2($event)" (focus)="onPasswordFocus2()">
                 <i class="bi" [ngClass]="isPasswordVisible ? 'bi-eye' : 'bi-eye-slash'"
                     (click)="togglePasswordVisibility()" style="cursor: pointer;"></i>
             </div>
 
 
-            <p *ngIf="isPasswordFocused2 && regRepPassword.length <= 8"  style="color: red; font-weight: bold;">* La contraseña debe tener mínimo
+            <p *ngIf="isPasswordFocused2 && regRepPassword.length <= 8" style="color: red; font-weight: bold;">* La
+                contraseña debe tener mínimo
                 8 caracteres * </p>
         </div>
 
