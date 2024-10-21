@@ -42,10 +42,12 @@ export class SignupComponent {
     // se convierte de tipo string a tipo 
     // number
     this.auxPhoneNumber = this.auxPhoneNumber.replace(/\s+/g, '');
-    this.regPhoneNumber = Number( this.auxPhoneNumber );
+    this.regPhoneNumber = Number(this.auxPhoneNumber);
 
     this.regEmail = this.regEmail.replace(/\s+/g, '');
-    
+
+    this.basicVerifications();
+
     console.log("Email: ", this.regEmail, " and ", "Password: ", this.regPassword);
     console.log("Name: ", this.regName, " and ", "LastName: ", this.regLastName);
     console.log("Numero de telefono: ", this.regPhoneNumber);
@@ -105,6 +107,24 @@ export class SignupComponent {
 
     // Retornar el texto antes del primer espacio
     return text.substring(0, firstSpaceIndex);
+  }
+
+
+  // esta funcion, cambia ciclicamente el valor
+  // de la varaible policies, para dar a entender 
+  // si el usuario aceptó o no los términos y condiciones 
+  toggleCheckbox(): void {
+    this.regCheck = !this.regCheck;  // Cambiar al valor contrario
+  }
+
+  // en esta funcion se hacen verificaciones básicas
+  // sobre los datos del formulario y, en caso de pasar 
+  // todas las verificaciones, permite realizar el login 
+  // de lo contrario, muestra un pop up con las indicaciones
+  // que debe seguir para corregir sus errores en el 
+  // formulario
+  basicVerifications() {
+
   }
 
 }
