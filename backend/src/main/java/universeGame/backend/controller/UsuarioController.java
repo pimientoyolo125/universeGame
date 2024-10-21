@@ -5,10 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import universeGame.backend.config.TokenUtil;
 import universeGame.backend.dto.LoginResponseDTO;
 import universeGame.backend.dto.UsuarioDTO;
@@ -56,6 +53,15 @@ public class UsuarioController {
 
         return ResponseEntity.ok(loginResponseDTO);
     }
+
+    @GetMapping("/validToken")
+    @Schema(description = "Validar token, retorna true si el token es válido, 401 de codigo http si no es asi")
+    public ResponseEntity<Boolean> validarToken(
+            @RequestHeader("Authorization") String token
+    ) {
+        return ResponseEntity.ok(true);
+    }
+
 
 
     @Autowired
