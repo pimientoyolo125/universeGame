@@ -7,7 +7,6 @@ import java.util.List;
 @Data
 public class CarritoDTO {
     private Long id;
-    private UsuarioDTO usuario;
     private Double total;
     private List<DetalleCarritoDTO> detalleCarrito;
 }

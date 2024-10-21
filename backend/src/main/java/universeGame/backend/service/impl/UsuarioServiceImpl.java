@@ -79,6 +79,17 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioBD;
     }
 
+    @Override
+    public Usuario findByCorreo(String correo) {
+
+        correo = correo.trim().toLowerCase();
+
+        return usuarioRepository.findByCorreoIgnoreCase(correo)
+                .orElseThrow(
+                        () -> new CustomException("User not found")
+                );
+    }
+
 
     //--------validation ---------------------
 
@@ -128,6 +139,8 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new CustomException("The phone number must have more than 5 characters");
         }
     }
+
+
 
 
 
