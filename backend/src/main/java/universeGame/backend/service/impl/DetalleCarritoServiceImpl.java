@@ -25,8 +25,19 @@ public class DetalleCarritoServiceImpl implements DetalleCarritoService {
     private CarritoRepository carritoRepository;
 
     @Override
+    public DetalleCarrito getById(Long idDetalleCarrito) {
+        return detalleCarritoRepository
+                .findById(idDetalleCarrito)
+                .orElseThrow(() -> new CustomException("Detail not found"));
+    }
+
+    @Override
     @Transactional
     public DetalleCarrito agregarDetalleCarrito(DetalleCarritoAgregarDTO detalleCarritoAgregarDTO) {
+
+        if(detalleCarritoAgregarDTO.getCantidad()<1){
+            throw new CustomException("The quantity must be greater than 0");
+        }
 
         Carrito carrito = carritoService.obtenerCarritoPorId(detalleCarritoAgregarDTO.getIdCarrito());
         Producto producto = productoService.getById(detalleCarritoAgregarDTO.getIdProducto());
@@ -38,6 +49,33 @@ public class DetalleCarritoServiceImpl implements DetalleCarritoService {
         validCantidad(detalleCarrito, producto);
 
         carrito = actualizarCarrito(carrito, detalleCarritoAgregarDTO.getCantidad(), producto);
+
+        detalleCarrito.setCarrito(carrito);
+
+        return detalleCarritoRepository.save(detalleCarrito);
+    }
+
+    @Override
+    @Transactional
+    public DetalleCarrito actualizarDetalleCarrito(Long idDetalleCarrito, Integer cantidad) {;
+
+        if(cantidad<1){
+            throw new CustomException("The quantity must be greater than 0");
+        }
+
+        DetalleCarrito detalleCarrito = getById(idDetalleCarrito);
+
+        Producto producto = productoService.getById(detalleCarrito.getProducto().getId());
+
+        Carrito carrito = carritoService.obtenerCarritoPorId(detalleCarrito.getCarrito().getId());
+
+        carrito.setTotal(carrito.getTotal() - (producto.getPrecio() * detalleCarrito.getCantidad()));
+
+        detalleCarrito.setCantidad(cantidad);
+
+        validCantidad(detalleCarrito, producto);
+
+        carrito = actualizarCarrito(carrito, cantidad, producto);
 
         detalleCarrito.setCarrito(carrito);
 
