@@ -8,6 +8,7 @@ import universeGame.backend.exception.CustomException;
 import universeGame.backend.model.Carrito;
 import universeGame.backend.model.DetalleCarrito;
 import universeGame.backend.model.Producto;
+import universeGame.backend.repository.CarritoRepository;
 import universeGame.backend.repository.DetalleCarritoRepository;
 import universeGame.backend.service.interfaces.CarritoService;
 import universeGame.backend.service.interfaces.DetalleCarritoService;
@@ -21,6 +22,7 @@ public class DetalleCarritoServiceImpl implements DetalleCarritoService {
     private DetalleCarritoRepository detalleCarritoRepository;
     private CarritoService carritoService;
     private ProductoService productoService;
+    private CarritoRepository carritoRepository;
 
     @Override
     @Transactional
@@ -34,6 +36,10 @@ public class DetalleCarritoServiceImpl implements DetalleCarritoService {
         detalleCarrito.setCantidad(detalleCarrito.getCantidad() + detalleCarritoAgregarDTO.getCantidad());
 
         validCantidad(detalleCarrito, producto);
+
+        carrito = actualizarCarrito(carrito, detalleCarritoAgregarDTO.getCantidad(), producto);
+
+        detalleCarrito.setCarrito(carrito);
 
         return detalleCarritoRepository.save(detalleCarrito);
     }
@@ -61,6 +67,12 @@ public class DetalleCarritoServiceImpl implements DetalleCarritoService {
         }
     }
 
+    private Carrito actualizarCarrito(Carrito carrito, Integer cantidad, Producto producto) {
+        carrito.setTotal(carrito.getTotal() + (producto.getPrecio() * cantidad));
+        carrito = carritoRepository.save(carrito);
+        return carrito;
+    }
+
 
 
 
@@ -78,5 +90,10 @@ public class DetalleCarritoServiceImpl implements DetalleCarritoService {
     @Autowired
     public void setProductoService(ProductoService productoService) {
         this.productoService = productoService;
+    }
+
+    @Autowired
+    public void setCarritoRepository(CarritoRepository carritoRepository) {
+        this.carritoRepository = carritoRepository;
     }
 }
