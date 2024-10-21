@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ModalErrorComponent } from '../../../modal-error/modal-error.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-signup',
@@ -11,6 +14,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
+
+  // esto es para construir el servicio que va a desplagar el modal
+  constructor(private modalService: NgbModal) { }
+
   isPasswordVisible: boolean = false;
 
   togglePasswordVisibility() {
@@ -35,16 +42,16 @@ export class SignupComponent {
     this.regName = this.getTextBeforeFirstSpace(this.regName);
     this.regLastName = this.getTextBeforeFirstSpace(this.regLastName);
 
-    // Aquí lo que se hace es primero tomar 
-    // la variable auxiliar para el número de 
-    // teléfono Eliminar sus espacios luego 
-    // de que se eliminara sus espacios 
-    // se convierte de tipo string a tipo 
-    // number
-    this.auxPhoneNumber = this.auxPhoneNumber.replace(/\s+/g, '');
+
+    this.auxPhoneNumber = this.auxPhoneNumber.replace(/\s+/g, ''); // Aquí lo que se hace es primero tomar 
+                                                                    // la variable auxiliar para el número de 
+                                                                    // teléfono Eliminar sus espacios luego 
+                                                                    // de que se eliminara sus espacios 
+                                                                    // se convierte de tipo string a tipo 
+                                                                    // number
     this.regPhoneNumber = Number(this.auxPhoneNumber);
 
-    this.regEmail = this.regEmail.replace(/\s+/g, '');
+    this.regEmail = this.regEmail.replace(/\s+/g, ''); // más de lo mismo: reemplazar espacios
 
     this.basicVerifications();
 
@@ -126,7 +133,7 @@ export class SignupComponent {
   basicVerifications() {
     this.regName;
     this.regLastName;
-    
+
     this.regPhoneNumber;
     this.regEmail;
     this.regPassword;
@@ -135,9 +142,21 @@ export class SignupComponent {
     this.isPasswordFocused;
     this.isPasswordFocused2;
 
-    if( this.regName === '' ){
-      alert('Recuerde rellenar todos los campos')
+    if (this.regName === '') {
+
+      this.openErrorModal();
+
     }
   }
 
+  // esta funcion abre el modal de error. el 
+  // punto es que pasa una lista la cual tiene 
+  // los errores que el usuario cometió y, el 
+  // punto es crear ese modal, usando como 
+  // parametro la lista de errores, para mostrarle 
+  // feedback al usuario de qué es lo que 
+  // tiene que corregir
+  openErrorModal() {
+    this.modalService.open(ModalErrorComponent);
+  }
 }
