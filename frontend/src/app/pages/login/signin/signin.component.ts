@@ -63,10 +63,17 @@ export class SigninComponent {
 
     const isThereError = this.basicVerifications();
 
-    if( isThereError ){ return; }
-    
-
     this.isLoading = true;
+
+    if (isThereError) {
+      this.isLoading = false;
+      return;
+    }
+
+
+
+
+    new Promise(resolve => setTimeout(resolve, 5000));
 
     this.appService.login(
       this.logEmail.trim(), this.logPassword.trim()
@@ -75,16 +82,18 @@ export class SigninComponent {
         if (response.message == 'Successful login') {
           this.tokenService.setToken(response.token);
           this.router.navigate(['/']);
+          this.isLoading = false;
           //console.log(this.tokenService.getToken());
         }
       },
       (error) => {
         console.error('Error fetching filteredProducts', error);
         this.error = error.error.message;
+        this.isLoading = false;
       }
     );
 
-    this.isLoading = false; 
+
   }
 
 
@@ -92,7 +101,7 @@ export class SigninComponent {
   // sobre los campos en el form. esto para que 
   // el usuario no se ponga a poner marikdas en 
   // los campos
-  basicVerifications() : boolean {
+  basicVerifications(): boolean {
 
     let isThereError: boolean = false;
     this.logPassword;
@@ -114,7 +123,7 @@ export class SigninComponent {
     // ============== verificar si la contraseña tiene 8 caracteres o menos ============== 
     (this.logPassword.length <= 8) ? listaDeErrores.push("Password must be more than 8 characters long") : null;
 
-    if(listaDeErrores.length > 0){
+    if (listaDeErrores.length > 0) {
       isThereError = true;
       this.openErrorModal(listaDeErrores)
     }

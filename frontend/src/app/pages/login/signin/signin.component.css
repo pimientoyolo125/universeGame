@@ -8,7 +8,7 @@ form i {
 .form-control:focus {
     outline: none;
     box-shadow: none;
-    border-color: #FA8232; 
+    border-color: #FA8232;
 }
 
 .btn {
@@ -26,21 +26,30 @@ form i {
     border: 1px solid rgb(214, 212, 212);
 }
 
-.otherButton > i {
-    align-self:flex-start;
+.otherButton>i {
+    align-self: flex-start;
 }
 
-
-.spin {
+/* Animación de rotación para el ícono */
+#spinning-loading-arrow.spin {
     animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
+    display: inline-block;
+}
+
+@keyframes spin {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  
+}
+
+/* Estilo para el texto de "Loading..." */
+.loading-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+    /* Cambia el color del texto */
+}
