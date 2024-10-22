@@ -1,31 +1,32 @@
 #container {
     margin-top: 25px;
     margin-left: 15px;
-    /*border: 1px solid rgb(214, 212, 212);
-    box-shadow: 5px 5px 5px rgb(214, 212, 212);*/
+    flex-direction: column;
+    align-items: center;
 }
 
-.col-9 {
+.col-14 {
     border: 1px solid rgb(214, 212, 212);
-    margin-right: 25px;
     margin-bottom: 15px;
-    overflow-x: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+    /*overflow-x: auto;*/
 }
 
-.col-9 > p {
+.col-14 > p {
     margin: 5px;
     padding: 0px;
     font-weight: 500;
 }
 
-.col-4 {
+#subtotal {
+    width: 70%;
     border: 1px solid rgb(214, 212, 212); 
     margin-right: 25px; 
-    width: fit-content;
     height: fit-content;
 }
 
-.col-4 > p {
+#subtotal > p {
     margin: 5px;
     padding: 0px;
     padding-left: 2.5px;
@@ -45,23 +46,56 @@
     border: 1px solid #1B6392;
 }
 
-.col-md-6 {
-    margin-left: 5px; 
-    margin-bottom: 10px; 
-    width: fit-content;
-}
-
-.col-md-6 > p{
-    width: fit-content;
-    margin-left: 5px;
-    display: inline;
-    padding-right: 10px;
-}
-
 .table {
     border-top: 1px solid rgb(214, 212, 212);
     margin-bottom: 0px;
     text-align: center;
+}
+
+td > button {
+    width: 26px; 
+    height: 26px; 
+    padding: 0px; 
+    margin:0px; 
+    margin-right: 10px;
+    border: 0px;
+    background-color: white;
+    font-size: 20px;
+    color: #FA8232;
+}
+
+td > button:hover {
+    color: #1B6392;
+}
+ 
+td, th {
+    vertical-align: middle;
+    text-align: center;
+ }
+
+ .quantity {
+    margin: 5px 0px;
+    height: fit-content;
+    font-size: 18px;
+    align-items: center; justify-content: center;
+}
+
+.quantity > p{
+    margin: 0px;
+    padding: 0px;
+    height: fit-content;
+}
+
+.quantity > button {
+    width: fit-content;
+    background-color: #FA8232;
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #FA8232;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 16px;
 }
 
 @media (max-width:1260px) {

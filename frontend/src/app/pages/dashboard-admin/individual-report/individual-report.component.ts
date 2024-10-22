@@ -18,7 +18,7 @@ export class IndividualReportComponent implements OnInit{
 		private dateAdapter: NgbDateAdapter<string>) {};
   
   sales: any[] = [
-    {id:1, total:100000, fecha:'24/10/19 21:37', comprador:'John Doe', cantidadProductos:5},
+    {id:1, total:10000000, fecha:'24/10/19 21:37', comprador:'John Doe', cantidadProductos:5},
     {id:2, total:250000, fecha:'24/10/19 21:42', comprador:'Michael Jordan', cantidadProductos:1}
   ];
 

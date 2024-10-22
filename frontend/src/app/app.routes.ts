@@ -34,7 +34,7 @@ export const routes: Routes = [
           { path: 'profile', component: ProfileComponent },
           { path: 'shoppingCart', component: ShoppingCartComponent },
           { path: 'orderHistory', component: OrderHistoryComponent },
-          { path: '', redirectTo: 'account', pathMatch: 'full' } 
+          { path: '', redirectTo: 'profile', pathMatch: 'full' } 
         ]    
     },
     {
@@ -44,7 +44,7 @@ export const routes: Routes = [
           { path: 'inventory', component: InventoryComponent },
           { path: 'indReport', component: IndividualReportComponent },
           { path: 'jointReport', component: JointReportComponent },
-          { path: '', redirectTo: 'manager', pathMatch: 'full' } 
+          { path: '', redirectTo: 'inventory', pathMatch: 'full' } 
         ]    
     },
     {

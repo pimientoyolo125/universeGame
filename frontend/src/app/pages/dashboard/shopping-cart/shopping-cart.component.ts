@@ -14,6 +14,7 @@ export class ShoppingCartComponent implements OnInit{
   constructor(private appService: AppService) {};
   
   products: any[] = [];
+  cantidadComprar = 1;
 
   ngOnInit(): void {
     this.filterProducts(); 
@@ -46,5 +47,15 @@ export class ShoppingCartComponent implements OnInit{
         console.error('Error fetching filteredProducts', error);
       }
     );
+  }
+
+  aumentarCantidad(): void {
+    this.cantidadComprar = this.cantidadComprar + 1; 
+  }
+
+  disminuirCantidad(): void {
+    if (this.cantidadComprar > 1) {
+      this.cantidadComprar = this.cantidadComprar - 1;
+    }
   }
 }
