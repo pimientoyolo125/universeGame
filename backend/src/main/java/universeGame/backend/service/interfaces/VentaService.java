@@ -12,4 +12,6 @@ public interface VentaService {
 
     List<Venta> listarTodosUsuario(String correoUsuario);
 
+    Venta registrar(String correoUsuario,String observaciones);
+
 }

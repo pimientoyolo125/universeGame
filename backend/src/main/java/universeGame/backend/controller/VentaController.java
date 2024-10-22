@@ -47,7 +47,18 @@ public class VentaController {
         List<VentaDTO> ventasDTO = VentaMapper.INSTANCE.toVentaDTOs(ventas);
         return ResponseEntity.ok(ventasDTO);
     }
-    
+
+    @PostMapping("/registrar")
+    @Schema(description = "Registar una venta del carrito")
+    public ResponseEntity<VentaDTO> registrar(
+            @RequestParam(value = "correoUsuario") String correoUsuario,
+            @RequestParam(value = "observaciones") String observaciones
+    ) {
+        Venta venta = ventaService.registrar(correoUsuario, observaciones);
+        VentaDTO ventaDTO = VentaMapper.INSTANCE.toVentaDTO(venta);
+        return ResponseEntity.ok(ventaDTO);
+    }
+
 
 
 
