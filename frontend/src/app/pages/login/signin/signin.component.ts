@@ -24,6 +24,7 @@ export class SigninComponent {
   error: string = '';
   isPasswordFocused: boolean = false;
   isEmailFocused: boolean = false;
+  isLoading: boolean = false;
 
 
   constructor(
@@ -65,7 +66,8 @@ export class SigninComponent {
     if( isThereError ){ return; }
     
 
-    console.log("sí se hizo login")
+    this.isLoading = true;
+
     this.appService.login(
       this.logEmail.trim(), this.logPassword.trim()
     ).subscribe(
@@ -81,6 +83,8 @@ export class SigninComponent {
         this.error = error.error.message;
       }
     );
+
+    this.isLoading = false; 
   }
 
 
