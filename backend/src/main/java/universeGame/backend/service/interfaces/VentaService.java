@@ -10,4 +10,6 @@ public interface VentaService {
 
     List<Venta> listarTodosFiltro(Long idProducto, boolean descFecha);
 
+    List<Venta> listarTodosUsuario(String correoUsuario);
+
 }

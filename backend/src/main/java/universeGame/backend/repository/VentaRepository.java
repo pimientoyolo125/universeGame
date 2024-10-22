@@ -26,4 +26,11 @@ public interface VentaRepository extends JpaRepository<Venta, Long> {
     )
     List<Venta> listarTodosFiltroAsc(Long idProducto);
 
+    @Query(
+            "SELECT v FROM Venta v " +
+            "WHERE v.usuario.id = :idUsuario " +
+            "ORDER BY v.fecha DESC"
+    )
+    List<Venta> findByUsuarioId(Long idUsuario);
+
 }
