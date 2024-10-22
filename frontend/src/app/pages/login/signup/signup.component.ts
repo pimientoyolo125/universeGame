@@ -4,7 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ModalErrorComponent } from '../../../components/modal-error/modal-error.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { AppService } from '../../../app.service';
+import { Router } from '@angular/router';
+import { UsuarioRegistro } from '../../../models/UserRegisterModel/usuario-registro.model';
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +18,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class SignupComponent {
 
   // esto es para construir el servicio que va a desplagar el modal
-  constructor(private modalService: NgbModal) { }
+  constructor(
+    private modalService: NgbModal,
+    private appService: AppService,
+    private router: Router
+  ) { }
 
   isPasswordVisible: boolean = false;
 
@@ -35,7 +41,7 @@ export class SignupComponent {
   isPasswordFocused: boolean = false;
   isPasswordFocused2: boolean = false;
   isLoading: boolean = false;
-
+  signUpError: string = '';
 
   // aqui se va a hacer el tratamiento de los datos, 
   // para luego ser enviados al signup
@@ -59,7 +65,7 @@ export class SignupComponent {
 
     const isThereError = this.basicVerifications();
 
-    if( isThereError ){
+    if (isThereError) {
       this.isLoading = false;
       return;
     }
@@ -69,10 +75,36 @@ export class SignupComponent {
     console.log("Numero de telefono: ", this.regPhoneNumber);
     console.log("Policies: ", this.regCheck, " and ", "RepeatedPassword:", this.regRepPassword);
 
-    // fingimos algun proceso asincrono
-    setTimeout(() => {
-      this.isLoading = false; // Cuando termine la carga, se oculta el <p>
-    }, 5000);
+    const infoRegUser: UsuarioRegistro = {
+
+      correo: this.regEmail,
+      contrasena: this.regPassword,
+      confirmarContrasena: this.regRepPassword,
+      nombre: this.regName,
+      apellido: this.regLastName,
+      telefono: this.regPhoneNumber
+
+    };
+    this.appService.signUp(
+      infoRegUser
+    ).subscribe(
+      (response) => {
+        console.log("el mensaje del response es: " + response );
+        if (response.message == 'Successful login') {
+          
+          this.router.navigate(['login/signin']);
+          this.isLoading = false;
+          //console.log(this.tokenService.getToken());
+        }
+      },
+      (error) => {
+        console.error('Error fetching filteredProducts', error);
+        this.signUpError = error.error.message;
+        this.isLoading = false;
+      }
+    );
+
+
   }
 
 
@@ -186,7 +218,7 @@ export class SignupComponent {
     //  si regPhoneNumber no es un número o si
     //   tiene más de 10 dígitos, entonces, lanza 
     //   un error
-    (isNaN(this.regPhoneNumber) || this.regPhoneNumber.toString().length !== 10 ) ? errorMessages.push("Phone number must be a 10 digits number") : null;
+    (isNaN(this.regPhoneNumber) || this.regPhoneNumber.toString().length !== 10) ? errorMessages.push("Phone number must be a 10 digits number") : null;
 
 
     // ==================== se repitió la contraseña 2 veces? ====================
@@ -198,7 +230,7 @@ export class SignupComponent {
     (this.regRepPassword.length <= 8) ? errorMessages.push("Confirm password must be more than 8 characters long") : null;
 
     // ================== Comprobar si se aceptaron los TyC ==================
-    ( !this.regCheck ) ? errorMessages.push("Please accept Terms and Conditions") : null;
+    (!this.regCheck) ? errorMessages.push("Please accept Terms and Conditions") : null;
 
     //  Finalmente, si hubo algun error, entonces, 
     //  se registró como un string en la lista de 
