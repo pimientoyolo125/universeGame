@@ -99,7 +99,7 @@ export class SearchProductsComponent implements OnInit {
         this.otherBrands = response.slice(9, response.length);
       },
       (error) => {
-        console.error('Error fetching Products', error);
+        console.error('Error fetching Brands', error);
       }
     );
   }
