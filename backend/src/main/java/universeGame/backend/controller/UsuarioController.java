@@ -15,9 +15,6 @@ import universeGame.backend.mappers.UsuarioMapper;
 import universeGame.backend.model.Usuario;
 import universeGame.backend.service.interfaces.UsuarioService;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @RestController
 @RequestMapping("/usuario")
 @Tag(name = "Usuario", description = "Endpoints de usuarios")

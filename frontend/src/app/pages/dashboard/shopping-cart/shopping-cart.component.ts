@@ -63,9 +63,7 @@ export class ShoppingCartComponent implements OnInit{
   }
 
   getCarrito(): void { 
-    this.appService.getCarrito(
-      'admin@admin.com'
-    ).subscribe(
+    this.appService.getCarrito().subscribe(
       (response) => {
         this.carrito = response;
         console.log(this.carrito);
