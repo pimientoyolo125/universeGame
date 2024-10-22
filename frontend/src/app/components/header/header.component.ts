@@ -28,7 +28,6 @@ export class HeaderComponent implements OnInit{
       }else{
         this.admin = this.tokenService.getUser();
       }
-      
     }
 
   onKeydown(event: KeyboardEvent): void {

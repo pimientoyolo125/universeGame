@@ -77,7 +77,7 @@ export class SigninComponent {
         }
       },
       (error) => {
-        console.error('Error fetching filteredProducts', error);
+        console.error('Error fetching login', error);
         this.error = error.error.message;
       }
     );
