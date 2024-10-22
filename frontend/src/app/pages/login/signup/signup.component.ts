@@ -89,18 +89,22 @@ export class SignupComponent {
       infoRegUser
     ).subscribe(
       (response) => {
-        console.log("el mensaje del response es: " + response );
-        if (response.message == 'Successful login') {
+        
+        if (response) {
           
+          console.log(JSON.stringify(response, null, 2)); 
           this.router.navigate(['login/signin']);
           this.isLoading = false;
           //console.log(this.tokenService.getToken());
+          
         }
       },
       (error) => {
+
         console.error('Error fetching filteredProducts', error);
         this.signUpError = error.error.message;
         this.isLoading = false;
+
       }
     );
 
