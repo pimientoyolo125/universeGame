@@ -61,15 +61,18 @@ export class SigninComponent {
     //console.log("Email: ", this.logEmail, " and ", "Password: ", this.logPassword);
     this.logEmail = this.logEmail.replace(/\s+/g, '');
 
+    this.isLoading = true;
+
     const isThereError = this.basicVerifications();
 
-    this.isLoading = true;
 
     if (isThereError) {
       this.isLoading = false;
       return;
     }
 
+
+    new Promise(resolve => setTimeout(resolve, 5000));
 
     this.appService.login(
       this.logEmail.trim(), this.logPassword.trim()
