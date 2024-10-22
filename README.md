@@ -17,12 +17,13 @@
 Este proyecto se enfoca en la creación de un sistema web para la gestión de productos y ventas. Se incluye una tienda online con funcionalidades para que los usuarios puedan buscar productos, añadir al carrito, realizar compras, y para que los administradores puedan gestionar inventarios y reportes de ventas. Además, cuenta con un conjunto completo de documentación, diagramas de base de datos, actividades y cronograma de sprints.
 
 ### Tecnologías Utilizadas:
+
 - **Frontend:**
   
-  ![ReactJS](https://img.shields.io/badge/ReactJS-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+  ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
   ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
   ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-  ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
 - **Backend:**
   
@@ -32,8 +33,9 @@ Este proyecto se enfoca en la creación de un sistema web para la gestión de pr
 
 - **Base de Datos:**
   
-  ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+  ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 
+  
 - **Control de Versiones:**
   
   ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
