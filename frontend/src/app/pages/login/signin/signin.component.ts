@@ -25,6 +25,7 @@ export class SigninComponent {
   isPasswordFocused: boolean = false;
   isEmailFocused: boolean = false;
 
+
   constructor(
     private appService: AppService,
     private tokenService: TokenService,
@@ -58,9 +59,13 @@ export class SigninComponent {
   login(): void {
     //console.log("Email: ", this.logEmail, " and ", "Password: ", this.logPassword);
     this.logEmail = this.logEmail.replace(/\s+/g, '');
-    
-    this.basicVerifications();
 
+    const isThereError = this.basicVerifications();
+
+    if( isThereError ){ return; }
+    
+
+    console.log("sí se hizo login")
     this.appService.login(
       this.logEmail.trim(), this.logPassword.trim()
     ).subscribe(
@@ -83,8 +88,9 @@ export class SigninComponent {
   // sobre los campos en el form. esto para que 
   // el usuario no se ponga a poner marikdas en 
   // los campos
-  basicVerifications() {
+  basicVerifications() : boolean {
 
+    let isThereError: boolean = false;
     this.logPassword;
     this.logEmail;
 
@@ -102,9 +108,14 @@ export class SigninComponent {
 
 
     // ============== verificar si la contraseña tiene 8 caracteres o menos ============== 
-    ( this.logPassword.length <= 8 ) ? listaDeErrores.push("Password must be more than 8 characters long") : null;
+    (this.logPassword.length <= 8) ? listaDeErrores.push("Password must be more than 8 characters long") : null;
 
-    (listaDeErrores.length > 0) ? this.openErrorModal(listaDeErrores) : null;
+    if(listaDeErrores.length > 0){
+      isThereError = true;
+      this.openErrorModal(listaDeErrores)
+    }
+
+    return isThereError;
 
   }
 
