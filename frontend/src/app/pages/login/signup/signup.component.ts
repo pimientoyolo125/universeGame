@@ -135,20 +135,6 @@ export class SignupComponent {
     let errorMessages: string[] = [];
     let auxString: string = '';
 
-    this.regName;
-    this.regLastName;
-
-    this.regPhoneNumber;
-
-    this.regEmail;
-
-
-    this.regPassword;
-    this.regRepPassword;
-
-    this.regCheck;
-
-
     // ==================== seccion que chequea que no falte nigun valor ====================
 
     // aqui hay condiciones consecutivas que, cuando
