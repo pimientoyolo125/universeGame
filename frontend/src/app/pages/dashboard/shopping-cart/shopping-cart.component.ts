@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppService } from '../../../app.service';
 import { CommonModule } from '@angular/common';
+import { TokenService } from '../../../token.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -11,13 +12,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './shopping-cart.component.css'
 })
 export class ShoppingCartComponent implements OnInit{
-  constructor(private appService: AppService) {};
+  constructor(private appService: AppService, private tokenService:TokenService) {};
   
   products: any[] = [];
+  carrito: any[] = [];
   cantidadComprar = 1;
 
   ngOnInit(): void {
     this.filterProducts(); 
+    this.getCarrito();
   }
 
   getPrecioImpuesto(product: any): string {
@@ -57,5 +60,17 @@ export class ShoppingCartComponent implements OnInit{
     if (this.cantidadComprar > 1) {
       this.cantidadComprar = this.cantidadComprar - 1;
     }
+  }
+
+  getCarrito(): void { 
+    this.appService.getCarrito().subscribe(
+      (response) => {
+        this.carrito = response;
+        console.log(this.carrito);
+      },
+      (error) => {
+        console.error('Error fetching shoppingCart', error);
+      }
+    );
   }
 }

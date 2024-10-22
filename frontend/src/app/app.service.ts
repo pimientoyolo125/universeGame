@@ -3,16 +3,22 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../environment';
 import { Observable } from 'rxjs';
 import { UsuarioRegistro } from './models/UserRegisterModel/usuario-registro.model';
+import { TokenService } from './token.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
-  url = environment.Url;
+  url = environment.Url; 
+  headers: any = {};
 
-  
-
-  constructor(private http: HttpClient) { }
+  constructor( private http: HttpClient, private tokenService:TokenService) {
+    this.headers  = new HttpHeaders({
+      'Authorization': `Bearer ${this.tokenService.getToken()}`  
+    });
+    //console.log(this.headers);
+  }
 
   getProducts(): Observable<any> {
     return this.http.get(this.url + '/producto/listar');
@@ -42,6 +48,27 @@ export class AppService {
   login(correo: string, contrasena: string): Observable<any> {
     const body = { correo, contrasena };
     return this.http.post(this.url + '/usuario/login', body);
+  }
+
+  getCarrito(): Observable<any> {
+    var headers = this.headers;
+    var correo = this.tokenService.getUser()?.correo;
+    return this.http.get(this.url + `/carrito/usuario/${correo}`, {headers});
+  }
+
+  añadirProductoCarrito(idProducto:number, cantidad:number): void {
+    var headers = this.headers;
+    this.getCarrito().subscribe(
+      (carrito)=> {
+        const idCarrito = carrito.id;
+        const body = { idCarrito, idProducto, cantidad};
+        this.http.get(this.url + `/detalle-carrito/agregar`, {headers}).subscribe(
+          (res)=> {
+            console.log('Producto de id', idProducto, " Agregado x", cantidad)
+          }
+        );
+      }
+    );
   }
 
   signUp( informacionDeRegistro: UsuarioRegistro ): Observable<any> {

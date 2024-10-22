@@ -22,7 +22,7 @@ export class InventoryComponent implements OnInit{
 
   ngOnInit(): void {
     this.getCategories();
-    this.getProducts(); 
+    this.filterProducts(); 
   }
 
   selectedCategory: number = 1;
@@ -46,17 +46,6 @@ export class InventoryComponent implements OnInit{
   redondearPrecio(product: any): string {
     const precioRedondeado = Math.round(product.precio / 50) * 50;
     return precioRedondeado.toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-  }
-
-  getProducts(): void {
-    this.appService.getProducts().subscribe(
-      (response) => {
-        this.products = response.sort((a: any, b: any) => a.id - b.id); 
-      },
-      (error) => {
-        console.error('Error fetching latest products', error);
-      }
-    );
   }
 
   getCategories(): void {

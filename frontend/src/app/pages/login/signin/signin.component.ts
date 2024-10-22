@@ -71,10 +71,6 @@ export class SigninComponent {
     }
 
 
-
-
-    new Promise(resolve => setTimeout(resolve, 5000));
-
     this.appService.login(
       this.logEmail.trim(), this.logPassword.trim()
     ).subscribe(

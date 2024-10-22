@@ -15,10 +15,14 @@ import { TokenService } from '../../token.service';
 export class DashboardAdminComponent {
   constructor(private router: Router, private route: ActivatedRoute, 
     private tokenService:TokenService) {
-      if (!this.tokenService.isAuthenticated()) {
-        alert("You haven't signed in yet, please do it and try again.");
-        this.router.navigate(['/login']);
-      }
+      this.tokenService.isAuthenticated().subscribe(
+        (isAuth) => {
+          if (!isAuth) {
+            alert("You haven't signed in yet, please do it and try again.");
+            this.router.navigate(['/login']);
+          }
+        }
+      )
     }
 
   logout() {
