@@ -72,8 +72,6 @@ export class SigninComponent {
     }
 
 
-    new Promise(resolve => setTimeout(resolve, 5000));
-
     this.appService.login(
       this.logEmail.trim(), this.logPassword.trim()
     ).subscribe(
@@ -86,7 +84,7 @@ export class SigninComponent {
         }
       },
       (error) => {
-        console.error('Error fetching filteredProducts', error);
+        console.error('Error fetching logIn', error);
         this.error = error.error.message;
         this.isLoading = false;
       }
