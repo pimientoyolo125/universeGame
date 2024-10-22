@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { AppService } from '../../../app.service';
 import { TokenService } from '../../../token.service';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalErrorComponent } from '../../../components/modal-error/modal-error.component';
 
 @Component({
   selector: 'app-signin',
@@ -14,6 +16,8 @@ import { Router } from '@angular/router';
   styleUrl: './signin.component.css'
 })
 export class SigninComponent {
+
+
   isPasswordVisible: boolean = false;
   logPassword: string = '';
   logEmail: string = '';
@@ -24,7 +28,10 @@ export class SigninComponent {
   constructor(
     private appService: AppService,
     private tokenService: TokenService,
-    private router: Router
+    private router: Router,
+    // esto es para construir el servicio que va a desplagar el modal
+    private modalService: NgbModal
+
   ) { }
 
   togglePasswordVisibility() {
@@ -36,20 +43,24 @@ export class SigninComponent {
     //console.log(this.logPassword);
   }
 
-  onPasswordFocus(){
+  onPasswordFocus() {
     this.isPasswordFocused = true;
     this.error = '';
     //console.log("esta focused input contraseña")
   }
 
-  onEmailFocus(){
+  onEmailFocus() {
     this.isEmailFocused = true;
     this.error = '';
     //console.log("esta focused input contraseña")
   }
 
   login(): void {
-    //console.log("Email: ", this.logEmail, " and ", "Password: ", this.logPassword); 
+    //console.log("Email: ", this.logEmail, " and ", "Password: ", this.logPassword);
+    this.logEmail = this.logEmail.replace(/\s+/g, '');
+    
+    this.basicVerifications();
+
     this.appService.login(
       this.logEmail.trim(), this.logPassword.trim()
     ).subscribe(
@@ -65,5 +76,51 @@ export class SigninComponent {
         this.error = error.error.message;
       }
     );
+  }
+
+
+  // esta funcion hace verificaciones sencillas 
+  // sobre los campos en el form. esto para que 
+  // el usuario no se ponga a poner marikdas en 
+  // los campos
+  basicVerifications() {
+
+    this.logPassword;
+    this.logEmail;
+
+    let listaDeErrores: string[] = [];
+    let auxString = '';
+
+    auxString += (this.logEmail === '') ? "E-mail, " : "";
+    auxString += (this.logPassword === '') ? "Password, " : "";
+
+    if (auxString.length > 0) {
+      auxString = auxString.slice(0, -2);
+
+      listaDeErrores.push("Please complete the following fields: " + auxString);
+    }
+
+
+    // ============== verificar si la contraseña tiene 8 caracteres o menos ============== 
+    ( this.logPassword.length <= 8 ) ? listaDeErrores.push("Password must be more than 8 characters long") : null;
+
+    (listaDeErrores.length > 0) ? this.openErrorModal(listaDeErrores) : null;
+
+  }
+
+
+
+  // esta funcion abre el modal de error. el 
+  // punto es que pasa una lista la cual tiene 
+  // los errores que el usuario cometió y, el 
+  // punto es crear ese modal, usando como 
+  // parametro la lista de errores, para mostrarle 
+  // feedback al usuario de qué es lo que 
+  // tiene que corregir
+  openErrorModal(listOfErrorMessages: string[]) {
+
+    const modalRef = this.modalService.open(ModalErrorComponent);
+    modalRef.componentInstance.errorList = listOfErrorMessages;  // Pasar la lista de errores
+
   }
 }

@@ -4,7 +4,8 @@
             <p class="form-label">Email address</p>
             <input type="text" class="form-control" placeholder="Enter email" [(ngModel)]="logEmail" name="logEmail"
                 autocomplete="def@def.com" (focus)="onEmailFocus()">
-            <p *ngIf="isEmailFocused && logEmail.length<=6" style="color: red; font-weight: 500;">* The email is not valid *</p>
+            <p *ngIf="isEmailFocused && logEmail.length<=6" style="color: red; font-weight: 500;">* The email is not
+                valid *</p>
         </div>
 
         <div class="mb-3" style="margin-bottom: 0px;">
@@ -14,13 +15,14 @@
             <div class="password-toggle" style="display: flex; align-items: center;">
                 <input type="{{ isPasswordVisible ? 'text' : 'password' }}" class="form-control" name="password"
                     [(ngModel)]="logPassword" id="logPassword" placeholder="8+ Characters"
-                    (input)="assignPasswordValue($event)" (focus)="onPasswordFocus()" >
+                    (input)="assignPasswordValue($event)" (focus)="onPasswordFocus()">
                 <i class="bi" [ngClass]="isPasswordVisible ? 'bi-eye' : 'bi-eye-slash'"
                     (click)="togglePasswordVisibility()" style="cursor: pointer;"></i>
             </div>
 
-            <p *ngIf="isPasswordFocused && logPassword.length < 8"  style="color: red; font-weight: 500;">* The Password must be at least 8 characters long * </p>
-            <p *ngIf="error != '' "  style="color: red; font-weight: 500;">* {{error}}* </p>
+            <p *ngIf="isPasswordFocused && logPassword.length < 8" style="color: red; font-weight: 500;">* The Password
+                must be at least 8 characters long * </p>
+            <p *ngIf="error != '' " style="color: red; font-weight: 500;">* {{error}}* </p>
         </div>
 
         <button class="btn btn-primary mb-3" style="width: 100%;" (click)="login()">
