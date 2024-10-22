@@ -34,11 +34,15 @@ export class SignupComponent {
   regCheck: boolean = false;
   isPasswordFocused: boolean = false;
   isPasswordFocused2: boolean = false;
+  isLoading: boolean = false;
 
 
   // aqui se va a hacer el tratamiento de los datos, 
   // para luego ser enviados al signup
   signup(): void {
+
+    this.isLoading = true;
+
     this.regName = this.getTextBeforeFirstSpace(this.regName);
     this.regLastName = this.getTextBeforeFirstSpace(this.regLastName);
 
@@ -53,12 +57,22 @@ export class SignupComponent {
 
     this.regEmail = this.regEmail.replace(/\s+/g, ''); // más de lo mismo: reemplazar espacios
 
-    this.basicVerifications();
+    const isThereError = this.basicVerifications();
+
+    if( isThereError ){
+      this.isLoading = false;
+      return;
+    }
 
     console.log("Email: ", this.regEmail, " and ", "Password: ", this.regPassword);
     console.log("Name: ", this.regName, " and ", "LastName: ", this.regLastName);
     console.log("Numero de telefono: ", this.regPhoneNumber);
     console.log("Policies: ", this.regCheck, " and ", "RepeatedPassword:", this.regRepPassword);
+
+    // fingimos algun proceso asincrono
+    setTimeout(() => {
+      this.isLoading = false; // Cuando termine la carga, se oculta el <p>
+    }, 5000);
   }
 
 
@@ -130,8 +144,9 @@ export class SignupComponent {
   // de lo contrario, muestra un pop up con las indicaciones
   // que debe seguir para corregir sus errores en el 
   // formulario
-  basicVerifications() {
+  basicVerifications(): boolean {
 
+    let isThereError: boolean = false;
     let errorMessages: string[] = [];
     let auxString: string = '';
 
@@ -193,9 +208,13 @@ export class SignupComponent {
     //  el modal que informa de los errores
     if (errorMessages.length > 0) {
 
+      isThereError = true;
       this.openErrorModal(errorMessages);
 
     }
+
+
+    return isThereError;
   }
 
   // esta funcion abre el modal de error. el 

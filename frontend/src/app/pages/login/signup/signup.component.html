@@ -62,6 +62,13 @@
 
         <p *ngIf="!regCheck" style="color: red; font-weight: 500; margin-left: 15px;">* Please accept Terms and Conditions *</p>
 
+        <div
+                style="display: flex; justify-content: center; align-items: center; margin: 15px 0 15px 0; padding: 0;">
+                <p *ngIf="isLoading" class="loading-text" style="margin: 0;">
+                    <i id="spinning-loading-arrow" class="bi bi-arrow-repeat spin"></i> Loading...
+                </p>
+            </div>
+            
         <button (click)="signup()" class="btn btn-primary" style="width: 100%; margin-bottom: 10px;">Sign Up</button>
     </form>
 </div>
