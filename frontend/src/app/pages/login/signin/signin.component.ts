@@ -57,15 +57,13 @@ export class SigninComponent {
   }
 
   login(): void {
-    //console.log("Email: ", this.logEmail, " and ", "Password: ", this.logPassword);
     this.logEmail = this.logEmail.replace(/\s+/g, '');
 
     const isThereError = this.basicVerifications();
 
     if( isThereError ){ return; }
-    
 
-    console.log("sí se hizo login")
+    //console.log("sí se hizo login")
     this.appService.login(
       this.logEmail.trim(), this.logPassword.trim()
     ).subscribe(

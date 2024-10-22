@@ -16,7 +16,7 @@ export class AppService {
     this.headers  = new HttpHeaders({
       'Authorization': `Bearer ${this.tokenService.getToken()}`  
     });
-    console.log(this.headers);
+    //console.log(this.headers);
   }
 
   getProducts(): Observable<any> {
@@ -49,8 +49,24 @@ export class AppService {
     return this.http.post(this.url + '/usuario/login', body);
   }
 
-  getCarrito(correo: string): Observable<any> {
+  getCarrito(): Observable<any> {
     var headers = this.headers;
+    var correo = this.tokenService.getUser()?.correo;
     return this.http.get(this.url + `/carrito/usuario/${correo}`, {headers});
+  }
+
+  añadirProductoCarrito(idProducto:number, cantidad:number): void {
+    var headers = this.headers;
+    this.getCarrito().subscribe(
+      (carrito)=> {
+        const idCarrito = carrito.id;
+        const body = { idCarrito, idProducto, cantidad};
+        this.http.get(this.url + `/detalle-carrito/agregar`, {headers}).subscribe(
+          (res)=> {
+            console.log('Producto de id', idProducto, " Agregado x", cantidad)
+          }
+        );
+      }
+    );
   }
 }

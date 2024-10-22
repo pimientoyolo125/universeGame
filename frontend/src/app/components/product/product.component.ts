@@ -1,5 +1,7 @@
 import { Component, Input, inject, TemplateRef} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AppService } from '../../app.service'; 
+import { TokenService } from '../../token.service';
 
 @Component({
   selector: 'app-product',
@@ -9,6 +11,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
+  constructor(private appService: AppService, private tokenService:TokenService) {};
+
   @Input() product!: { 
     id: number;
     nombre: string;
@@ -56,6 +60,18 @@ export class ProductComponent {
     if (this.cantidadComprar > 1) {
       this.cantidadComprar = this.cantidadComprar - 1;
     }
+  }
+
+  productoAlCarrito():void {
+    this.tokenService.isAuthenticated().subscribe(
+      (isAuth) => {
+        if (isAuth) {
+          this.appService.añadirProductoCarrito(this.product.id, this.cantidadComprar);
+        } else {
+          alert("You haven't signed in yet, you cant add products to your shopping cart.");
+        }
+      }
+    )
   }
 
   redondearPrecio(): string {

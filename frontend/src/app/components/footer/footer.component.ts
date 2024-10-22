@@ -13,36 +13,45 @@ import { CommonModule } from '@angular/common';
 })
 export class FooterComponent {
   constructor(private router: Router, private viewportScroller: ViewportScroller,
-    private tokenService: TokenService) {}
+    private tokenService: TokenService) { }
 
-  onSearch(categorie:number) {
-    this.router.navigate(['/search'], { queryParams: { q: '', c:categorie } });
+  onSearch(categorie: number) {
+    this.router.navigate(['/search'], { queryParams: { q: '', c: categorie } });
   }
 
   goProfile() {
-    if (this.tokenService.isAuthenticated()) {
-      this.router.navigate(['/account/profile']); 
-    }
-    else{
-      this.router.navigate(['/login']);
-    }
+    this.tokenService.isAuthenticated().subscribe(
+      (isAuth) => {
+        if (isAuth) {
+          this.router.navigate(['/account/profile']);
+        } else {
+          this.router.navigate(['/login']);
+        }
+      }
+    )
   }
 
   goShoppingCart() {
-    if (this.tokenService.isAuthenticated()) {
-      this.router.navigate(['/account/shoppingCart']);  
-    }
-    else{
-      this.router.navigate(['/login']);
-    }
+    this.tokenService.isAuthenticated().subscribe(
+      (isAuth) => {
+        if (isAuth) {
+          this.router.navigate(['/account/shoppingCart']);
+        } else {
+          this.router.navigate(['/login']);
+        }
+      }
+    )
   }
 
   goOrderHistory() {
-    if (this.tokenService.isAuthenticated()) {
-      this.router.navigate(['/account/orderHistory']);  
-    }
-    else{
-      this.router.navigate(['/login']);
-    }
+    this.tokenService.isAuthenticated().subscribe(
+      (isAuth) => {
+        if (isAuth) {
+          this.router.navigate(['/account/orderHistory']);
+        } else {
+          this.router.navigate(['/login']);
+        }
+      }
+    )
   }
 }
