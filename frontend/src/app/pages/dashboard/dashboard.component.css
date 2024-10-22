@@ -2,8 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-y: auto;     
-    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 #content {
@@ -38,14 +37,14 @@ a:hover {
     color:black
 }
 
-@media (max-width:768px) {
+@media (max-width:960px) {
     #page-menu {
         width: 98vw;
         align-items: center;
         flex-direction: column;
     }
 
-    .page-content {
+    #page-content {
         width: 98vw;
     }
 }

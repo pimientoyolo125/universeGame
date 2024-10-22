@@ -5,6 +5,7 @@ import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TokenService } from '../../token.service';
 
 @Component({
   selector: 'app-header',
@@ -17,10 +18,18 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent implements OnInit{
   stringProduct: string = '';
-  admin: boolean = true; //Temporal Mientras terminamos el Login
   isMenuCollapsed = true;
+  admin: any = {};
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute, 
+    private tokenService:TokenService) {
+      if (this.tokenService.getUser() == null) {
+        this.admin = {tipo:2};
+      }else{
+        this.admin = this.tokenService.getUser();
+      }
+      
+    }
 
   onKeydown(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
@@ -37,19 +46,39 @@ export class HeaderComponent implements OnInit{
   }
 
   goLogin() {
-    this.router.navigate(['/login']); 
+    if (this.tokenService.isAuthenticated()) {
+      this.router.navigate(['/account/profile']); 
+    }
+    else{
+      this.router.navigate(['/login']);
+    }
   }
 
   goShoppingCart() {
-    this.router.navigate(['/account/shoppingCart']); 
+    if (this.tokenService.isAuthenticated()) {
+      this.router.navigate(['/account/shoppingCart']);  
+    }
+    else{
+      this.router.navigate(['/login']);
+    }
   }
 
   goOrderHistory() {
-    this.router.navigate(['/account/orderHistory']); 
+    if (this.tokenService.isAuthenticated()) {
+      this.router.navigate(['/account/orderHistory']);  
+    }
+    else{
+      this.router.navigate(['/login']);
+    }
   }
 
   goInventory() {
-    this.router.navigate(['/manager/inventory']); 
+    if (this.tokenService.isAuthenticated()) {
+      this.router.navigate(['/manager/inventory']);  
+    }
+    else{
+      this.router.navigate(['/login']);
+    }
   }
 
   ngOnInit(): void {
@@ -57,6 +86,5 @@ export class HeaderComponent implements OnInit{
       this.stringProduct = params['q'];
     });
   }
-  
 }
 

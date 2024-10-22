@@ -1,0 +1,22 @@
+<div class="modal" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i id="headerDangerIcon" class="bi bi-exclamation-triangle-fill" ></i>
+                <h1 class="modal-title" id="titleModalLabel">Error in form</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="activeModal.close()"></button>
+            </div>
+            <div class="modal-body">
+                <p>Please, solve the following errors in the form fields</p>
+                <ul>
+                    <li *ngFor="let error of errorList">{{ error }}</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeErrorModal()"
+                    data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

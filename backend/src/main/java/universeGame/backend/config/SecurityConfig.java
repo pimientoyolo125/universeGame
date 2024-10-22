@@ -29,6 +29,10 @@ public class  SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/usuario/login").permitAll()
                         .requestMatchers("/usuario/registrar").permitAll()
+                        .requestMatchers("/producto/listar").permitAll()
+                        .requestMatchers("/producto/listar/filtro").permitAll()
+                        .requestMatchers("/producto/listar/marcas").permitAll()
+                        .requestMatchers("/tipo-producto/listar").permitAll()
                         .requestMatchers("/swagger-ui/**").permitAll()
                         .requestMatchers("/v3/api-docs/**").permitAll()
                         .requestMatchers("/swagger-resources/**").permitAll()

@@ -18,7 +18,7 @@ export class JointReportComponent implements OnInit{
 		private dateAdapter: NgbDateAdapter<string>) {};
   
   sales: any[] = [
-    {id:1, total:100000, fecha:'24/10/19 21:37', comprador:'John Doe', sucursal:'Bucaramanga', cantidadProductos:5},
+    {id:1, total:100000000, fecha:'24/10/19 21:37', comprador:'John Doe', sucursal:'Bucaramanga', cantidadProductos:5},
     {id:2, total:250000, fecha:'24/10/19 21:42', comprador:'Michael Jordan', sucursal:'Bogota', cantidadProductos:1}
   ];
 
