@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { UsuarioRegistro } from './models/UserRegisterModel/usuario-registro.model';
 import { TokenService } from './token.service';
 import { HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AppService {
   url = environment.Url; 
   headers: any = {};
 
-  constructor( private http: HttpClient, private tokenService:TokenService) {
+  constructor( private http: HttpClient, private tokenService:TokenService, private router:Router) {
     this.headers  = new HttpHeaders({
       'Authorization': `Bearer ${this.tokenService.getToken()}`  
     });
@@ -62,9 +63,13 @@ export class AppService {
       (carrito)=> {
         const idCarrito = carrito.id;
         const body = { idCarrito, idProducto, cantidad};
-        this.http.get(this.url + `/detalle-carrito/agregar`, {headers}).subscribe(
+        this.http.post(this.url + '/detalle-carrito/agregar', body, {headers}).subscribe(
           (res)=> {
-            console.log('Producto de id', idProducto, " Agregado x", cantidad)
+            console.log('Producto de id', idProducto, " Agregado x", cantidad, " En el carrito de ID:",idCarrito);
+            this.router.navigate(['/account/shoppingCart']);
+          },
+          (error) => {
+            console.error('Error Adding Products to the cart', error);
           }
         );
       }

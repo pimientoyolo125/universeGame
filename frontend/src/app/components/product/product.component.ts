@@ -2,6 +2,7 @@ import { Component, Input, inject, TemplateRef} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AppService } from '../../app.service'; 
 import { TokenService } from '../../token.service';
+import { ModalVerificationComponent } from '../modal-verification/modal-verification.component';
 
 @Component({
   selector: 'app-product',
@@ -89,4 +90,13 @@ export class ProductComponent {
   openXl(content: TemplateRef<any>) {
 		this.modalService.open(content, { size: 'xl', centered:true });
 	}
+
+  openVerifModal() {
+    const modalRef = this.modalService.open(ModalVerificationComponent);
+    modalRef.componentInstance.verificationText = `Are you sure you want to add '${this.product.nombre}' - Quantity = ${this.cantidadComprar}?`;
+    modalRef.componentInstance.onButtonClick = () => {
+      modalRef.close();
+      this.productoAlCarrito();
+    }
+  }
 }
