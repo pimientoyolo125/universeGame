@@ -33,6 +33,7 @@ export class ProductComponent {
   };
 
   estado = "Nuevo";
+  isInfoModalOpen:boolean = false;
 
   getStock(): {nombre: string, color: string} {
     if (this.product != null) {
@@ -87,14 +88,19 @@ export class ProductComponent {
 
   private modalService = inject(NgbModal);
 
-  openXl(content: TemplateRef<any>) {
+  openInfoModal(content: TemplateRef<any>) {
 		this.modalService.open(content, { size: 'xl', centered:true });
+    this.isInfoModalOpen = true;
 	}
 
   openVerifModal() {
     const modalRef = this.modalService.open(ModalVerificationComponent);
     modalRef.componentInstance.verificationText = `Are you sure you want to add '${this.product.nombre}' - Quantity = ${this.cantidadComprar}?`;
     modalRef.componentInstance.onButtonClick = () => {
+      if (this.isInfoModalOpen) {
+        this.modalService.dismissAll();
+        this.isInfoModalOpen = false;
+      }
       modalRef.close();
       this.productoAlCarrito();
     }

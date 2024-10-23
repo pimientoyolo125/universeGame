@@ -8,7 +8,7 @@
 .col-14 {
     border: 1px solid rgb(214, 212, 212);
     margin-bottom: 15px;
-    margin-left: 15px;
+    margin-left: 0px;
     margin-right: 15px;
     /*overflow-x: auto;*/
 }
@@ -20,7 +20,7 @@
 }
 
 #subtotal {
-    width: 70%;
+    width: 500px;
     border: 1px solid rgb(214, 212, 212); 
     margin-right: 25px; 
     height: fit-content;
@@ -71,9 +71,9 @@ td > button:hover {
 td, th {
     vertical-align: middle;
     text-align: center;
- }
+}
 
- .quantity {
+.quantity {
     margin: 5px 0px;
     height: fit-content;
     font-size: 18px;

@@ -14,12 +14,10 @@ import { TokenService } from '../../../token.service';
 export class ShoppingCartComponent implements OnInit{
   constructor(private appService: AppService, private tokenService:TokenService) {};
   
-  products: any[] = [];
   carrito: any[] = [];
-  cantidadComprar = 1;
+  detalleCarrito: any[] = [];
 
   ngOnInit(): void {
-    this.filterProducts(); 
     this.getCarrito();
   }
 
@@ -33,43 +31,60 @@ export class ShoppingCartComponent implements OnInit{
     return Math.round(product.impuesto * 100);
   }
 
+  getSubTotalProducto(detalle:any): number {
+    var subtotal = detalle.cantidad * (detalle.producto.precio)
+    return Math.round(subtotal / 50) * 50;
+  }
+
+  getStringSubTotalProducto(detalle:any): string {
+    return this.getSubTotalProducto(detalle).toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  };
+
   redondearPrecio(product: any): string {
     const precioRedondeado = Math.round(product.precio / 50) * 50;
     return precioRedondeado.toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
   }
 
-  filterProducts(): void {
-    this.appService.getFilteredProducts(
-      '', [], (0), false
-    ).subscribe(
-      (response) => {
-        this.products = response.slice(0, 3);
-        //console.log(response.length);
-      },
-      (error) => {
-        console.error('Error fetching filteredProducts', error);
-      }
-    );
+  aumentarCantidad(detalle: any): void {
+    detalle.cantidad = detalle.cantidad + 1; 
   }
 
-  aumentarCantidad(): void {
-    this.cantidadComprar = this.cantidadComprar + 1; 
-  }
-
-  disminuirCantidad(): void {
-    if (this.cantidadComprar > 1) {
-      this.cantidadComprar = this.cantidadComprar - 1;
+  disminuirCantidad(detalle: any): void {
+    if (detalle.cantidad > 1) {
+      detalle.cantidad = detalle.cantidad - 1; 
     }
+  }
+
+  getSubTotal(){
+    var subtotal = 0;
+    this.detalleCarrito.forEach(detalle => {
+      subtotal = subtotal + this.getSubTotalProducto(detalle);
+    });
+    var subtotalR =  Math.round(subtotal / 50) * 50;
+    return subtotalR.toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
   }
 
   getCarrito(): void { 
     this.appService.getCarrito().subscribe(
       (response) => {
         this.carrito = response;
-        console.log(this.carrito);
+        this.detalleCarrito = response.detalleCarrito;
+        //console.log(this.carrito);
       },
       (error) => {
         console.error('Error fetching shoppingCart', error);
+      }
+    );
+  }
+
+  eliminarDetalle(idDetalle:number){
+    this.appService.eliminarDetalleCarrito(idDetalle).subscribe(
+      (response) => {
+        this.getCarrito();
+        //console.log(this.carrito);
+      },
+      (error) => {
+        console.error("Error Deleting a 'DetalleProducto'", error);
       }
     );
   }
