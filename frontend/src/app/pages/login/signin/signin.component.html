@@ -21,13 +21,22 @@
             </div>
 
             <p *ngIf="isPasswordFocused && logPassword.length < 8" style="color: red; font-weight: 500;">* The Password
-                must be at least 8 characters long * </p>
-            <p *ngIf="error != '' " style="color: red; font-weight: 500;">* {{error}}* </p>
+                must be more than 8 characters long * </p>
+
+            <div
+                style="display: flex; justify-content: center; align-items: center; margin: 15px 0 15px 0; padding: 0;">
+                <p *ngIf="isLoading" class="loading-text" style="margin: 0;">
+                    <i id="spinning-loading-arrow" class="bi bi-arrow-repeat spin"></i> Loading...
+                </p>
+            </div>
         </div>
 
         <button class="btn btn-primary mb-3" style="width: 100%;" (click)="login()">
             Sign In
         </button>
+
+        <p *ngIf="error !== '' " style="color: red; font-weight: 500; display: flex; justify-content: center;">*
+            {{error}}* </p>
 
         <div class="mb-3" style="display: flex; align-items: center; text-align: center; margin: 0px;">
             <hr style="flex: 1; border: none; border-top: 1px solid #000; margin: 0;">

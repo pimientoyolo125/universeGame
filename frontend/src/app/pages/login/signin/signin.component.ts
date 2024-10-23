@@ -24,6 +24,7 @@ export class SigninComponent {
   error: string = '';
   isPasswordFocused: boolean = false;
   isEmailFocused: boolean = false;
+  isLoading: boolean = false;
 
 
   constructor(
@@ -57,13 +58,20 @@ export class SigninComponent {
   }
 
   login(): void {
+    //console.log("Email: ", this.logEmail, " and ", "Password: ", this.logPassword);
     this.logEmail = this.logEmail.replace(/\s+/g, '');
+
+    this.isLoading = true;
 
     const isThereError = this.basicVerifications();
 
-    if( isThereError ){ return; }
 
-    //console.log("sí se hizo login")
+    if (isThereError) {
+      this.isLoading = false;
+      return;
+    }
+
+
     this.appService.login(
       this.logEmail.trim(), this.logPassword.trim()
     ).subscribe(
@@ -71,12 +79,14 @@ export class SigninComponent {
         if (response.message == 'Successful login') {
           this.tokenService.setToken(response.token);
           this.router.navigate(['/']);
+          this.isLoading = false;
           //console.log(this.tokenService.getToken());
         }
       },
       (error) => {
-        console.error('Error fetching login', error);
+        console.error('Error fetching logIn', error);
         this.error = error.error.message;
+        this.isLoading = false;
       }
     );
   }
@@ -86,7 +96,7 @@ export class SigninComponent {
   // sobre los campos en el form. esto para que 
   // el usuario no se ponga a poner marikdas en 
   // los campos
-  basicVerifications() : boolean {
+  basicVerifications(): boolean {
 
     let isThereError: boolean = false;
     this.logPassword;
@@ -108,7 +118,7 @@ export class SigninComponent {
     // ============== verificar si la contraseña tiene 8 caracteres o menos ============== 
     (this.logPassword.length <= 8) ? listaDeErrores.push("Password must be more than 8 characters long") : null;
 
-    if(listaDeErrores.length > 0){
+    if (listaDeErrores.length > 0) {
       isThereError = true;
       this.openErrorModal(listaDeErrores)
     }

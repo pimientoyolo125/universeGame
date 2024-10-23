@@ -48,3 +48,29 @@ p > a {
 p > a:hover {
     color: #FA8232;
 }
+
+
+
+/* Animación de rotación para el ícono */
+#spinning-loading-arrow.spin {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilo para el texto de "Loading..." */
+.loading-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+    /* Cambia el color del texto */
+}

@@ -4,7 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ModalErrorComponent } from '../../../components/modal-error/modal-error.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { AppService } from '../../../app.service';
+import { Router } from '@angular/router';
+import { UsuarioRegistro } from '../../../models/UserRegisterModel/usuario-registro.model';
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +18,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class SignupComponent {
 
   // esto es para construir el servicio que va a desplagar el modal
-  constructor(private modalService: NgbModal) { }
+  constructor(
+    private modalService: NgbModal,
+    private appService: AppService,
+    private router: Router
+  ) { }
 
   isPasswordVisible: boolean = false;
 
@@ -34,11 +40,15 @@ export class SignupComponent {
   regCheck: boolean = false;
   isPasswordFocused: boolean = false;
   isPasswordFocused2: boolean = false;
-
+  isLoading: boolean = false;
+  signUpError: string = '';
 
   // aqui se va a hacer el tratamiento de los datos, 
   // para luego ser enviados al signup
   signup(): void {
+
+    this.isLoading = true;
+
     this.regName = this.getTextBeforeFirstSpace(this.regName);
     this.regLastName = this.getTextBeforeFirstSpace(this.regLastName);
 
@@ -53,14 +63,45 @@ export class SignupComponent {
 
     this.regEmail = this.regEmail.replace(/\s+/g, ''); // más de lo mismo: reemplazar espacios
 
-    this.basicVerifications();
+    const isThereError = this.basicVerifications();
 
-    console.log("Email: ", this.regEmail, " and ", "Password: ", this.regPassword);
-    console.log("Name: ", this.regName, " and ", "LastName: ", this.regLastName);
-    console.log("Numero de telefono: ", this.regPhoneNumber);
-    console.log("Policies: ", this.regCheck, " and ", "RepeatedPassword:", this.regRepPassword);
+    if (isThereError) {
+      this.isLoading = false;
+      return;
+    }
+
+    //console.log("Email: ", this.regEmail, " and ", "Password: ", this.regPassword);
+    //console.log("Name: ", this.regName, " and ", "LastName: ", this.regLastName);
+    //console.log("Numero de telefono: ", this.regPhoneNumber);
+    //console.log("Policies: ", this.regCheck, " and ", "RepeatedPassword:", this.regRepPassword);
+
+    const infoRegUser: UsuarioRegistro = {
+      correo: this.regEmail,
+      contrasena: this.regPassword,
+      confirmarContrasena: this.regRepPassword,
+      nombre: this.regName,
+      apellido: this.regLastName,
+      telefono: this.regPhoneNumber
+    };
+
+    this.appService.signUp(
+      infoRegUser
+    ).subscribe(
+      (response) => {
+        if (response) {
+          //console.log(JSON.stringify(response, null, 2)); 
+          this.router.navigate(['login/signin']);
+          this.isLoading = false;
+          //console.log(this.tokenService.getToken());
+        }
+      },
+      (error) => {
+        console.error('Error fetching filteredProducts', error);
+        this.signUpError = error.error.message;
+        this.isLoading = false;
+      }
+    );
   }
-
 
   // Esta funcion, cada vez que el usuario cambie algo 
   // en el input de  password, entonces, cambia dinamicamente
@@ -92,7 +133,6 @@ export class SignupComponent {
     // console.log("esta focused input contraseña")
   }
 
-
   // Esta función sirve para verificar Si un texto tiene
   //  espacios antes o despues de la primera secuencia 
   //  continúa de letras o números y si los tiene Elimina 
@@ -116,7 +156,6 @@ export class SignupComponent {
     return text.substring(0, firstSpaceIndex);
   }
 
-
   // esta funcion, cambia ciclicamente el valor
   // de la varaible policies, para dar a entender 
   // si el usuario aceptó o no los términos y condiciones 
@@ -130,24 +169,11 @@ export class SignupComponent {
   // de lo contrario, muestra un pop up con las indicaciones
   // que debe seguir para corregir sus errores en el 
   // formulario
-  basicVerifications() {
+  basicVerifications(): boolean {
 
+    let isThereError: boolean = false;
     let errorMessages: string[] = [];
     let auxString: string = '';
-
-    this.regName;
-    this.regLastName;
-
-    this.regPhoneNumber;
-
-    this.regEmail;
-
-
-    this.regPassword;
-    this.regRepPassword;
-
-    this.regCheck;
-
 
     // ==================== seccion que chequea que no falte nigun valor ====================
 
@@ -164,7 +190,6 @@ export class SignupComponent {
     auxString += (this.regEmail === '') ? "E-mail, " : "";
     auxString += (this.regPassword === '') ? "Password, " : "";
     auxString += (this.regRepPassword === '') ? "Confirm password, " : "";
-
 
     //  esto es una version abreviada de un if que, 
     //  en caso de que la longitud del string auxiliar 
@@ -185,7 +210,7 @@ export class SignupComponent {
     //  si regPhoneNumber no es un número o si
     //   tiene más de 10 dígitos, entonces, lanza 
     //   un error
-    (isNaN(this.regPhoneNumber) || this.regPhoneNumber.toString().length !== 10 ) ? errorMessages.push("Phone number must be a 10 digits number") : null;
+    (isNaN(this.regPhoneNumber) || this.regPhoneNumber.toString().length !== 10) ? errorMessages.push("Phone number must be a 10 digits number") : null;
 
 
     // ==================== se repitió la contraseña 2 veces? ====================
@@ -197,7 +222,7 @@ export class SignupComponent {
     (this.regRepPassword.length <= 8) ? errorMessages.push("Confirm password must be more than 8 characters long") : null;
 
     // ================== Comprobar si se aceptaron los TyC ==================
-    ( !this.regCheck ) ? errorMessages.push("Please accept Terms and Conditions") : null;
+    (!this.regCheck) ? errorMessages.push("Please accept Terms and Conditions") : null;
 
     //  Finalmente, si hubo algun error, entonces, 
     //  se registró como un string en la lista de 
@@ -206,10 +231,11 @@ export class SignupComponent {
     //  algun string dentro de la Lista, se abre 
     //  el modal que informa de los errores
     if (errorMessages.length > 0) {
-
+      isThereError = true;
       this.openErrorModal(errorMessages);
-
     }
+
+    return isThereError;
   }
 
   // esta funcion abre el modal de error. el 
@@ -220,9 +246,7 @@ export class SignupComponent {
   // feedback al usuario de qué es lo que 
   // tiene que corregir
   openErrorModal(listOfErrorMessages: string[]) {
-
     const modalRef = this.modalService.open(ModalErrorComponent);
     modalRef.componentInstance.errorList = listOfErrorMessages;  // Pasar la lista de errores
-
   }
 }
