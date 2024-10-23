@@ -70,47 +70,38 @@ export class SignupComponent {
       return;
     }
 
-    console.log("Email: ", this.regEmail, " and ", "Password: ", this.regPassword);
-    console.log("Name: ", this.regName, " and ", "LastName: ", this.regLastName);
-    console.log("Numero de telefono: ", this.regPhoneNumber);
-    console.log("Policies: ", this.regCheck, " and ", "RepeatedPassword:", this.regRepPassword);
+    //console.log("Email: ", this.regEmail, " and ", "Password: ", this.regPassword);
+    //console.log("Name: ", this.regName, " and ", "LastName: ", this.regLastName);
+    //console.log("Numero de telefono: ", this.regPhoneNumber);
+    //console.log("Policies: ", this.regCheck, " and ", "RepeatedPassword:", this.regRepPassword);
 
     const infoRegUser: UsuarioRegistro = {
-
       correo: this.regEmail,
       contrasena: this.regPassword,
       confirmarContrasena: this.regRepPassword,
       nombre: this.regName,
       apellido: this.regLastName,
       telefono: this.regPhoneNumber
-
     };
+
     this.appService.signUp(
       infoRegUser
     ).subscribe(
       (response) => {
-        
         if (response) {
-          
-          console.log(JSON.stringify(response, null, 2)); 
+          //console.log(JSON.stringify(response, null, 2)); 
           this.router.navigate(['login/signin']);
           this.isLoading = false;
           //console.log(this.tokenService.getToken());
-          
         }
       },
       (error) => {
-
         console.error('Error fetching filteredProducts', error);
         this.signUpError = error.error.message;
         this.isLoading = false;
-
       }
     );
-
-
   }
-
 
   // Esta funcion, cada vez que el usuario cambie algo 
   // en el input de  password, entonces, cambia dinamicamente
@@ -142,7 +133,6 @@ export class SignupComponent {
     // console.log("esta focused input contraseña")
   }
 
-
   // Esta función sirve para verificar Si un texto tiene
   //  espacios antes o despues de la primera secuencia 
   //  continúa de letras o números y si los tiene Elimina 
@@ -165,7 +155,6 @@ export class SignupComponent {
     // Retornar el texto antes del primer espacio
     return text.substring(0, firstSpaceIndex);
   }
-
 
   // esta funcion, cambia ciclicamente el valor
   // de la varaible policies, para dar a entender 
@@ -201,7 +190,6 @@ export class SignupComponent {
     auxString += (this.regEmail === '') ? "E-mail, " : "";
     auxString += (this.regPassword === '') ? "Password, " : "";
     auxString += (this.regRepPassword === '') ? "Confirm password, " : "";
-
 
     //  esto es una version abreviada de un if que, 
     //  en caso de que la longitud del string auxiliar 
@@ -243,12 +231,9 @@ export class SignupComponent {
     //  algun string dentro de la Lista, se abre 
     //  el modal que informa de los errores
     if (errorMessages.length > 0) {
-
       isThereError = true;
       this.openErrorModal(errorMessages);
-
     }
-
 
     return isThereError;
   }
@@ -261,9 +246,7 @@ export class SignupComponent {
   // feedback al usuario de qué es lo que 
   // tiene que corregir
   openErrorModal(listOfErrorMessages: string[]) {
-
     const modalRef = this.modalService.open(ModalErrorComponent);
     modalRef.componentInstance.errorList = listOfErrorMessages;  // Pasar la lista de errores
-
   }
 }
