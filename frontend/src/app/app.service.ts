@@ -65,7 +65,7 @@ export class AppService {
         const body = { idCarrito, idProducto, cantidad};
         this.http.post(this.url + '/detalle-carrito/agregar', body, {headers}).subscribe(
           (res)=> {
-            console.log('Producto de id', idProducto, " Agregado x", cantidad, " En el carrito de ID:",idCarrito);
+            //console.log('Producto de id', idProducto, " Agregado x", cantidad, " En el carrito de ID:",idCarrito);
             this.router.navigate(['/account/shoppingCart']);
           },
           (error) => {
@@ -74,6 +74,11 @@ export class AppService {
         );
       }
     );
+  }
+
+  eliminarDetalleCarrito(idDetalleCarrito:number){
+    var headers = this.headers;
+    return this.http.delete(this.url + `/detalle-carrito/eliminar/${idDetalleCarrito}`, {headers});
   }
 
   signUp( informacionDeRegistro: UsuarioRegistro ): Observable<any> {
