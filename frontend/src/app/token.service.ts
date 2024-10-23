@@ -13,18 +13,19 @@ import { User } from './models/user.model';
 export class TokenService {
   constructor(private http: HttpClient) { }
   url = environment.Url;
-  private token: any = null;
+  private token: string = '';
+  private tokenKey: string = 'token';
 
   setToken(token: string) {
-    localStorage.setItem(this.token, token);
+    localStorage.setItem(this.tokenKey, token);
   }
 
   getToken(): string | null {
-    return localStorage.getItem(this.token);
+    return localStorage.getItem(this.tokenKey);
   }
 
   clearToken() {
-    localStorage.removeItem(this.token);
+    localStorage.removeItem(this.tokenKey);
   }
 
   getUser(): User | null{
