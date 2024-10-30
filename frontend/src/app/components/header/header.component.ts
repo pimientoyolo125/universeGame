@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit {
       this.admin = { tipo: 2 };
     } else {
       this.admin = {tipo: this.tokenService.getUser()?.tipo};
+      //console.log(this.tokenService.getUser())
     }
   }
 
