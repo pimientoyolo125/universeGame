@@ -1,0 +1,45 @@
+<div id="content">
+    <div id="header">
+        <app-header></app-header>
+    </div>
+
+    <div id="page-content">
+        <div class="col-7" id="BillingInfo">
+            <p style="font-size: 18px; font-weight: 500; margin: 5px; text-align: left;"> Billing Information</p>
+            <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
+            <p><b style="font-weight: 500;">Country: </b>USA</p>
+            <p><b style="font-weight: 500;">Region/State: </b> Massachusetts </p>
+            <p><b style="font-weight: 500;">City: </b> Cambridge</p>
+            <p><b style="font-weight: 500;">Address: </b> East Tejturi Bazar, Word No. 04, Road No. 13/x, House no. 1320/C, Flat No. 5D, Dhaka - 1200</p>
+            <div class="d-flex justify-content-center">
+                <button (click)="editAdressModal()">Edit Address</button>
+            </div>
+        </div>
+
+        <div id="subtotal">
+            <p style="font-size: 18px; font-weight: 500; margin: 5px; text-align: left;"> Order Summary</p>
+            <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
+            <div *ngFor="let detalle of detalleCarrito" class="d-flex" style="align-items: center;">
+                <div style="height: 75px; justify-content: center; display: flex;">
+                    <img src="{{detalle.producto.imagen}}" alt="product.img" style="width: 75px; margin: 5px 10px; object-fit: contain;">
+                </div>
+                
+                <div style="display: block;">
+                    <p style="margin: 0px;">{{ detalle.producto.nombre }}</p>
+                    <p style="margin: 0px;">{{detalle.cantidad}} x <b style="color: #2DA5F3; font-weight: 500;">COP ${{getPrecioImpuesto(detalle.producto)}}</b> (Tax Included)</p>
+                </div>
+            </div>
+            <p><b style="font-weight: 500;">Sub-Total: </b>COP ${{getSubTotal()}}</p>
+            <p><b style="font-weight: 500;">Shipping: </b> Free </p>
+            <p><b style="font-weight: 500;">Discount: </b> COP $0</p>
+            <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
+            <p style="text-align: center;"> <b style="font-weight: 500;">Total: COP ${{getSubTotal()}}</b></p>
+            <div class="d-flex justify-content-center">
+                <button>PLACE ORDER <i class="bi bi-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <app-footer></app-footer>
+    </div>
+</div>

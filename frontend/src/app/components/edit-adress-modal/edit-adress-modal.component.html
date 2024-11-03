@@ -1,0 +1,42 @@
+<div class="modal" id="editAddressModal" tabindex="-1" aria-labelledby="editAddressLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="titleModalLabel"><b style="font-weight: 500;">Edit Billing Address</b></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="activeModal.close()"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="mb-3">
+                    <p class="form-label">Country:</p>
+                    <input type="text" class="form-control" id="lastName" [(ngModel)]="country" name="regLastName" placeholder="Colombia">
+                </div>
+
+                <div class="mb-3">
+                    <p class="form-label">Region/State:</p>
+                    <input type="text" class="form-control" id="lastName" [(ngModel)]="state" name="regLastName" placeholder="Santander">
+                </div>
+
+                <div class="mb-3">
+                    <p class="form-label">City:</p>
+                    <input type="text" class="form-control" id="lastName" [(ngModel)]="city" name="regLastName" placeholder="Bucaramanga">
+                </div>
+
+                <div class="mb-3">
+                    <p class="form-label">Address:</p>
+                    <input type="text" class="form-control" id="lastName" [(ngModel)]="address" name="regLastName" placeholder="Cra 01 #01-01 Building Example - Apto 101">
+                </div>
+
+                <div class="d-flex justify-content-center" style="width: 100%;">
+                    <button type="button" class="btn btn-success" style="font-weight: 500;">¡Edit Address Info!</button>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeVerifModal()"
+                    data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -94,4 +94,9 @@ export class AppService {
     return this.http.post(this.url + '/usuario/registrar', body);
 
   }
+
+  updateDetalleCarrito(idDetalleCarrito:number, cantidad: number){
+    var headers = this.headers;
+    return this. http.put(this.url + `/detalle-carrito/actualizar?idDetalleCarrito=${idDetalleCarrito}&cantidad=${cantidad}`, null, {headers})
+  }
 }

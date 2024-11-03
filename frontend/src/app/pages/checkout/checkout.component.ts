@@ -1,29 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { AppService } from '../../../app.service';
+import { Component, inject } from '@angular/core';
+import { HeaderComponent } from '../../components/header/header.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { AppService } from '../../app.service';
+import { TokenService } from '../../token.service';
+import { Router} from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { TokenService } from '../../../token.service';
-import { Router } from '@angular/router';
-import { environment } from '../../../../environment';
+import { EditAdressModalComponent } from '../../components/edit-adress-modal/edit-adress-modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-shopping-cart',
+  selector: 'app-checkout',
   standalone: true,
-  imports: [FormsModule, CommonModule],
-  templateUrl: './shopping-cart.component.html',
-  styleUrl: './shopping-cart.component.css'
+  imports: [HeaderComponent, FooterComponent, CommonModule, EditAdressModalComponent],
+  templateUrl: './checkout.component.html',
+  styleUrl: './checkout.component.css'
 })
-export class ShoppingCartComponent implements OnInit{
+export class CheckoutComponent {
   constructor(private appService: AppService, private tokenService:TokenService,
     private router:Router
-  ) {};
-  
+  ) {
+    this.tokenService.isAuthenticated().subscribe(
+      (isAuth) => {
+        if (!isAuth) {
+          alert("You haven't signed in yet, please do it and try again.");
+          this.router.navigate(['/login']);
+        }
+      }
+    )
+  };
+
   carrito: any[] = [];
   detalleCarrito: any[] = [];
 
   ngOnInit(): void {
     this.getCarrito();
-    window.addEventListener('beforeunload', this.onBeforeUnload.bind(this));
   }
 
   getPrecioImpuesto(product: any): string {
@@ -52,14 +62,12 @@ export class ShoppingCartComponent implements OnInit{
 
   aumentarCantidad(detalle: any): void {
     detalle.cantidad = detalle.cantidad + 1; 
-    //this.actualizarDetalleCarrito(detalle)
   }
 
   disminuirCantidad(detalle: any): void {
     if (detalle.cantidad > 1) {
       detalle.cantidad = detalle.cantidad - 1; 
     }
-    //this.actualizarDetalleCarrito(detalle)
   }
 
   getSubTotal(){
@@ -84,44 +92,9 @@ export class ShoppingCartComponent implements OnInit{
     );
   }
 
-  eliminarDetalle(idDetalle:number){
-    this.appService.eliminarDetalleCarrito(idDetalle).subscribe(
-      (response) => {
-        this.getCarrito();
-        //console.log(this.carrito);
-      },
-      (error) => {
-        console.error("Error Deleting a 'DetalleProducto'", error);
-      }
-    );
-  }
+  private modalService = inject(NgbModal);
 
-  goCheckout(){
-    this.router.navigate(['/checkout']);
-  }
-
-  actualizarDetalleCarrito(detalle:any){
-    this.appService.updateDetalleCarrito(detalle.id, detalle.cantidad).subscribe(
-      (response) => {
-        //console.log(response);
-        this.getCarrito();
-      },
-      (error) => {
-        console.error("Error Deleting a 'DetalleProducto'", error);
-      }
-    );
-  }
-
-  ngOnDestroy(): void {
-    this.detalleCarrito.forEach(detalle => {
-        this.actualizarDetalleCarrito(detalle);
-    });
-    window.removeEventListener('beforeunload', this.onBeforeUnload.bind(this));
-  }
-
-  onBeforeUnload(event: BeforeUnloadEvent) {
-    this.detalleCarrito.forEach(detalle => {
-        this.actualizarDetalleCarrito(detalle);
-    });
+  editAdressModal() {
+    const modalRef = this.modalService.open(EditAdressModalComponent);
   }
 }
