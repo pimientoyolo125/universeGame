@@ -13,4 +13,5 @@ public class VentaDTO {
     private UsuarioDTO usuario;
     private Double total;
     private List<DetalleVentaDTO> detalleVenta;
+    private String direccion;
 }

@@ -28,4 +28,8 @@ public class Direccion {
     @OneToOne
     @JoinColumn(name = "idusuario")
     private Usuario usuario;
+
+    public String createDireccion() {
+        return pais + " - " + region + " - " + ciudad + " - " + direccion;
+    }
 }

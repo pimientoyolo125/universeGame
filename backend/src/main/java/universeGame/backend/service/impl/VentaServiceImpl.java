@@ -9,6 +9,7 @@ import universeGame.backend.repository.DetalleVentaRepository;
 import universeGame.backend.repository.ProductoRepository;
 import universeGame.backend.repository.VentaRepository;
 import universeGame.backend.service.interfaces.CarritoService;
+import universeGame.backend.service.interfaces.DireccionService;
 import universeGame.backend.service.interfaces.UsuarioService;
 import universeGame.backend.service.interfaces.VentaService;
 
@@ -22,6 +23,7 @@ public class VentaServiceImpl implements VentaService {
     private CarritoService carritoService;
     private DetalleVentaRepository detalleVentaRepository;
     private ProductoRepository productoRepository;
+    private DireccionService direccionService;
 
     @Override
     public List<Venta> listarTodos() {
@@ -51,11 +53,12 @@ public class VentaServiceImpl implements VentaService {
         //usuario
         Usuario usuario = usuarioService.findByCorreo(correoUsuario);
 
-        if(observaciones == null ){
+        if (observaciones == null) {
             observaciones = "";
         } else {
             observaciones = observaciones.trim().toLowerCase().replaceAll("\\s+", " ");
         }
+
 
         //creacion de la venta
         Venta venta = new Venta();
@@ -64,6 +67,10 @@ public class VentaServiceImpl implements VentaService {
         venta.setObservaciones(observaciones);
         venta.setTotal(0.0);
         venta = ventaRepository.save(venta);
+
+        //direccion
+        Direccion direccion = direccionService.getByCorreoUsuario(usuario.getCorreo());
+        venta.setDireccion(direccion.createDireccion());
 
         //creacion de detalles venta
         venta.setTotal(crearDetallesVenta(venta, usuario));
@@ -139,5 +146,10 @@ public class VentaServiceImpl implements VentaService {
     @Autowired
     public void setProductoRepository(ProductoRepository productoRepository) {
         this.productoRepository = productoRepository;
+    }
+
+    @Autowired
+    public void setDireccionService(DireccionService direccionService) {
+        this.direccionService = direccionService;
     }
 }
