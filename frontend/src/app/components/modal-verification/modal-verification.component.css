@@ -38,3 +38,11 @@
 .modal-body ul li{
     margin-bottom: 5px;
 }
+
+.TACenter {
+    text-align: center;
+}
+
+.TAJustify {
+    text-align:justify;
+}

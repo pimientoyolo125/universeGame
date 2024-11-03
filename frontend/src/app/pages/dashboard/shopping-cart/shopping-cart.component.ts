@@ -4,7 +4,6 @@ import { AppService } from '../../../app.service';
 import { CommonModule } from '@angular/common';
 import { TokenService } from '../../../token.service';
 import { Router } from '@angular/router';
-import { environment } from '../../../../environment';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -97,7 +96,11 @@ export class ShoppingCartComponent implements OnInit{
   }
 
   goCheckout(){
-    this.router.navigate(['/checkout']);
+    if (this.detalleCarrito.length == 0) {
+      alert("¡Your shopping cart is empty, please add a product!")
+    }else {
+      this.router.navigate(['/checkout']);
+    }
   }
 
   actualizarDetalleCarrito(detalle:any){

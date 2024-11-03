@@ -24,7 +24,7 @@ html, body {
 }
 
 #subtotal {
-    min-width: 420px;
+    min-width: 435px;
     border: 1px solid rgb(214, 212, 212); 
     margin: 25px;
     height: fit-content;
@@ -59,12 +59,12 @@ html, body {
     #BillingInfo {
         margin: 25px;
         margin-bottom: 0px;
-        min-width: 420px;
+        min-width: 435px;
         height: fit-content;
     }
     
     #subtotal {
-        min-width: 420px;
+        min-width: 435px;
         border: 1px solid rgb(214, 212, 212); 
         margin: 25px;
         height: fit-content;

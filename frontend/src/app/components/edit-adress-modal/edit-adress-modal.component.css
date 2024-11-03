@@ -2,6 +2,11 @@
     display: block;
 }
 
+.modal-dialog {
+    width: auto;
+    height: auto;
+}
+
 #titleModalLabel {
     color: #FA8232;
     font-size: 20px;

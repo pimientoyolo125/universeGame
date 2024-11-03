@@ -7,10 +7,10 @@
         <div class="col-7" id="BillingInfo">
             <p style="font-size: 18px; font-weight: 500; margin: 5px; text-align: left;"> Billing Information</p>
             <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
-            <p><b style="font-weight: 500;">Country: </b>USA</p>
-            <p><b style="font-weight: 500;">Region/State: </b> Massachusetts </p>
-            <p><b style="font-weight: 500;">City: </b> Cambridge</p>
-            <p><b style="font-weight: 500;">Address: </b> East Tejturi Bazar, Word No. 04, Road No. 13/x, House no. 1320/C, Flat No. 5D, Dhaka - 1200</p>
+            <p><b style="font-weight: 500;">Country: </b>{{direccion.pais}}</p>
+            <p><b style="font-weight: 500;">Region/State: </b>{{direccion.region}}</p>
+            <p><b style="font-weight: 500;">City: </b>{{direccion.ciudad}}</p>
+            <p><b style="font-weight: 500;">Address: </b>{{direccion.direccion}}</p>
             <div class="d-flex justify-content-center">
                 <button (click)="editAdressModal()">Edit Address</button>
             </div>
@@ -35,7 +35,7 @@
             <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
             <p style="text-align: center;"> <b style="font-weight: 500;">Total: COP ${{getSubTotal()}}</b></p>
             <div class="d-flex justify-content-center">
-                <button>PLACE ORDER <i class="bi bi-arrow-right"></i></button>
+                <button (click)="openVerifModal()">PLACE ORDER <i class="bi bi-arrow-right"></i></button>
             </div>
         </div>
     </div>

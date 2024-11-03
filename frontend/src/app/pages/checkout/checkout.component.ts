@@ -5,19 +5,22 @@ import { AppService } from '../../app.service';
 import { TokenService } from '../../token.service';
 import { Router} from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { EditAdressModalComponent } from '../../components/edit-adress-modal/edit-adress-modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { EditAdressModalComponent } from '../../components/edit-adress-modal/edit-adress-modal.component';
+import { ModalVerificationComponent } from '../../components/modal-verification/modal-verification.component';
+
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, CommonModule, EditAdressModalComponent],
+  imports: [HeaderComponent, FooterComponent, CommonModule, 
+    EditAdressModalComponent, ModalVerificationComponent],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css'
 })
 export class CheckoutComponent {
   constructor(private appService: AppService, private tokenService:TokenService,
-    private router:Router
+    private router:Router, private modalService:NgbModal
   ) {
     this.tokenService.isAuthenticated().subscribe(
       (isAuth) => {
@@ -31,9 +34,17 @@ export class CheckoutComponent {
 
   carrito: any[] = [];
   detalleCarrito: any[] = [];
+  direccion: any = {
+    "pais": "",
+    "region": "",
+    "ciudad": "",
+    "direccion": ""
+  };
+  isInfoModalOpen = false;
 
   ngOnInit(): void {
     this.getCarrito();
+    this.getDireccion();
   }
 
   getPrecioImpuesto(product: any): string {
@@ -92,9 +103,56 @@ export class CheckoutComponent {
     );
   }
 
-  private modalService = inject(NgbModal);
+  getDireccion(): void { 
+    this.appService.getDireccion().subscribe(
+      (response) => {
+        this.direccion = response;
+        //console.log(response);
+      },
+      (error) => {
+        console.error('Error fetching address', error);
+      }
+    );
+  }
 
   editAdressModal() {
     const modalRef = this.modalService.open(EditAdressModalComponent);
+    
+    //Generamos una copia de this.direccion para que sean "independientes"
+    modalRef.componentInstance.address = JSON.parse(JSON.stringify(this.direccion));
+    
+    //Cuando se cierre, verificamos la actualización trayendo nuevamente los
+    //datos de la DB
+    modalRef.closed.subscribe(() => {
+      this.getDireccion();
+    });
+  }
+
+  openVerifModal() {
+    const modalRef = this.modalService.open(ModalVerificationComponent);
+    modalRef.componentInstance.modalClass = 'TAJustify';
+    modalRef.componentInstance.verificationText = `Do you want to place this order?<br> 
+    - Please Verify your Billing Information.<br> - Please Verify the Products that you are buying and their price.`;
+    modalRef.componentInstance.onButtonClick = () => {
+      if (this.isInfoModalOpen) {
+        this.modalService.dismissAll();
+        this.isInfoModalOpen = false;
+      }
+      modalRef.close();
+      this.placeOrder();
+    }
+  }
+
+  placeOrder(){
+    this.appService.registrarVenta().subscribe(
+      (response) => {
+        console.log(response);
+        this.router.navigate(['/orderPlaced']);
+      },
+      (error) => {
+        console.error('Error placing an Order:', error);
+      }
+    );
+    
   }
 }
