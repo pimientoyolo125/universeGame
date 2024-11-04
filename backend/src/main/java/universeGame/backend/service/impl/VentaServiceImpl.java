@@ -66,11 +66,12 @@ public class VentaServiceImpl implements VentaService {
         venta.setFecha(new java.util.Date());
         venta.setObservaciones(observaciones);
         venta.setTotal(0.0);
-        venta = ventaRepository.save(venta);
 
         //direccion
         Direccion direccion = direccionService.getByCorreoUsuario(usuario.getCorreo());
         venta.setDireccion(direccion.createDireccion());
+
+        venta = ventaRepository.save(venta);
 
         //creacion de detalles venta
         venta.setTotal(crearDetallesVenta(venta, usuario));
