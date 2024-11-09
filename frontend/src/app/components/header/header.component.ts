@@ -24,9 +24,9 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute,
     private tokenService: TokenService) {
     if (this.tokenService.getUser() == null) {
-      this.admin = { tipo: 2 };
+      this.admin = { tipo: 1 }; //1 = User
     } else {
-      this.admin = {tipo: this.tokenService.getUser()?.tipo};
+      this.admin = {tipo: this.tokenService.getUser()?.tipo}; //2 = Admin
       //console.log(this.tokenService.getUser())
     }
   }

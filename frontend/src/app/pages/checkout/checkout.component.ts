@@ -9,7 +9,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EditAdressModalComponent } from '../../components/edit-adress-modal/edit-adress-modal.component';
 import { ModalVerificationComponent } from '../../components/modal-verification/modal-verification.component';
 
-
 @Component({
   selector: 'app-checkout',
   standalone: true,
@@ -35,12 +34,12 @@ export class CheckoutComponent {
   carrito: any[] = [];
   detalleCarrito: any[] = [];
   direccion: any = {
-    "pais": "",
-    "region": "",
-    "ciudad": "",
-    "direccion": ""
+    "pais": "N.A",
+    "region": "N.A",
+    "ciudad": "N.A",
+    "direccion": "N.A"
   };
-  isInfoModalOpen = false;
+  isVerifModalOpen = false;
 
   ngOnInit(): void {
     this.getCarrito();
@@ -110,7 +109,8 @@ export class CheckoutComponent {
         //console.log(response);
       },
       (error) => {
-        console.error('Error fetching address', error);
+        console.clear();
+        //console.error('Error fetching address', error);
       }
     );
   }
@@ -134,9 +134,9 @@ export class CheckoutComponent {
     modalRef.componentInstance.verificationText = `Do you want to place this order?<br> 
     - Please Verify your Billing Information.<br> - Please Verify the Products that you are buying and their price.`;
     modalRef.componentInstance.onButtonClick = () => {
-      if (this.isInfoModalOpen) {
+      if (this.isVerifModalOpen) {
         this.modalService.dismissAll();
-        this.isInfoModalOpen = false;
+        this.isVerifModalOpen = false;
       }
       modalRef.close();
       this.placeOrder();
@@ -144,15 +144,37 @@ export class CheckoutComponent {
   }
 
   placeOrder(){
-    this.appService.registrarVenta().subscribe(
-      (response) => {
-        console.log(response);
-        this.router.navigate(['/orderPlaced']);
-      },
-      (error) => {
-        console.error('Error placing an Order:', error);
+    //Auxiliar para verificar que la dirección es valida
+    var invalidAddress = false;
+
+    //Recorremos cada componente de la dirección
+    Object.keys(this.direccion).forEach((key) => {
+      if (this.direccion[key].trim() == 'N.A' || this.direccion[key].trim() == '') {
+        invalidAddress = true;
       }
-    );
-    
+    });
+
+    //Si la dirección ES VALIDA procedemos con la compra
+    if (invalidAddress == false) {
+      this.appService.registrarVenta().subscribe(
+        (response) => {
+          //console.log(response);
+          this.router.navigate(['/orderPlaced']);
+        },
+        (error) => {
+          const errorMessage = error.error?.message || error.message;
+          if (errorMessage.includes("Not enough stock for")) {
+            console.clear()
+            alert("There is not enough stock for at least one product in your shopping cart."
+               + "\n\nPlease adjust the quantity or consider choosing other products.")
+            this.router.navigate(['/account/shoppingCart']);
+          }else{
+            console.error('Error placing an Order:', error);
+          }
+        }
+      );
+    } else {
+      alert("Your Billing Information is Invalid, Update your information and try again")
+    }
   }
 }

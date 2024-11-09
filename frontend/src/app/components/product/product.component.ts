@@ -47,11 +47,11 @@ export class ProductComponent {
         return {nombre: 'Last Units', color:'#ffc107'};
       }
       else {
-        return {nombre: 'Sold Out', color:'dc3545'};
+        return {nombre: 'Sold Out', color:'#dc3545'};
       }
     }
     else {
-      return {nombre: 'No product', color: '6c757d'};
+      return {nombre: 'No product', color: '#6c757d'};
     }
   }
 
@@ -71,15 +71,27 @@ export class ProductComponent {
     this.tokenService.isAuthenticated().subscribe(
       (isAuth) => {
         if (isAuth) {
-          this.appService.añadirProductoCarrito(this.product.id, this.cantidadComprar).subscribe(
-            (res)=> {
-              //console.log(res);
-              this.router.navigate(['/account/shoppingCart']);
-            },
-            (error) => {
-              console.error('Error Adding Products to the cart', error);
-            }
-          );
+          if(this.cantidadComprar<= this.product.cantidad){
+            this.appService.añadirProductoCarrito(this.product.id, this.cantidadComprar).subscribe(
+              (res)=> {
+                //console.log(res);
+                this.router.navigate(['/account/shoppingCart']);
+              },
+              (error) => {
+                const errorMessage = error.error?.message || error.message;
+                if (errorMessage.includes("Not enough product in")) {
+                  console.clear()
+                  alert("There is not enough stock of '"+ this.product.nombre +"'."
+                    + "\n\nJust in case, please check if you already have this product in your shopping cart.")
+                }else {
+                  console.error('Error Adding Products to the cart', error);
+                }
+              }
+            );
+          } else{
+            alert("Stock of '" + this.product.nombre + "' = " + this.product.cantidad + 
+              "\n\nPlease reduce the quantity to buy or select a different product.");
+          }    
         } else {
           alert("You haven't signed in yet, you cant add products to your shopping cart.");
         }
@@ -91,15 +103,20 @@ export class ProductComponent {
     this.tokenService.isAuthenticated().subscribe(
       (isAuth) => {
         if (isAuth) {
-          this.appService.añadirProductoCarrito(this.product.id, this.cantidadComprar).subscribe(
-            (res)=> {
-              //console.log(res);
-              this.router.navigate(['/checkout']);
-            },
-            (error) => {
-              console.error('Error Adding Products to the cart', error);
-            }
-          );
+          if(this.cantidadComprar<= this.product.cantidad){
+            this.appService.añadirProductoCarrito(this.product.id, this.cantidadComprar).subscribe(
+              (res)=> {
+                //console.log(res);
+                this.router.navigate(['/checkout']);
+              },
+              (error) => {
+                console.error('Error Adding Products to the cart', error);
+              }
+            );
+          } else{
+            alert("Stock of '" + this.product.nombre + "' = " + this.product.cantidad + 
+              "\n\nPlease reduce the quantity to buy or select a different product.");
+          } 
         } else {
           alert("You haven't signed in yet, you can't buy a product right now.");
         }

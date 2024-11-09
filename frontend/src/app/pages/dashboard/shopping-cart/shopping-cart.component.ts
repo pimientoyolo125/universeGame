@@ -50,7 +50,12 @@ export class ShoppingCartComponent implements OnInit{
   }
 
   aumentarCantidad(detalle: any): void {
-    detalle.cantidad = detalle.cantidad + 1; 
+    if (detalle.cantidad < detalle.producto.cantidad) {
+      detalle.cantidad = detalle.cantidad + 1; 
+    }else {
+      alert("Stock of '" + detalle.producto.nombre + "' = " + detalle.producto.cantidad + 
+        "\n\nPlease reduce the quantity to buy or select a different product.");
+    }
     //this.actualizarDetalleCarrito(detalle)
   }
 
@@ -75,6 +80,15 @@ export class ShoppingCartComponent implements OnInit{
       (response) => {
         this.carrito = response;
         this.detalleCarrito = response.detalleCarrito;
+        
+        //Si sucedió un error al finalizar la compra y redirigió al usuario
+        //al carrito, automaticamente actualizara la cantidad a comprar para que
+        //iguale el stock disponible
+        this.detalleCarrito.forEach(detalle => {
+          if (detalle.cantidad > detalle.producto.cantidad) {
+                detalle.cantidad = detalle.producto.cantidad
+          }
+        });
         //console.log(this.carrito);
       },
       (error) => {
