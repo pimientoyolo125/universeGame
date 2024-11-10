@@ -82,9 +82,10 @@ export class OrderHistoryComponent implements OnInit {
   sortOrders(){
     //console.log(this.orders);
     if (this.sortDate == 1) {
-      this.orders.sort((a: any, b: any) => b.id - a.id);  //Mas nuevo a mas viejo 
+      //Mas nuevo a mas viejo 
+      this.orders.sort((a: any, b: any) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime());  
     } else {
-      this.orders.sort((a: any, b: any) => a.id - b.id);
+      this.orders.sort((a: any, b: any) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime());
     }
   }
 
