@@ -69,3 +69,46 @@ td > p {
 td > a:hover {
     color: #FA8232;
 }
+
+.input-group {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: fit-content;
+}
+
+.input-group > input {
+    margin-left: 10px;
+}
+
+.input-group > .btn{
+    background-color: white;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color: rgb(214, 212, 212);
+    border-color: rgb(214, 212, 212);
+    color: black;
+}
+
+.input-group >.btn:hover {
+    background-color: #FA8232;
+    border-color: #FA8232;
+    color: white;
+}
+
+.input-group > input:hover {
+    border-color: #FA8232;
+}
+
+.form-control {
+    display: block;
+    width: 200px;
+    margin: 0px;
+    margin-left: 5px;
+    padding: 2.5px;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #FA8232; 
+}

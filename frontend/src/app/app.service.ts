@@ -136,4 +136,15 @@ export class AppService {
         .set('observaciones', "N.A");
       return this.http.post(this.url + `/venta/registrar`, null, {headers, params});
   }
+
+  getUserOrders(): Observable<any> {
+    var headers = this.headers;
+    var correo = this.tokenService.getUser()?.correo;
+    return this.http.get(this.url + `/venta/listar/usuario/${correo}`, {headers});
+  }
+
+  getBranchSales(): Observable<any> {
+    var headers = this.headers;
+    return this.http.get(this.url + '/venta/listar/todos', {headers});
+  }
 }

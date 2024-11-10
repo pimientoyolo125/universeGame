@@ -42,6 +42,7 @@ a:hover {
         width: 98vw;
         align-items: center;
         flex-direction: column;
+        padding-right: 35px !important;   
     }
 
     #page-content {

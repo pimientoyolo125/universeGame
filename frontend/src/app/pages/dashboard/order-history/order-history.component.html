@@ -1,9 +1,20 @@
-<div id="container" style="margin-top: 25px; margin-left: 15px; margin-right: 15px; min-width: 530px;">
+<div *ngIf="!viewDetail" id="container" style="margin-top: 25px; margin-left: 15px; margin-right: 15px; min-width: 530px;">
     <p style="font-size: 20; font-weight: 500;">ORDER HISTORY</p>
 
     <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
 
     <div class="row align-items-center">
+        <div class="col-md-6">
+            <p>Search by product name:</p>
+            <div class="input-group">
+                <input type="search" id="buscadorFiltro" [(ngModel)]="searchedProduct" (keydown)="onKeydown($event)"
+                    class="form-control" aria-label="Search" aria-describedby="search-addon" />
+                <button type="button" class="btn" data-mdb-ripple-init>
+                    <i class="bi bi-search icon-large"></i>
+                </button>
+            </div>
+        </div>
+
         <div class="col-md-6">
             <p>Sort by date:</p>
             <select class="form-select" [(ngModel)]="sortDate"
@@ -12,6 +23,8 @@
                 <option value="2" >Oldest</option>
             </select>
         </div>
+
+        <!--
         <div class="col-md-6">
             <p>Sort by total:</p>
             <select class="form-select" [(ngModel)]="sortTotal"
@@ -20,6 +33,7 @@
                 <option value="2" >Low to high</option>
             </select>
         </div>
+        -->
     </div>
 
     <table class="table table-striped">
@@ -36,11 +50,11 @@
             <tr *ngFor="let order of paginatedOrders">
                 <td scope="row" style="font-weight: 500;">{{ order.id }}</td>
                 <td><p style="color: #2DB224;">DELIVERED</p></td>
-                <td>{{ order.fecha }}</td>
+                <td>{{ formatDate(order.fecha) }}</td>
                 <td>
-                    COP ${{ getTotal(order) }} ({{ order.cantidadProductos }} {{ order.cantidadProductos === 1 ? 'Product' : 'Products' }})
+                    COP ${{ formatTotal(order) }} ({{ order.detalleVenta.length }} {{ order.detalleVenta.length === 1 ? 'Product' : 'Products' }})
                 </td>
-                <td><a>View Details <i class="bi bi-arrow-right"></i></a></td>
+                <td><a (click)='showOrderDetail(order)'>View Details <i class="bi bi-arrow-right"></i></a></td>
             </tr>
             <tr *ngIf="orders.length === 0">
                 <td colspan="6" style="text-align: center">No orders found</td>
@@ -50,4 +64,8 @@
     <ngb-pagination class="d-flex justify-content-center paginator" [(page)]="currentPage" [pageSize]="itemsPerPage"
         [collectionSize]="orders.length" (pageChange)="onPageChange($event)" aria-label="Default pagination">
     </ngb-pagination>
+</div>
+
+<div *ngIf="viewDetail">
+    <app-order-detail [order]="selectedOrder" (closeDetail)="viewDetail = false"></app-order-detail>
 </div>

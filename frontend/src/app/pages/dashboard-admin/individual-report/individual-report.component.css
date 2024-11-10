@@ -70,6 +70,16 @@ td > a:hover {
     color: #FA8232;
 }
 
+.input-group {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: fit-content;
+}
+
+.input-group > input {
+    margin-left: 5px;
+}
+
 .input-group > button {
     border-color: rgb(214, 212, 212);
     color: black;
@@ -94,4 +104,8 @@ td > a:hover {
     outline: none;
     box-shadow: none;
     border-color:#FA8232;
+}
+
+#buscadorFiltro {
+    width: 150px;
 }
