@@ -94,6 +94,12 @@ export class CheckoutComponent {
       (response) => {
         this.carrito = response;
         this.detalleCarrito = response.detalleCarrito;
+
+        //Si no hay elementos en el carrito lo devuelve al homepage
+        if (this.detalleCarrito.length == 0) {
+          this.router.navigate(['/']);
+        }
+        
         //console.log(this.carrito);
       },
       (error) => {
