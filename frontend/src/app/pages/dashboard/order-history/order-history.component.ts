@@ -27,6 +27,8 @@ export class OrderHistoryComponent implements OnInit {
   viewDetail = false; 
   selectedOrder: any; 
 
+  isLoading: boolean = true;
+
   ngOnInit(): void {
     this.getOrders();
   }
@@ -52,10 +54,12 @@ export class OrderHistoryComponent implements OnInit {
       (response) => {
         this.orders = response;
         this.sortOrders();
+        this.isLoading = false;
         //console.log(response);
       },
       (error) => {
         console.error('Error Loading the user Orders', error);
+        this.isLoading = false;
       }
     );
   }

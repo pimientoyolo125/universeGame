@@ -32,6 +32,8 @@ export class IndividualReportComponent implements OnInit{
   viewDetail = false; 
   selectedSale: any; 
 
+  isLoading: boolean = true;
+
   ngOnInit(): void {
     this.earliestDate = this.getToday();
     this.latestDate = this.getToday();
@@ -60,9 +62,11 @@ export class IndividualReportComponent implements OnInit{
         this.sales = response;
         this.salesAux = response;
         this.sortSales();
+        this.isLoading = false;
         //console.log(response);
       },
       (error) => {
+        this.isLoading = false;
         console.error('Error Loading the user Orders', error);
       }
     );

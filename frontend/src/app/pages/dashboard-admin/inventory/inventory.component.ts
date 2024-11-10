@@ -20,6 +20,8 @@ export class InventoryComponent implements OnInit{
   itemsPerPage: number = 10;
   searchedString: string = ' ';
 
+  isLoading: boolean = true;
+
   ngOnInit(): void {
     this.getCategories();
     this.filterProducts(); 
@@ -65,9 +67,11 @@ export class InventoryComponent implements OnInit{
     ).subscribe(
       (response) => {
         this.products = response.sort((a: any, b: any) => a.id - b.id);
+        this.isLoading = false;
       },
       (error) => {
         console.error('Error fetching filteredProducts', error);
+        this.isLoading = false;
       }
     );
   }

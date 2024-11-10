@@ -19,6 +19,7 @@ export class ShoppingCartComponent implements OnInit{
   
   carrito: any[] = [];
   detalleCarrito: any[] = [];
+  isLoading: boolean = true;
 
   ngOnInit(): void {
     this.getCarrito();
@@ -89,10 +90,12 @@ export class ShoppingCartComponent implements OnInit{
                 detalle.cantidad = detalle.producto.cantidad
           }
         });
+        this.isLoading = false;
         //console.log(this.carrito);
       },
       (error) => {
         console.error('Error fetching shoppingCart', error);
+        this.isLoading = false;
       }
     );
   }

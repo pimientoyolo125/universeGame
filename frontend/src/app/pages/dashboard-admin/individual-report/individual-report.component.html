@@ -99,7 +99,15 @@
                 </td>
                 <td><a (click)='showSaleDetail(sale)'>View Details <i class="bi bi-arrow-right"></i></a></td>
             </tr>
-            <tr *ngIf="sales.length === 0">
+            <tr *ngIf="isLoading">
+                <td colspan="6" style="text-align: center;">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <i id="spinning-loading-arrow" class="bi bi-arrow-repeat spin"></i>
+                    <span class="ms-2">Loading...</span>
+                  </div>
+                </td>
+            </tr>
+            <tr *ngIf="!isLoading && sales.length === 0">
                 <td colspan="6" style="text-align: center">No sales found</td>
             </tr>
         </tbody>

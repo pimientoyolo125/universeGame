@@ -112,3 +112,20 @@ td > a:hover {
     box-shadow: none;
     border-color: #FA8232; 
 }
+
+#spinning-loading-arrow.spin {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    color: #FA8232;
+    font-size: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

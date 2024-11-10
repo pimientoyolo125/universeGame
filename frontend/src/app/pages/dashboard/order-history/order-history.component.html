@@ -56,7 +56,15 @@
                 </td>
                 <td><a (click)='showOrderDetail(order)'>View Details <i class="bi bi-arrow-right"></i></a></td>
             </tr>
-            <tr *ngIf="orders.length === 0">
+            <tr *ngIf="isLoading">
+                <td colspan="6" style="text-align: center;">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <i id="spinning-loading-arrow" class="bi bi-arrow-repeat spin"></i>
+                    <span class="ms-2">Loading...</span>
+                  </div>
+                </td>
+            </tr>
+            <tr *ngIf="!isLoading && orders.length === 0">
                 <td colspan="6" style="text-align: center">No orders found</td>
             </tr>
         </tbody>

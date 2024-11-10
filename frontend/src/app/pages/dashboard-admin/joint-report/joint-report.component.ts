@@ -40,9 +40,12 @@ export class JointReportComponent implements OnInit{
   viewDetail = false; 
   selectedSale: any; 
 
+  isLoading: boolean = true;
+
   ngOnInit(): void {
     this.earliestDate = this.getToday();
     this.latestDate = this.getToday();
+    this.isLoading = false;
   }
 
   onSortDateChange(event: Event) {
