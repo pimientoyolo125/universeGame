@@ -14,4 +14,6 @@ public interface VentaService {
 
     Venta registrar(String correoUsuario,String observaciones);
 
+    List<Venta> listarFiltroUsuario(String correoUsuario, String nombreProducto, boolean descFecha);
+
 }

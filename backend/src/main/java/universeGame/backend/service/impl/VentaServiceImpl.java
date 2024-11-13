@@ -48,6 +48,19 @@ public class VentaServiceImpl implements VentaService {
     }
 
     @Override
+    public List<Venta> listarFiltroUsuario(String correoUsuario, String nombreProducto, boolean descFecha) {
+        Usuario usuario = usuarioService.findByCorreo(correoUsuario);
+
+        nombreProducto = nombreProducto.trim().toUpperCase().replaceAll("\\s+", " ");
+
+        if (descFecha) {
+            return ventaRepository.findUsuarioAndNombreProductoDesc(usuario.getId(), nombreProducto);
+        } else {
+            return ventaRepository.findUsuarioAndNombreProductoAsc(usuario.getId(), nombreProducto);
+        }
+    }
+
+    @Override
     @Transactional
     public Venta registrar(String correoUsuario, String observaciones) {
         //usuario

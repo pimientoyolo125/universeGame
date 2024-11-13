@@ -48,6 +48,18 @@ public class VentaController {
         return ResponseEntity.ok(ventasDTO);
     }
 
+    @GetMapping("/listar/filtro/usuario")
+    @Schema(description = "Lista con un filtro las ventas de un usuario")
+    public ResponseEntity<List<VentaDTO>> listarFiltroUsuario(
+            @RequestParam(value = "correoUsuario") String correoUsuario,
+            @RequestParam(value = "nombre", required = false, defaultValue = "") String nombreProducto,
+            @RequestParam(value = "descFecha", required = false, defaultValue = "true") Boolean descFecha
+    ) {
+        List<Venta> ventas = ventaService.listarFiltroUsuario(correoUsuario, nombreProducto, descFecha);
+        List<VentaDTO> ventasDTO = VentaMapper.INSTANCE.toVentaDTOs(ventas);
+        return ResponseEntity.ok(ventasDTO);
+    }
+
     @PostMapping("/registrar")
     @Schema(description = "Registar una venta del carrito")
     public ResponseEntity<VentaDTO> registrar(
