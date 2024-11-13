@@ -1,5 +1,6 @@
 package universeGame.backend.controller;
 
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,7 +84,21 @@ public class VentaController {
             @RequestParam(value = "fechaSuperior") @DateTimeFormat(pattern = "yyyy-MM-dd")Date fechaSuperior,
             @RequestParam(value = "totalDesc", required = false, defaultValue = "true") Boolean totalDesc
     ) {
-        List<Venta> ventas = ventaService.repoteIndividual(cliente, fechaInferior, fechaSuperior, totalDesc);
+        List<Venta> ventas = ventaService.reporteIndividual(cliente, fechaInferior, fechaSuperior, totalDesc);
+        List<VentaDTO> ventasDTO = VentaMapper.INSTANCE.toVentaDTOs(ventas);
+        return ResponseEntity.ok(ventasDTO);
+    }
+
+    @GetMapping("/reporte-conjunto")
+    @Schema(description = "Reporte conjunto de ventas")
+    public ResponseEntity<List<VentaDTO>> reporteConjunto(
+            @RequestParam(value = "cliente", required = false, defaultValue = "") String cliente,
+            @RequestParam(value = "fechaInferior") @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaInferior,
+            @RequestParam(value = "fechaSuperior") @DateTimeFormat(pattern = "yyyy-MM-dd")Date fechaSuperior,
+            @RequestParam(value = "totalDesc", required = false, defaultValue = "true") Boolean totalDesc,
+            @RequestBody List<String> sucursales
+    ) {
+        List<Venta> ventas = ventaService.reporteConjunto(cliente, fechaInferior, fechaSuperior, totalDesc, sucursales);
         List<VentaDTO> ventasDTO = VentaMapper.INSTANCE.toVentaDTOs(ventas);
         return ResponseEntity.ok(ventasDTO);
     }

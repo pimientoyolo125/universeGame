@@ -13,6 +13,7 @@ import universeGame.backend.service.interfaces.DireccionService;
 import universeGame.backend.service.interfaces.UsuarioService;
 import universeGame.backend.service.interfaces.VentaService;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -62,11 +63,9 @@ public class VentaServiceImpl implements VentaService {
     }
 
     @Override
-    public List<Venta> repoteIndividual(String cliente, Date fechaInferior, Date fechaSuperior, boolean descFecha) {
+    public List<Venta> reporteIndividual(String cliente, Date fechaInferior, Date fechaSuperior, boolean descFecha) {
 
         cliente = cliente.trim().toUpperCase().replaceAll("\\s+", " ");
-
-        System.out.println("cliente: (" + cliente+ ")");
 
         if (descFecha) {
             return ventaRepository.reporteIndividualDesc(cliente, fechaInferior, fechaSuperior);
@@ -74,6 +73,48 @@ public class VentaServiceImpl implements VentaService {
             return ventaRepository.reporteIndividualAsc(cliente, fechaInferior, fechaSuperior);
         }
     }
+
+    @Override
+    public List<Venta> reporte2B() {
+        return new ArrayList<>();
+    }
+
+    @Override
+    public List<Venta> reporteConjunto(String cliente, Date fechaInferior, Date fechaSuperior, boolean descFecha, List<String> sucursales) {
+
+        List<String> sucursalesValidas = List.of("2A", "2B");
+
+        if(sucursales.isEmpty()){
+            sucursales = sucursalesValidas;
+        }
+
+        List<Venta> reporte = new ArrayList<>();
+
+        for (String sucursal : sucursales) {
+            if(sucursal == null){
+                throw new CustomException("The branch not found");
+            }
+            sucursal = sucursal.trim().toUpperCase();
+
+            if(sucursal.equals("2A")){
+                reporte.addAll(reporteIndividual(cliente, fechaInferior, fechaSuperior, descFecha));
+            }
+            if(sucursal.equals("2B")){
+                reporte.addAll(reporte2B());
+            }
+
+            if (!sucursalesValidas.contains(sucursal)) {
+                throw new CustomException("The branch not found");
+            }
+
+        }
+
+        return reporte;
+    }
+
+
+
+
 
     @Override
     @Transactional

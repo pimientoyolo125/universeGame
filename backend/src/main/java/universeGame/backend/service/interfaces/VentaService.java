@@ -17,6 +17,10 @@ public interface VentaService {
 
     List<Venta> listarFiltroUsuario(String correoUsuario, String nombreProducto, boolean descFecha);
 
-    List<Venta> repoteIndividual(String cliente, Date fechaInferior, Date fechaSuperior,  boolean descFecha);
+    List<Venta> reporteIndividual(String cliente, Date fechaInferior, Date fechaSuperior, boolean descFecha);
+
+    List<Venta> reporte2B();
+
+    List<Venta> reporteConjunto(String cliente, Date fechaInferior, Date fechaSuperior, boolean descFecha, List<String> sucursales);
 
 }
