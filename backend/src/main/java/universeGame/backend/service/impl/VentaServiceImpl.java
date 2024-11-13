@@ -13,6 +13,7 @@ import universeGame.backend.service.interfaces.DireccionService;
 import universeGame.backend.service.interfaces.UsuarioService;
 import universeGame.backend.service.interfaces.VentaService;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -57,6 +58,20 @@ public class VentaServiceImpl implements VentaService {
             return ventaRepository.findUsuarioAndNombreProductoDesc(usuario.getId(), nombreProducto);
         } else {
             return ventaRepository.findUsuarioAndNombreProductoAsc(usuario.getId(), nombreProducto);
+        }
+    }
+
+    @Override
+    public List<Venta> repoteIndividual(String cliente, Date fechaInferior, Date fechaSuperior, boolean descFecha) {
+
+        cliente = cliente.trim().toUpperCase().replaceAll("\\s+", " ");
+
+        System.out.println("cliente: (" + cliente+ ")");
+
+        if (descFecha) {
+            return ventaRepository.reporteIndividualDesc(cliente, fechaInferior, fechaSuperior);
+        } else {
+            return ventaRepository.reporteIndividualAsc(cliente, fechaInferior, fechaSuperior);
         }
     }
 

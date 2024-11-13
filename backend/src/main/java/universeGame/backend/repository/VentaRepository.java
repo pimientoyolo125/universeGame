@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import universeGame.backend.model.Venta;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -50,5 +51,26 @@ public interface VentaRepository extends JpaRepository<Venta, Long> {
             "order by v.fecha asc"
     )
     List<Venta> findUsuarioAndNombreProductoAsc(Long idUsuario, String nombreProducto);
+
+
+    @Query("select v " +
+            "from Venta v " +
+            "inner join v.usuario u " +
+            "where concat(u.nombre, ' ', u.apellido) like CONCAT('%', :cliente, '%') " +
+            "and v.fecha between :fechaInferior and :fechaSuperior " +
+            "order by v.total desc"
+    )
+    List<Venta> reporteIndividualDesc(String cliente, Date fechaInferior, Date fechaSuperior);
+
+    @Query("select v " +
+            "from Venta v " +
+            "inner join v.usuario u " +
+            "where concat(u.nombre, ' ', u.apellido) like CONCAT('%', :cliente, '%') " +
+            "and v.fecha between :fechaInferior and :fechaSuperior " +
+            "order by v.total asc"
+    )
+    List<Venta> reporteIndividualAsc(String cliente, Date fechaInferior, Date fechaSuperior);
+
+
 
 }

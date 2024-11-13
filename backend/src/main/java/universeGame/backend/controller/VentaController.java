@@ -3,6 +3,7 @@ package universeGame.backend.controller;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import universeGame.backend.dto.VentaDTO;
@@ -10,6 +11,7 @@ import universeGame.backend.mappers.VentaMapper;
 import universeGame.backend.model.Venta;
 import universeGame.backend.service.interfaces.VentaService;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -69,6 +71,21 @@ public class VentaController {
         Venta venta = ventaService.registrar(correoUsuario, observaciones);
         VentaDTO ventaDTO = VentaMapper.INSTANCE.toVentaDTO(venta);
         return ResponseEntity.ok(ventaDTO);
+    }
+
+
+
+    @GetMapping("/reporte-individual")
+    @Schema(description = "Reporte individual de ventas")
+    public ResponseEntity<List<VentaDTO>> reporteIndividual(
+            @RequestParam(value = "cliente", required = false, defaultValue = "") String cliente,
+            @RequestParam(value = "fechaInferior") @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaInferior,
+            @RequestParam(value = "fechaSuperior") @DateTimeFormat(pattern = "yyyy-MM-dd")Date fechaSuperior,
+            @RequestParam(value = "totalDesc", required = false, defaultValue = "true") Boolean totalDesc
+    ) {
+        List<Venta> ventas = ventaService.repoteIndividual(cliente, fechaInferior, fechaSuperior, totalDesc);
+        List<VentaDTO> ventasDTO = VentaMapper.INSTANCE.toVentaDTOs(ventas);
+        return ResponseEntity.ok(ventasDTO);
     }
 
 
