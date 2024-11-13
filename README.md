@@ -1,4 +1,4 @@
-# Proyecto Final: Ingeniería del Software II
+# Proyecto Final: Ingeniería del Software II 2024-2
 
 ### Integrantes:
 - **Juan Diego Roa Porras** - 2210086
