@@ -26,8 +26,8 @@ export class IndividualReportComponent implements OnInit{
   currentPage: number = 1;
   itemsPerPage: number = 10;
   
-  earliestDate: any = '';
-  latestDate: any = '';
+  earliestDate: any = {};
+  latestDate: any = {};
 
   viewDetail = false; 
   selectedSale: any; 
@@ -50,10 +50,40 @@ export class IndividualReportComponent implements OnInit{
 
   onDateChange(type: string, event: any) {
     if (type === 'earliest') {
+      //Verificamos que la nueva fecha no sea despues de hoy
+      if (this.convertObjectToDate(this.earliestDate) > this.convertObjectToDate(this.getToday())) {
+        alert("There are not sales reports in the FUTURE!");
+        this.earliestDate = this.getToday();
+        return;
+      } 
+      
+      //Verificamos que la nueva fecha no sea despues del limite superior del rango
+      if (this.convertObjectToDate(this.earliestDate) > this.convertObjectToDate(this.latestDate)) {
+        alert("Please select a valid Date Range!")
+        this.earliestDate = this.getToday();
+      }
       //console.log('Earliest Date changed:', event);
+
     } else if (type === 'latest') {
+      //Verificamos que la nueva fecha no sea despues de hoy
+      if (this.convertObjectToDate(this.latestDate) > this.convertObjectToDate(this.getToday())) {
+        alert("There are not sales reports in the FUTURE!");
+        this.latestDate = this.getToday();
+        return;
+      }
+
+      //Verificamos que la nueva fecha no sea despues del limite superior del rango
+      if (this.convertObjectToDate(this.earliestDate) > this.convertObjectToDate(this.latestDate)) {
+        alert("Please select a valid Date Range!")
+        this.latestDate = this.getToday();
+      }
+      
       //console.log('Latest Date changed:', event);
     }
+  }
+
+  convertObjectToDate(object: any){
+    return new Date(object.year, object.month - 1, object.day);
   }
 
   getSales() {

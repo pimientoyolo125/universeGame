@@ -10,7 +10,7 @@
 }
 
 .col-md-6 {
-    margin-left: 5px; 
+    margin-left: 0px; 
     margin-bottom: 10px; 
     width: fit-content;
 }
@@ -74,10 +74,6 @@ td > a:hover {
     padding-top: 0px;
     padding-bottom: 0px;
     height: fit-content;
-}
-
-.input-group > input {
-    margin-left: 5px;
 }
 
 .input-group > button {
