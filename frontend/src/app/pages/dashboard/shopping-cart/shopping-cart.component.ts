@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { AppService } from '../../../app.service';
 import { CommonModule } from '@angular/common';
 import { TokenService } from '../../../token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -12,13 +13,17 @@ import { TokenService } from '../../../token.service';
   styleUrl: './shopping-cart.component.css'
 })
 export class ShoppingCartComponent implements OnInit{
-  constructor(private appService: AppService, private tokenService:TokenService) {};
+  constructor(private appService: AppService, private tokenService:TokenService,
+    private router:Router
+  ) {};
   
   carrito: any[] = [];
   detalleCarrito: any[] = [];
+  isLoading: boolean = true;
 
   ngOnInit(): void {
     this.getCarrito();
+    window.addEventListener('beforeunload', this.onBeforeUnload.bind(this));
   }
 
   getPrecioImpuesto(product: any): string {
@@ -32,7 +37,7 @@ export class ShoppingCartComponent implements OnInit{
   }
 
   getSubTotalProducto(detalle:any): number {
-    var subtotal = detalle.cantidad * (detalle.producto.precio)
+    var subtotal = detalle.cantidad * ((detalle.producto.precio)*(1+detalle.producto.impuesto))
     return Math.round(subtotal / 50) * 50;
   }
 
@@ -46,13 +51,20 @@ export class ShoppingCartComponent implements OnInit{
   }
 
   aumentarCantidad(detalle: any): void {
-    detalle.cantidad = detalle.cantidad + 1; 
+    if (detalle.cantidad < detalle.producto.cantidad) {
+      detalle.cantidad = detalle.cantidad + 1; 
+    }else {
+      alert("Stock of '" + detalle.producto.nombre + "' = " + detalle.producto.cantidad + 
+        "\n\nPlease reduce the quantity to buy or select a different product.");
+    }
+    //this.actualizarDetalleCarrito(detalle)
   }
 
   disminuirCantidad(detalle: any): void {
     if (detalle.cantidad > 1) {
       detalle.cantidad = detalle.cantidad - 1; 
     }
+    //this.actualizarDetalleCarrito(detalle)
   }
 
   getSubTotal(){
@@ -69,10 +81,21 @@ export class ShoppingCartComponent implements OnInit{
       (response) => {
         this.carrito = response;
         this.detalleCarrito = response.detalleCarrito;
+        
+        //Si sucedió un error al finalizar la compra y redirigió al usuario
+        //al carrito, automaticamente actualizara la cantidad a comprar para que
+        //iguale el stock disponible
+        this.detalleCarrito.forEach(detalle => {
+          if (detalle.cantidad > detalle.producto.cantidad) {
+                detalle.cantidad = detalle.producto.cantidad
+          }
+        });
+        this.isLoading = false;
         //console.log(this.carrito);
       },
       (error) => {
         console.error('Error fetching shoppingCart', error);
+        this.isLoading = false;
       }
     );
   }
@@ -87,5 +110,38 @@ export class ShoppingCartComponent implements OnInit{
         console.error("Error Deleting a 'DetalleProducto'", error);
       }
     );
+  }
+
+  goCheckout(){
+    if (this.detalleCarrito.length == 0) {
+      alert("¡Your shopping cart is empty, please add a product!")
+    }else {
+      this.router.navigate(['/checkout']);
+    }
+  }
+
+  actualizarDetalleCarrito(detalle:any){
+    this.appService.updateDetalleCarrito(detalle.id, detalle.cantidad).subscribe(
+      (response) => {
+        //console.log(response);
+        this.getCarrito();
+      },
+      (error) => {
+        console.error("Error Deleting a 'DetalleProducto'", error);
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.detalleCarrito.forEach(detalle => {
+        this.actualizarDetalleCarrito(detalle);
+    });
+    window.removeEventListener('beforeunload', this.onBeforeUnload.bind(this));
+  }
+
+  onBeforeUnload(event: BeforeUnloadEvent) {
+    this.detalleCarrito.forEach(detalle => {
+        this.actualizarDetalleCarrito(detalle);
+    });
   }
 }

@@ -33,7 +33,15 @@
                     </td>
                     <td>COP ${{ getStringSubTotalProducto(detalle)}}</td>
                 </tr>
-                <tr *ngIf="detalleCarrito.length === 0">
+                <tr *ngIf="isLoading">
+                    <td colspan="6" style="text-align: center;">
+                      <div class="d-flex align-items-center justify-content-center">
+                        <i id="spinning-loading-arrow" class="bi bi-arrow-repeat spin"></i>
+                        <span class="ms-2">Loading...</span>
+                      </div>
+                    </td>
+                </tr>
+                <tr *ngIf="!isLoading && detalleCarrito.length === 0">
                     <td colspan="6" style="text-align: center">No products found</td>
                 </tr>
             </tbody>
@@ -49,7 +57,7 @@
         <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
         <p> <b style="font-weight: 500;">Total: COP ${{getSubTotal()}}</b></p>
         <div class="d-flex justify-content-center">
-            <button>PROCEED TO CHECKOUT <i class="bi bi-arrow-right"></i></button>
+            <button (click)="goCheckout()">PROCEED TO CHECKOUT <i class="bi bi-arrow-right"></i></button>
         </div>
     </div>
 </div>

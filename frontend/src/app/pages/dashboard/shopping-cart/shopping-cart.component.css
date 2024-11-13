@@ -37,7 +37,7 @@
     border: 1px solid #FA8232;
     background-color: #FA8232;
     color: white;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-weight: 500;
 }
 
@@ -96,6 +96,23 @@ td, th {
     margin-top: 2px;
     margin-bottom: 2px;
     font-size: 16px;
+}
+
+#spinning-loading-arrow.spin {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    color: #FA8232;
+    font-size: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @media (max-width:1260px) {

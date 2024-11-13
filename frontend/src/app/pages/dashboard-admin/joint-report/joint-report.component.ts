@@ -4,12 +4,13 @@ import { AppService } from '../../../app.service';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { NgbPagination, NgbAlertModule, NgbDatepickerModule, NgbCalendar, NgbDateAdapter
 } from '@ng-bootstrap/ng-bootstrap';
+import { OrderDetailComponent } from '../../order-detail/order-detail.component';
 
 @Component({
   selector: 'app-joint-report',
   standalone: true,
   imports: [FormsModule, CommonModule, NgbPagination, NgbDatepickerModule, NgbAlertModule, 
-    FormsModule, JsonPipe],
+    FormsModule, JsonPipe, OrderDetailComponent],
   templateUrl: './joint-report.component.html',
   styleUrl: './joint-report.component.css'
 })
@@ -36,9 +37,15 @@ export class JointReportComponent implements OnInit{
   earliestDate: any = '';
   latestDate: any = '';
 
+  viewDetail = false; 
+  selectedSale: any; 
+
+  isLoading: boolean = true;
+
   ngOnInit(): void {
     this.earliestDate = this.getToday();
     this.latestDate = this.getToday();
+    this.isLoading = false;
   }
 
   onSortDateChange(event: Event) {
@@ -81,5 +88,10 @@ export class JointReportComponent implements OnInit{
 
   onPageChange(page: number): void {
     this.currentPage = page;
+  }
+
+  showSaleDetail(sale: any) {
+    this.selectedSale = sale;
+    this.viewDetail = true;
   }
 }

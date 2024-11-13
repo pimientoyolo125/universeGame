@@ -1,4 +1,4 @@
-<div id="container" style="margin-top: 25px; margin-left: 15px; margin-right: 15px; min-width: 560px;">
+<div *ngIf="!viewDetail" id="container" style="margin-top: 25px; margin-left: 15px; margin-right: 15px; min-width: 560px;">
     <p style="font-size: 20; font-weight: 500;">SALES HISTORY</p>
 
     <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
@@ -104,9 +104,17 @@
                 <td>
                     COP ${{ getTotal(sale) }} ({{ sale.cantidadProductos }} {{ sale.cantidadProductos === 1 ? 'Product' : 'Products' }})
                 </td>
-                <td><a>View Details <i class="bi bi-arrow-right"></i></a></td>
+                <td><a (click)='showSaleDetail(sale)'>View Details <i class="bi bi-arrow-right"></i></a></td>
             </tr>
-            <tr *ngIf="sales.length === 0">
+            <tr *ngIf="isLoading">
+                <td colspan="6" style="text-align: center;">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <i id="spinning-loading-arrow" class="bi bi-arrow-repeat spin"></i>
+                    <span class="ms-2">Loading...</span>
+                  </div>
+                </td>
+            </tr>
+            <tr *ngIf="!isLoading && sales.length === 0">
                 <td colspan="6" style="text-align: center">No sales found</td>
             </tr>
         </tbody>
@@ -114,4 +122,8 @@
     <ngb-pagination class="d-flex justify-content-center paginator" [(page)]="currentPage" [pageSize]="itemsPerPage"
         [collectionSize]="sales.length" (pageChange)="onPageChange($event)" aria-label="Default pagination">
     </ngb-pagination>
+</div>
+
+<div *ngIf="viewDetail">
+    <app-order-detail [order]="selectedSale" (closeDetail)="viewDetail = false"></app-order-detail>
 </div>

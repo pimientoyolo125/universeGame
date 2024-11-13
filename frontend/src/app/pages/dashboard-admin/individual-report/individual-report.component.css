@@ -45,6 +45,11 @@
     text-align: center;
 }
 
+td, th {
+    vertical-align: middle;
+    text-align: center;
+}
+
 td > a {
     color: #2DA5F3;
     cursor: pointer;
@@ -63,6 +68,16 @@ td > p {
 
 td > a:hover {
     color: #FA8232;
+}
+
+.input-group {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: fit-content;
+}
+
+.input-group > input {
+    margin-left: 5px;
 }
 
 .input-group > button {
@@ -89,4 +104,25 @@ td > a:hover {
     outline: none;
     box-shadow: none;
     border-color:#FA8232;
+}
+
+#buscadorFiltro {
+    width: 150px;
+}
+
+#spinning-loading-arrow.spin {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    color: #FA8232;
+    font-size: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

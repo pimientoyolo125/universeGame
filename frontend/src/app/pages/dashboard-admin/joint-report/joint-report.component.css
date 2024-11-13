@@ -45,6 +45,11 @@
     text-align: center;
 }
 
+td, th {
+    vertical-align: middle;
+    text-align: center;
+}
+
 td > a {
     color: #2DA5F3;
     cursor: pointer;
@@ -104,4 +109,21 @@ td > a:hover {
 .form-check-input:hover {
     border: 1px solid #FA8232;
     box-shadow: 1px 1px 1px #FA8232;
+}
+
+#spinning-loading-arrow.spin {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    color: #FA8232;
+    font-size: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

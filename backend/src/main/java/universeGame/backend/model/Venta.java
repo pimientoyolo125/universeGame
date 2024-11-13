@@ -29,6 +29,9 @@ public class Venta {
     @Column(name = "total")
     private Double total;
 
+    @Column(name = "direccion")
+    private String direccion;
+
     @OneToMany(mappedBy = "venta")
     private List<DetalleVenta> detalleVenta;
 }

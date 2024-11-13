@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AppService } from '../../app.service'; 
 import { TokenService } from '../../token.service';
 import { ModalVerificationComponent } from '../modal-verification/modal-verification.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +13,9 @@ import { ModalVerificationComponent } from '../modal-verification/modal-verifica
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  constructor(private appService: AppService, private tokenService:TokenService) {};
+  constructor(private appService: AppService, private tokenService:TokenService,
+    private router:Router, private modalService:NgbModal
+  ) {};
 
   @Input() product!: { 
     id: number;
@@ -44,11 +47,11 @@ export class ProductComponent {
         return {nombre: 'Last Units', color:'#ffc107'};
       }
       else {
-        return {nombre: 'Sold Out', color:'dc3545'};
+        return {nombre: 'Sold Out', color:'#dc3545'};
       }
     }
     else {
-      return {nombre: 'No product', color: '6c757d'};
+      return {nombre: 'No product', color: '#6c757d'};
     }
   }
 
@@ -68,9 +71,54 @@ export class ProductComponent {
     this.tokenService.isAuthenticated().subscribe(
       (isAuth) => {
         if (isAuth) {
-          this.appService.añadirProductoCarrito(this.product.id, this.cantidadComprar);
+          if(this.cantidadComprar<= this.product.cantidad){
+            this.appService.añadirProductoCarrito(this.product.id, this.cantidadComprar).subscribe(
+              (res)=> {
+                //console.log(res);
+                this.router.navigate(['/account/shoppingCart']);
+              },
+              (error) => {
+                const errorMessage = error.error?.message || error.message;
+                if (errorMessage.includes("Not enough product in")) {
+                  console.clear()
+                  alert("There is not enough stock of '"+ this.product.nombre +"'."
+                    + "\n\nJust in case, please check if you already have this product in your shopping cart.")
+                }else {
+                  console.error('Error Adding Products to the cart', error);
+                }
+              }
+            );
+          } else{
+            alert("Stock of '" + this.product.nombre + "' = " + this.product.cantidad + 
+              "\n\nPlease reduce the quantity to buy or select a different product.");
+          }    
         } else {
           alert("You haven't signed in yet, you cant add products to your shopping cart.");
+        }
+      }
+    )
+  }
+
+  comprarAhora():void {
+    this.tokenService.isAuthenticated().subscribe(
+      (isAuth) => {
+        if (isAuth) {
+          if(this.cantidadComprar<= this.product.cantidad){
+            this.appService.añadirProductoCarrito(this.product.id, this.cantidadComprar).subscribe(
+              (res)=> {
+                //console.log(res);
+                this.router.navigate(['/checkout']);
+              },
+              (error) => {
+                console.error('Error Adding Products to the cart', error);
+              }
+            );
+          } else{
+            alert("Stock of '" + this.product.nombre + "' = " + this.product.cantidad + 
+              "\n\nPlease reduce the quantity to buy or select a different product.");
+          } 
+        } else {
+          alert("You haven't signed in yet, you can't buy a product right now.");
         }
       }
     )
@@ -86,23 +134,33 @@ export class ProductComponent {
     }
   }
 
-  private modalService = inject(NgbModal);
-
   openInfoModal(content: TemplateRef<any>) {
 		this.modalService.open(content, { size: 'xl', centered:true });
     this.isInfoModalOpen = true;
 	}
 
-  openVerifModal() {
+  openVerifModal(caso: number) {
     const modalRef = this.modalService.open(ModalVerificationComponent);
-    modalRef.componentInstance.verificationText = `Are you sure you want to add '${this.product.nombre}' - Quantity = ${this.cantidadComprar}?`;
+    modalRef.componentInstance.modalClass = 'TACenter';
+    if (caso == 1) {
+      modalRef.componentInstance.verificationText = `Do you want to add to your cart: '${this.product.nombre}' - Quantity = ${this.cantidadComprar}?`;  
+    }
+    else {
+      modalRef.componentInstance.verificationText = `Do you want to buy '${this.product.nombre}' - Quantity = ${this.cantidadComprar}?`;
+    }
+    
     modalRef.componentInstance.onButtonClick = () => {
       if (this.isInfoModalOpen) {
         this.modalService.dismissAll();
         this.isInfoModalOpen = false;
       }
       modalRef.close();
-      this.productoAlCarrito();
+      if (caso == 1) {
+        this.productoAlCarrito();
+      }
+      else {
+        this.comprarAhora();
+      }
     }
   }
 }

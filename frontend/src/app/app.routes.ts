@@ -12,6 +12,8 @@ import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin
 import { InventoryComponent } from './pages/dashboard-admin/inventory/inventory.component';
 import { IndividualReportComponent } from './pages/dashboard-admin/individual-report/individual-report.component';
 import { JointReportComponent } from './pages/dashboard-admin/joint-report/joint-report.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { OrderPlacedComponent } from './pages/order-placed/order-placed.component';
 
 export const routes: Routes = [
     {
@@ -46,6 +48,14 @@ export const routes: Routes = [
           { path: 'jointReport', component: JointReportComponent },
           { path: '', redirectTo: 'inventory', pathMatch: 'full' } 
         ]    
+    },
+    {
+        path: 'checkout',
+        component: CheckoutComponent
+    },
+    {
+        path: 'orderPlaced',
+        component: OrderPlacedComponent
     },
     {
         path: '**',

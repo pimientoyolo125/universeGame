@@ -11,13 +11,13 @@
 
         <div class="quantity">
             <button (click)="disminuirCantidad()">—</button>
-            <p>Cantidad: {{this.cantidadComprar}}</p>
+            <p>Quantity: {{this.cantidadComprar}}</p>
             <button (click)="aumentarCantidad()">+</button>
         </div>
 
         <div class="row">
-            <button (click)="openVerifModal()">ADD TO <i class="bi bi-cart icon-large"></i></button>
-            <button>BUY NOW</button>
+            <button (click)="openVerifModal(1)">ADD TO <i class="bi bi-cart icon-large"></i></button>
+            <button (click)="openVerifModal(2)">BUY NOW</button>
         </div>
     </div>
 
@@ -88,14 +88,13 @@
                         </div>
 
                         <div class="col">
-                            <button (click)="openVerifModal()">ADD TO <i class="bi bi-cart icon-large"></i></button>
+                            <button (click)="openVerifModal(1)">ADD TO <i class="bi bi-cart icon-large"></i></button>
                         </div>
 
                         <div class="col">
-                            <button>BUY NOW</button>
+                            <button (click)="openVerifModal(2)">BUY NOW</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

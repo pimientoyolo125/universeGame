@@ -1,0 +1,84 @@
+#container {
+    margin-top: 25px;
+    margin-left: 15px;
+    border: 1px solid rgb(214, 212, 212);
+    box-shadow: 5px 5px 5px rgb(214, 212, 212);
+    min-width: 580px;
+}
+
+#container > p {
+    margin: 5px;
+}
+
+.col-md-6 {
+    margin-left: 5px; 
+    margin-bottom: 12px; 
+    width: fit-content;
+}
+
+.col-md-6 > p{
+    width: fit-content;
+    margin-left: 5px;
+    display: inline;
+    padding-right: 10px;
+}
+
+.table {
+    border-top: 1px solid rgb(214, 212, 212);
+    text-align: center;
+}
+
+td, th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+td > a {
+    color: #2DA5F3;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+    height: fit-content;
+    font-weight: 500;
+}
+
+td > p {
+    margin: 0px;
+    padding: 0px;
+    height: fit-content;
+    font-weight: 500;
+}
+
+td > a:hover {
+    color: #FA8232;
+}
+
+p > i:hover {
+    cursor: pointer;
+}
+
+#orderData {
+    border: 1px solid #F7E99E;
+    background-color: #FDFAE7;
+    margin: 15px;
+}
+
+#orderData > .col-6 > p {
+    margin: 4px;
+    margin-left: 10px;
+}
+
+p > b {
+    font-weight: 500;
+}
+
+#BillingInfo {
+    border: 1px solid rgb(214, 212, 212);
+    margin: 25px; 
+    height: fit-content;
+}
+
+#BillingInfo > p {
+    margin: 4px;
+    margin-left: 25px;
+}

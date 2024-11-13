@@ -23,6 +23,10 @@ export class DashboardAdminComponent {
           }
         }
       )
+      //Verificamos que solo los admins accedan a esta ruta
+      if (this.tokenService.getUser()?.tipo == 1) {
+        this.router.navigate(['/']);
+      }
     }
 
   logout() {

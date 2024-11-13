@@ -11,6 +11,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModalVerificationComponent {
   @Input() verificationText: string = ''; 
+  @Input() modalClass: string = '';
   @Input() onButtonClick: () => void = () => {};
 
   constructor(public activeModal: NgbActiveModal) { }
