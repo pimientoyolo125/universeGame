@@ -9,7 +9,7 @@
             <div class="input-group">
                 <input type="search" id="buscadorFiltro" [(ngModel)]="searchedProduct" (keydown)="onKeydown($event)"
                     class="form-control" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" class="btn" data-mdb-ripple-init>
+                <button type="button" (click)="getOrders()" class="btn" data-mdb-ripple-init>
                     <i class="bi bi-search icon-large"></i>
                 </button>
             </div>

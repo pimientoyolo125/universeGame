@@ -20,7 +20,7 @@
             <div class="input-group">
                 <input type="search" id="buscadorFiltro" [(ngModel)]="searchedClient" (keydown)="onKeydown($event)"
                     class="form-control" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button"  (click)='sortSales()' class="btn" data-mdb-ripple-init>
+                <button type="button"  (click)='getSales()' class="btn" data-mdb-ripple-init>
                     <i class="bi bi-search icon-large"></i>
                 </button>
             </div>
@@ -36,9 +36,9 @@
         </div>
 
         <div class="row align-items-center" style="width: fit-content;">
-            <div class="col-md-6">
+            <div class="col-md-6" style="margin-right: 0px; padding-right: 0px;">
                 <p>Date range:</p>
-                <div class="input-group">
+                <div class="input-group" style="margin-left: 10px;">
                     <input
                         class="form-control"
                         placeholder="yyyy-mm-dd"
@@ -53,14 +53,14 @@
                 </div>
             </div>
     
-            <div class="col-md-1 text-center align-self-center" style="width: fit-content;">
+            <div class="col-md-1 text-center align-self-center" style="width: fit-content; margin: 0px; padding: 0px;">
                 <br>
                 <p style="margin-left: 0px; margin-right: 0px; padding: 0px; width: fit-content;">
                     —
                 </p>
             </div>
             
-            <div class="col-md-6">
+            <div class="col-md-6" style="margin-left: 0px; padding-left: 0px;">
                 <p></p>
                 <div class="input-group">
                     <input

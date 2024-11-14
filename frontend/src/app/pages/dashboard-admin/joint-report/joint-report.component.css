@@ -10,7 +10,7 @@
 }
 
 .col-md-6 {
-    margin-left: 5px; 
+    margin-left: 0px;
     margin-bottom: 10px; 
     width: fit-content;
 }
@@ -126,4 +126,8 @@ td > a:hover {
     100% {
         transform: rotate(360deg);
     }
+}
+
+#buscadorFiltro {
+    width: 150px;
 }

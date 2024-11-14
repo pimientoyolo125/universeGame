@@ -19,15 +19,14 @@ export class IndividualReportComponent implements OnInit{
 		private dateAdapter: NgbDateAdapter<string>) {};
   
   sales: any[] = [];
-  salesAux: any[] = []; //Auxiliar para los filtros
   searchedClient: string = '';
   //sortDate: number = 1;
   sortTotal: number = 1;
   currentPage: number = 1;
   itemsPerPage: number = 10;
   
-  earliestDate: any = '';
-  latestDate: any = '';
+  earliestDate: any = {};
+  latestDate: any = {};
 
   viewDetail = false; 
   selectedSale: any; 
@@ -50,18 +49,83 @@ export class IndividualReportComponent implements OnInit{
 
   onDateChange(type: string, event: any) {
     if (type === 'earliest') {
+      //Verificamos que la nueva fecha no sea despues de hoy
+      if (this.convertObjectToDate(this.earliestDate) > this.convertObjectToDate(this.getToday())) {
+        alert("There are not sales reports in the FUTURE!");
+
+        if (this.convertObjectToDate(this.getToday()) > this.convertObjectToDate(this.latestDate)) {
+          //Se igualan las fechas
+          this.earliestDate = this.latestDate;
+        }else {
+          this.earliestDate = this.getToday();
+        }
+
+        //Como cambio la fecha actualizamos las ventas
+        this.getSales();
+        return;
+      } 
+      
+      //Verificamos que la nueva fecha no sea despues del limite superior del rango
+      if (this.convertObjectToDate(this.earliestDate) > this.convertObjectToDate(this.latestDate)) {
+        alert("Please select a valid Date Range!")
+        this.earliestDate = this.getToday();
+        
+        //Como cambio la fecha actualizamos las ventas
+        this.getSales();
+        return;
+      }
+
+      //Si las fechas son validas actualice las ventas:
+      this.getSales();
+
       //console.log('Earliest Date changed:', event);
+
     } else if (type === 'latest') {
+      //Verificamos que la nueva fecha no sea despues de hoy
+      if (this.convertObjectToDate(this.latestDate) > this.convertObjectToDate(this.getToday())) {
+        alert("There are not sales reports in the FUTURE!");
+        this.latestDate = this.getToday();
+
+        //Como cambio la fecha actualizamos las ventas
+        this.getSales();
+        return;
+      }
+
+      //Verificamos que la nueva fecha no sea despues del limite superior del rango
+      if (this.convertObjectToDate(this.earliestDate) > this.convertObjectToDate(this.latestDate)) {
+        alert("Please select a valid Date Range!")
+        this.latestDate = this.getToday();
+
+        //Como cambio la fecha actualizamos las ventas
+        this.getSales();
+        return;
+      }
+
+      //Si las fechas son validas actualice las ventas:
+      this.getSales();
+
       //console.log('Latest Date changed:', event);
     }
   }
 
+  convertObjectToDate(object: any){
+    return new Date(object.year, object.month - 1, object.day);
+  }
+
   getSales() {
-    this.appService.getBranchSales().subscribe(
+    //Reiniciar el arreglo que contiene las ventas para solo mostar el loading
+    this.sales = []
+    this.isLoading = true;
+
+    //Auxiliares para pasar las fechas en los rangos correctos
+    const fechaInf = `${this.earliestDate.year}-${this.earliestDate.month}-${this.earliestDate.day}`
+    const fechaSup = `${this.latestDate.year}-${this.latestDate.month}-${this.latestDate.day}`
+    
+    this.appService.getBranchSales(
+      this.searchedClient, fechaInf, fechaSup, this.sortTotal === 1
+    ).subscribe(
       (response) => {
         this.sales = response;
-        this.salesAux = response;
-        this.sortSales();
         this.isLoading = false;
         //console.log(response);
       },
@@ -89,7 +153,7 @@ export class IndividualReportComponent implements OnInit{
   onTotalChange(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
     this.sortTotal = +selectElement.value;
-    this.sortSales();
+    this.getSales();
     //console.log('Selected Sort Total:', this.sortTotal);
   }
 
@@ -102,6 +166,7 @@ export class IndividualReportComponent implements OnInit{
 		return this.dateAdapter.toModel(this.ngbCalendar.getToday())!;
 	}
 
+  /* Se hace desde el Backend
   sortSales(){
     this.sales = this.salesAux; //"Reinicia" los filtros del cliente
     if (this.searchedClient.trim() != '') {
@@ -117,10 +182,11 @@ export class IndividualReportComponent implements OnInit{
       this.sales.sort((a: any, b: any) => a.total - b.total);
     }
   }
+  */
 
   onKeydown(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
-      this.sortSales();
+      this.getSales();
     }
   }
 

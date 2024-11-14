@@ -88,7 +88,7 @@ public class VentaController {
         return ResponseEntity.ok(ventasDTO);
     }
 
-    @GetMapping("/reporte-conjunto")
+    @PostMapping("/reporte-conjunto")
     @Schema(description = "Reporte conjunto de ventas")
     public ResponseEntity<List<VentaDTO>> reporteConjunto(
             @RequestParam(value = "cliente", required = false, defaultValue = "") String cliente,
