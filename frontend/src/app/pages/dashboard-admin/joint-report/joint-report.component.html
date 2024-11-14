@@ -1,4 +1,4 @@
-<div *ngIf="!viewDetail" id="container" style="margin-top: 25px; margin-left: 15px; margin-right: 15px; min-width: 560px;">
+<div *ngIf="!viewDetail" id="container" style="margin-top: 25px; margin-left: 15px; margin-right: 15px; min-width: 610px;">
     <p style="font-size: 20; font-weight: 500;">SALES HISTORY</p>
 
     <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
@@ -20,7 +20,7 @@
             <div class="input-group">
                 <input type="search" id="buscadorFiltro" [(ngModel)]="searchedClient" (keydown)="onKeydown($event)"
                     class="form-control" aria-label="Search" aria-describedby="search-addon"/>
-                <button type="button" class="btn" data-mdb-ripple-init>
+                <button (click)="getSales()" type="button" class="btn" data-mdb-ripple-init>
                     <i class="bi bi-search icon-large"></i>
                 </button>
             </div>
@@ -111,12 +111,10 @@
         <tbody>
             <tr *ngFor="let sale of paginatedSales">
                 <td scope="row" style="font-weight: 500;">{{ sale.id }}</td>
-                <td>{{ sale.fecha }}</td>
-                <td>{{ sale.comprador}}</td>
-                <td>{{ sale.sucursal}}</td>
-                <td>
-                    COP ${{ getTotal(sale) }} ({{ sale.cantidadProductos }} {{ sale.cantidadProductos === 1 ? 'Product' : 'Products' }})
-                </td>
+                <td>{{ formatDate(sale.fecha) }}</td>
+                <td>{{ sale.usuario.nombre }} {{sale.usuario.apellido}}</td>
+                <td>UniverseGame</td>
+                <td> COP ${{ getTotal(sale) }} </td>
                 <td><a (click)='showSaleDetail(sale)'>View Details <i class="bi bi-arrow-right"></i></a></td>
             </tr>
             <tr *ngIf="isLoading">

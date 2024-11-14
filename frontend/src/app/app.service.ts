@@ -137,14 +137,40 @@ export class AppService {
       return this.http.post(this.url + `/venta/registrar`, null, {headers, params});
   }
 
-  getUserOrders(): Observable<any> {
+  getUserOrders(nombre:string, descFecha:boolean): Observable<any> {
     var headers = this.headers;
     var correo = this.tokenService.getUser()?.correo;
-    return this.http.get(this.url + `/venta/listar/usuario/${correo}`, {headers});
+
+    const params = new HttpParams()
+    .set('nombre', nombre)
+    .set('correoUsuario', correo || '')  
+    .set('descFecha', descFecha.toString());
+
+    return this.http.get(this.url + '/venta/listar/filtro/usuario', {headers, params});
   }
 
-  getBranchSales(): Observable<any> {
+  getBranchSales(cliente:string, fechaInf:string, fechaSup:string, totalDesc:boolean): Observable<any> {
     var headers = this.headers;
-    return this.http.get(this.url + '/venta/listar/todos', {headers});
+
+    const params = new HttpParams()
+    .set('cliente', cliente)
+    .set('fechaInferior', fechaInf)  
+    .set('fechaSuperior', fechaSup)
+    .set('totalDesc', totalDesc);
+
+    return this.http.get(this.url + '/venta/reporte-individual', {headers, params});
+  }
+
+  getAllBranchesSales(cliente:string, fechaInf:string, fechaSup:string, 
+    sucursales:string[], totalDesc:boolean): Observable<any> {
+    var headers = this.headers;
+
+    let params = new HttpParams()
+    .set('cliente', cliente)
+    .set('fechaInferior', fechaInf)  
+    .set('fechaSuperior', fechaSup)
+    .set('totalDesc', totalDesc);
+
+    return this.http.post(this.url + '/venta/reporte-conjunto', sucursales, {headers, params});
   }
 }
