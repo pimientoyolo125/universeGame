@@ -36,7 +36,7 @@ export class OrderHistoryComponent implements OnInit {
   onDateChange(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
     this.sortDate = +selectElement.value;
-    this.sortOrders();
+    this.getOrders()
     //console.log('Selected Sort Date:', this.sortDate);
   }
 
@@ -50,10 +50,15 @@ export class OrderHistoryComponent implements OnInit {
   */
 
   getOrders() {
-    this.appService.getUserOrders().subscribe(
+    this.isLoading = true;
+
+    //Se vacian para que se muestre el Loading... cada vez que se actualicen 
+    //los parametros de los filtros
+    this.orders = []; 
+
+    this.appService.getUserOrders(this.searchedProduct, this.sortDate === 1).subscribe(
       (response) => {
         this.orders = response;
-        this.sortOrders();
         this.isLoading = false;
         //console.log(response);
       },
@@ -83,6 +88,8 @@ export class OrderHistoryComponent implements OnInit {
     return total.toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
   }
 
+  //Ahora se hace desde el back
+  /*
   sortOrders(){
     //console.log(this.orders);
     if (this.sortDate == 1) {
@@ -92,10 +99,11 @@ export class OrderHistoryComponent implements OnInit {
       this.orders.sort((a: any, b: any) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime());
     }
   }
+  */
 
   onKeydown(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
-      //llamar A la función que recorre cada detalle en busca de un producto especifico
+      this.getOrders()
     }
   }
 
