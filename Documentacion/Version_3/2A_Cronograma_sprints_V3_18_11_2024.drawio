@@ -7,7 +7,7 @@
         <mxCell id="7z-8eUA36V8_weyQVP-9-278" value="US-1" style="strokeColor=#DEEDFF;fillColor=#CCE5FF;" vertex="1" parent="1">
           <mxGeometry x="91.5" y="1020" width="50" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-283" value="" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-283" value="" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="701.5" y="1020" width="20" height="1060" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-284" value="US-2" style="strokeColor=#DEEDFF;fillColor=#CCE5FF;" vertex="1" parent="1">
@@ -82,9 +82,6 @@
         <mxCell id="7z-8eUA36V8_weyQVP-9-417" value="" style="strokeColor=#DEEDFF;fillColor=default;" vertex="1" parent="1">
           <mxGeometry x="885" y="1020.000000000022" width="20" height="1060" as="geometry" />
         </mxCell>
-        <mxCell id="_7CjVllO_z6-4fQz0d3q-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="7z-8eUA36V8_weyQVP-9-418" target="7z-8eUA36V8_weyQVP-9-470">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-418" value="" style="strokeColor=#DEEDFF" vertex="1" parent="1">
           <mxGeometry x="906" y="1020.000000000022" width="20" height="1060" as="geometry" />
         </mxCell>
@@ -96,9 +93,6 @@
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-421" value="" style="strokeColor=#DEEDFF;fillColor=default;" vertex="1" parent="1">
           <mxGeometry x="967" y="1020.000000000022" width="20" height="1060" as="geometry" />
-        </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-586" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="7z-8eUA36V8_weyQVP-9-422" target="7z-8eUA36V8_weyQVP-9-470">
-          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-422" value="" style="strokeColor=#DEEDFF;fillColor=#D4E1FF;" vertex="1" parent="1">
           <mxGeometry x="987" y="1020.000000000022" width="20" height="1060" as="geometry" />
@@ -364,13 +358,13 @@
         <mxCell id="7z-8eUA36V8_weyQVP-9-691" value="- Feedback de compra exitosa" style="align=left;strokeColor=#DEEDFF" vertex="1" parent="1">
           <mxGeometry x="141.50000000000074" y="1480.0000000000027" width="319.99999999999926" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-692" value="4 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-692" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.50000000000244" y="1480.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-693" value="25.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-693" value="28.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000027" y="1480.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-694" value="29.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-694" value="03.11.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000023" y="1480.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-695" value="Consultar Inventario" style="align=left;strokeColor=#DEEDFF;fillColor=#CCE5FF;fontStyle=1" vertex="1" parent="1">
@@ -421,37 +415,37 @@
         <mxCell id="7z-8eUA36V8_weyQVP-9-755" value="- Consumir de la API (información conjunta)" style="align=left;strokeColor=#DEEDFF" vertex="1" parent="1">
           <mxGeometry x="141.50000000000065" y="1800.0000000000027" width="319.9999999999993" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-756" value="4 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-756" value="0 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000024" y="1800.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-757" value="01.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-757" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000027" y="1800.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-758" value="05.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-758" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000023" y="1800.0000000000032" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-759" value="- Interfaz para mostrar los datos conjuntos" style="align=left;strokeColor=#DEEDFF" vertex="1" parent="1">
           <mxGeometry x="141.50000000000136" y="1820.0000000000032" width="319.99999999999864" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-760" value="8 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-760" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000031" y="1820.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-761" value="05.10.2025" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-761" value="14.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000034" y="1820.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-762" value="13.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-762" value="20.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.500000000003" y="1820.0000000000032" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-763" value="- Implementar los filtros de la US-14" style="align=left;strokeColor=#DEEDFF" vertex="1" parent="1">
           <mxGeometry x="141.5000000000014" y="1840.0000000000027" width="319.99999999999864" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-764" value="1 día" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-764" value="28 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000031" y="1840.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-765" value="28.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-765" value="21.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000034" y="1840.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-766" value="29.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-766" value="17.11.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.500000000003" y="1840.0000000000032" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-767" value="Permitir Conexión a las Múltiples DB" style="align=left;strokeColor=#DEEDFF;fillColor=#CCE5FF;fontStyle=1" vertex="1" parent="1">
@@ -460,25 +454,25 @@
         <mxCell id="7z-8eUA36V8_weyQVP-9-771" value="- Obtener Credenciales de acceso" style="align=left;strokeColor=#DEEDFF" vertex="1" parent="1">
           <mxGeometry x="141.50000000000102" y="1880.0000000000036" width="319.999999999999" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-772" value="14 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-772" value="0 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000028" y="1880.0000000000032" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-773" value="01.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-773" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000031" y="1880.0000000000032" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-774" value="15.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-774" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000026" y="1880.0000000000036" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-775" value="- Configurar la conexión &quot;múltiple&quot;" style="align=left;strokeColor=#DEEDFF" vertex="1" parent="1">
           <mxGeometry x="141.500000000001" y="1900.0000000000036" width="319.999999999999" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-776" value="14 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-776" value="0 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000028" y="1900.0000000000036" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-777" value="15.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-777" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5" y="1900" width="80" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-778" value="29.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-778" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000026" y="1900.0000000000036" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-779" value="Generar las Consultas de Ventas Externas" style="align=left;strokeColor=#DEEDFF;fillColor=#CCE5FF;fontStyle=1" vertex="1" parent="1">
@@ -487,25 +481,25 @@
         <mxCell id="7z-8eUA36V8_weyQVP-9-783" value="- Configurar la API para manejar filtros" style="align=left;strokeColor=#DEEDFF" vertex="1" parent="1">
           <mxGeometry x="141.50000000000074" y="1940.0000000000027" width="319.99999999999926" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-784" value="3 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-784" value="0 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.50000000000244" y="1940.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-785" value="01.11.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-785" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000027" y="1940.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-786" value="04.11.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-786" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000023" y="1940.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-787" value="- Hacer las respectivas consultas individuales" style="align=left;strokeColor=#DEEDFF" vertex="1" parent="1">
           <mxGeometry x="141.50000000000065" y="1960.0000000000027" width="319.9999999999993" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-788" value="3 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-788" value="0 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000024" y="1960.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-789" value="04.11.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-789" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000027" y="1960.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-790" value="07.11.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-790" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000023" y="1960.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-791" value="Unificar Registros de Ventas" style="align=left;strokeColor=#DEEDFF;fillColor=#CCE5FF;fontStyle=1" vertex="1" parent="1">
@@ -514,49 +508,49 @@
         <mxCell id="7z-8eUA36V8_weyQVP-9-795" value="- Definir el estándar a usar" style="align=left;strokeColor=#DEEDFF" vertex="1" parent="1">
           <mxGeometry x="141.50000000000136" y="2000.0000000000032" width="319.99999999999864" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-796" value="3 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-796" value="0 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000031" y="2000.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-797" value="07.11.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-797" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000034" y="2000.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-798" value="10.11.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-798" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.500000000003" y="2000.0000000000032" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-799" value="- Recibir los resultados de la US-17" style="align=left;strokeColor=#DEEDFF" vertex="1" parent="1">
           <mxGeometry x="141.5000000000014" y="2020.0000000000027" width="319.99999999999864" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-800" value="3 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-800" value="0 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000031" y="2020.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-801" value="10.11.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-801" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000034" y="2020.0000000000027" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-802" value="13.11.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-802" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.500000000003" y="2020.0000000000032" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-803" value="- Generar las funciones de estandarización" style="align=left;strokeColor=#DEEDFF" vertex="1" parent="1">
           <mxGeometry x="141.5000000000011" y="2040.0000000000036" width="319.99999999999886" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-804" value="3 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-804" value="0 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.50000000000284" y="2040.0000000000032" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-805" value="13.11.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-805" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000032" y="2040.0000000000032" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-806" value="16.11.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-806" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000026" y="2040.0000000000036" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-807" value="- Retornar el JSON estandarizado" style="align=left;strokeColor=#DEEDFF" vertex="1" parent="1">
           <mxGeometry x="141.50000000000102" y="2060.0000000000036" width="319.999999999999" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-808" value="4 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-808" value="0 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000028" y="2060.000000000003" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-809" value="16.11.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-809" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000031" y="2060.000000000003" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-810" value="20.11.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-810" value="0" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000026" y="2060.0000000000036" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-871" value="" style="shape=mxgraph.flowchart.process;fillColor=#BD6B0D;strokeColor=#000000;strokeWidth=2;opacity=50" vertex="1" parent="1">
@@ -581,7 +575,7 @@
           <mxGeometry x="1274" y="1380" width="240" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-938" value="" style="shape=mxgraph.flowchart.process;fillColor=#AE4132;strokeColor=#000000;strokeWidth=2;opacity=50" vertex="1" parent="1">
-          <mxGeometry x="1194" y="1280" width="223" height="20" as="geometry" />
+          <mxGeometry x="1194" y="1280" width="240" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-940" value="" style="shape=mxgraph.flowchart.process;fillColor=#AE4132;strokeColor=#000000;strokeWidth=2;opacity=50" vertex="1" parent="1">
           <mxGeometry x="1192" y="1500" width="160" height="20" as="geometry" />
@@ -623,13 +617,13 @@
           <mxGeometry x="1194" y="1304" width="160" height="12" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-1034" value="" style="shape=mxgraph.flowchart.process;fillColor=#AE4132;strokeColor=none;strokeWidth=2;opacity=50;flipH=0;" vertex="1" parent="1">
-          <mxGeometry x="1194" y="1324" width="223" height="12" as="geometry" />
+          <mxGeometry x="1194" y="1324" width="240" height="12" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-1035" value="" style="shape=mxgraph.flowchart.process;fillColor=#AE4132;strokeColor=none;strokeWidth=2;opacity=50;flipH=0;" vertex="1" parent="1">
           <mxGeometry x="1274" y="1344" width="80" height="12" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-1036" value="" style="shape=mxgraph.flowchart.process;fillColor=#AE4132;strokeColor=none;strokeWidth=2;opacity=50;flipH=0;" vertex="1" parent="1">
-          <mxGeometry x="1274" y="1364.000000000002" width="143" height="12" as="geometry" />
+          <mxGeometry x="1274" y="1364.0000000000018" width="160" height="12" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-1040" value="" style="shape=mxgraph.flowchart.process;fillColor=#AE4132;strokeColor=none;strokeWidth=2;opacity=50;flipH=0;" vertex="1" parent="1">
           <mxGeometry x="1274" y="1404" width="80" height="12" as="geometry" />
@@ -664,265 +658,265 @@
         <mxCell id="7z-8eUA36V8_weyQVP-9-1079" value="" style="shape=mxgraph.flowchart.process;fillColor=#AE4132;strokeColor=none;strokeWidth=2;opacity=50;flipH=0;" vertex="1" parent="1">
           <mxGeometry x="1192" y="1824" width="80" height="12" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1122" value="2 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1122" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.50000000000205" y="1040.0000000000011" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1123" value="23.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1123" value="14.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000023" y="1040.0000000000011" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1124" value="25.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1124" value="20.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000018" y="1040.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1125" value="2 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1125" value="14 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1060.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1126" value="25.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1126" value="14.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1060.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1127" value="27.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1127" value="27.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1060.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1128" value="3 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1128" value="14 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1080.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1129" value="27.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1129" value="14.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1080.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1130" value="30.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1130" value="27.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1080" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1146" value="4 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1146" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.50000000000205" y="1120.0000000000011" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1147" value="30.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1147" value="14.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000023" y="1120.0000000000011" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1148" value="03.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1148" value="20.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000018" y="1120.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1149" value="4 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1149" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1140.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1150" value="03.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1150" value="21.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1140.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1151" value="07.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1151" value="27.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1140.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1152" value="4 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1152" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1160.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1153" value="07.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1153" value="21.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1160.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1154" value="12.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1154" value="27.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1160.0000000000016" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1158" value="2 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1158" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.50000000000205" y="1200.0000000000011" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1159" value="23.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1159" value="30.09.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000023" y="1200.0000000000011" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1160" value="25.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1160" value="06.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000018" y="1200.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1161" value="2 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1161" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1220.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1162" value="25.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1162" value="30.09.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1220.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1163" value="27.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1163" value="06.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1220.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1164" value="2 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1164" value="14 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1240.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1165" value="27.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1165" value="07.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1240.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1166" value="29.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1166" value="20.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1240.0000000000016" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1167" value="1 día" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1167" value="14 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000014" y="1260.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1168" value="29.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1168" value="07.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000018" y="1260.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1169" value="30.09.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1169" value="20.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000011" y="1260.000000000002" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1182" value="7 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1182" value="14 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.50000000000205" y="1300.0000000000011" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1183" value="01.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1183" value="14.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000023" y="1300.0000000000011" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1184" value="08.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1184" value="27.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000018" y="1300" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1185" value="7 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1185" value="21 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1320.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1186" value="08.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1186" value="14.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1320.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1187" value="15.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1187" value="03.11.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1320.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1188" value="7 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1188" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1340.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1189" value="15.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1189" value="21.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1340.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1190" value="22.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1190" value="27.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1340.0000000000016" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1191" value="7 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1191" value="14 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000014" y="1360.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1192" value="22.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1192" value="21.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000018" y="1360.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1193" value="29.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1193" value="03.11.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000011" y="1360.000000000002" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1194" value="6 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1194" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.50000000000205" y="1400.0000000000011" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1195" value="01.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1195" value="21.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000023" y="1400.0000000000011" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1196" value="07.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1196" value="27.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000018" y="1400" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1197" value="6 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1197" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1420.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1198" value="07.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1198" value="28.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1420.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1199" value="13.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1199" value="03.11.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1420.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1200" value="6 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1200" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1440.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1201" value="13.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1201" value="28.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1440.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1202" value="19.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1202" value="03.11.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1440.0000000000016" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1203" value="6 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1203" value="14 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000014" y="1460.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1204" value="19.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1204" value="28.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000018" y="1460.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1205" value="25.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1205" value="10.11.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000011" y="1460.000000000002" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1206" value="7 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1206" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.50000000000205" y="1520.000000000001" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1207" value="01.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1207" value="14.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000023" y="1520.000000000001" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1208" value="08.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1208" value="20.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000018" y="1520.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1209" value="7 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1209" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1540.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1210" value="08.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1210" value="14.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1540.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1211" value="15.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1211" value="20.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1540.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1212" value="7 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1212" value="7 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1560.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1213" value="15.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1213" value="21.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1560.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1214" value="22.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1214" value="27.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1560.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1215" value="7 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1215" value="14 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000014" y="1580.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1216" value="22.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1216" value="14.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000018" y="1580.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1217" value="29.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1217" value="27.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000011" y="1580" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1218" value="4 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1218" value="28 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.50000000000205" y="1620.000000000001" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1219" value="01.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1219" value="14.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000023" y="1620.000000000001" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1220" value="05.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1220" value="10.11.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000018" y="1620.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1221" value="4 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1221" value="14 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1640.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1222" value="05.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1222" value="14.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1640.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1223" value="09.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1223" value="27.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1640.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1224" value="4 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1224" value="28 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1660.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1225" value="09.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1225" value="21.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1660.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1226" value="13.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1226" value="17.11.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1659.9999999999998" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1230" value="4 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1230" value="28 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.50000000000205" y="1700.000000000001" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1231" value="13.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1231" value="14.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000023" y="1700.000000000001" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1232" value="17.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1232" value="10.11.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000018" y="1700.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1233" value="4 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1233" value="21 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1720.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1234" value="17.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1234" value="21.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1720.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1235" value="21.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1235" value="10.11.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1720.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1236" value="4 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1236" value="28 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000017" y="1740.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1237" value="21.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1237" value="21.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.500000000002" y="1740.0000000000014" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1238" value="25.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1238" value="17.11.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000015" y="1740.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1239" value="3 días" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1239" value="28 días" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="461.5000000000014" y="1760.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1240" value="25.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1240" value="21.10.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="541.5000000000018" y="1760.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="7z-8eUA36V8_weyQVP-9-1241" value="28.10.2024" style="strokeColor=#DEEDFF" vertex="1" parent="1">
+        <mxCell id="7z-8eUA36V8_weyQVP-9-1241" value="17.11.2024" style="strokeColor=#DEEDFF;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="621.5000000000011" y="1760.0000000000018" width="80.00000000000028" height="20" as="geometry" />
         </mxCell>
         <mxCell id="7z-8eUA36V8_weyQVP-9-942" value="" style="shape=mxgraph.flowchart.process;fillColor=#AE4132;strokeColor=#000000;strokeWidth=2;opacity=50" vertex="1" parent="1">
