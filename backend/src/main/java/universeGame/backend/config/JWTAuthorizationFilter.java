@@ -20,7 +20,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
             FilterChain filterChain) throws ServletException, IOException {
 
         //response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
-        response.setHeader("Access-Control-Allow-Origin", "http://20.55.104.54:4200");
+        response.setHeader("Access-Control-Allow-Origin", "http://20.84.88.198:4200");
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
