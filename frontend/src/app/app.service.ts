@@ -149,6 +149,12 @@ export class AppService {
     return this.http.get(this.url + '/venta/listar/filtro/usuario', {headers, params});
   }
 
+  getUserInfo(): Observable<any>  {
+    var headers = this.headers;
+    var correo = this.tokenService.getUser()?.correo;
+    return this.http.get(this.url + `/usuario/listar/${correo}`, {headers});
+  }
+
   getBranchSales(cliente:string, fechaInf:string, fechaSup:string, totalDesc:boolean): Observable<any> {
     var headers = this.headers;
 

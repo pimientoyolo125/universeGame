@@ -1,0 +1,54 @@
+#container {
+    margin-top: 25px;
+    margin-left: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#BillingInfo, #AccountInfo {
+    border: 1px solid rgb(214, 212, 212);
+    margin: 20.5px 0px;
+    margin-top: 0px;
+    height: fit-content;
+}
+
+#BillingInfo > p, #AccountInfo > p  {
+    margin: 5px;
+    padding: 0px;
+    padding-left: 2.5px;
+    padding-right: 2.5px;
+}
+
+.d-flex > button {
+    border: 1px solid #FA8232;
+    background-color: #FA8232;
+    color: white;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.d-flex > button:hover {
+    background-color: #1B6392;
+    border: 1px solid #1B6392;
+}
+
+@media (max-width: 1250px) {
+    #container {
+        align-items: center;
+        flex-direction: column;
+        margin-top: 0px;
+    }
+
+    #BillingInfo {
+        margin-left: 30px;
+        margin-bottom: 0px;
+        min-width: 435px;
+        height: fit-content;
+    }
+
+    #AccountInfo {
+        margin-left: 30px;
+        min-width: 335px;
+    }
+}
