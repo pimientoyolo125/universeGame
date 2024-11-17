@@ -65,6 +65,8 @@ public class VentaServiceImpl implements VentaService {
     @Override
     public List<Venta> reporteIndividual(String cliente, Date fechaInferior, Date fechaSuperior, boolean descFecha) {
 
+        fechaSuperior = new Date(fechaSuperior.getTime() + 24 * 60 * 60 * 1000 - 1);
+
         cliente = cliente.trim().toUpperCase().replaceAll("\\s+", " ");
 
         if (descFecha) {
@@ -111,7 +113,6 @@ public class VentaServiceImpl implements VentaService {
 
         return reporte;
     }
-
 
 
 
