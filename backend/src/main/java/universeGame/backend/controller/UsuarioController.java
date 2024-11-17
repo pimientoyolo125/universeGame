@@ -59,7 +59,15 @@ public class UsuarioController {
         return ResponseEntity.ok(true);
     }
 
-
+    @GetMapping("listar/{correoUsuario}")
+    @Schema(description = "Obtener la información del usuario a partir de su correo")
+    public ResponseEntity<UsuarioDTO> obtenerUsuario(
+           @PathVariable String correoUsuario
+    ) {
+        Usuario usuario = usuarioService.findByCorreo(correoUsuario);
+        UsuarioDTO usuarioDTO = UsuarioMapper.INSTANCE.toUsuarioDTO(usuario);
+        return ResponseEntity.ok(usuarioDTO);
+    }
 
     @Autowired
     public void setUsuarioService(UsuarioService usuarioService) {

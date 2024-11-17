@@ -1,3 +1,28 @@
-<div class="d-flex" style="justify-content: center; align-content: center; margin: 25px;">
-    <img src="../../../../assets/in_development.gif" alt="In in_development" style="width: 75%;">
+<div id="container">
+    <div class="d-flex" style="justify-content: center;">
+        <div class="col-5" id="AccountInfo" style="margin-right: 20px;">
+            <p style="font-size: 18px; font-weight: 500; margin: 5px; text-align: left;"> Account Information</p>
+            <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
+            <p><b style="font-weight: 500;">Name: </b>{{user.nombre}} {{user.apellido}}</p>
+            <p><b style="font-weight: 500;">Email: </b>{{user.correo}}</p>
+            <p><b style="font-weight: 500;">Phone: </b>{{user.telefono}}</p>
+            <div class="d-flex justify-content-center">
+                <button>Edit Account</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="d-flex" style="justify-content: center;">
+        <div class="col-10" id="BillingInfo" style="margin-bottom: 0px;">
+            <p style="font-size: 18px; font-weight: 500; margin: 5px; text-align: left;"> Billing Information</p>
+            <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
+            <p><b style="font-weight: 500;">Country: </b>{{direccion.pais}}</p>
+            <p><b style="font-weight: 500;">Region/State: </b>{{direccion.region}}</p>
+            <p><b style="font-weight: 500;">City: </b>{{direccion.ciudad}}</p>
+            <p><b style="font-weight: 500;">Address: </b>{{direccion.direccion}}</p>
+            <div class="d-flex justify-content-center">
+                <button (click)="editAdressModal()">Edit Address</button>
+            </div>
+        </div>
+    </div>
 </div>
