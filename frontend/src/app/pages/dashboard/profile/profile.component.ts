@@ -51,7 +51,7 @@ export class ProfileComponent {
       (response) => {
         this.user = response;
         this.user.correo = this.tokenService.getUser()?.correo;
-        console.log(this.user)
+        //console.log(this.user)
       },
       (error) => {
         console.log("There was an error getting your account info")
