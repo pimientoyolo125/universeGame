@@ -48,33 +48,63 @@ Este proyecto se enfoca en la creación de un sistema web para la gestión de pr
 ---
 
 ## Diagrama Entidad-Relación
-<img alt="Diagrama Entidad-Relación" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/2A_Diagrama_ER_241002.png">
+<img alt="Diagrama Entidad-Relación" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Diagrama_ER_V3_241118.png">
 
 ---
 
 ## Mockups del Proyecto
 El diseño de las interfaces del sistema se realizó en [Figma](https://www.figma.com/design/Px9t7FmwK8RroCbln7mFxq/UniverseGame---Templates-V2?node-id=279-19819&node-type=canvas), mostrando las diferentes Vistas del aplicativo web. A continuación, se listan las principales Vistas:
 
-1. **Vista Principal**
-<img alt="Vista Principal" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Vista_Principal_241014.png">
+1. **Vista Principal**  
+   <img alt="Vista Principal" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Vista_Principal_241014.png">
 
-2. **Búsqueda de Productos con Filtros**
-<img alt="Búsqueda de Productos con Filtros" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Busqueda_Productos_Filtros_241014.png">
+2. **Inicio de Sesión**  
+   <img alt="Inicio de Sesión" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Inicio_Sesion_241118.png">
 
-3. **Detalle de Producto**
-<img alt="Detalle de Producto" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Detalle_Producto_241014.png">
+3. **Registro de Usuario**  
+   <img alt="Registro de Usuario" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Sign_Up_241014.png">
 
-4. **Modal de registro**
-<img alt="Modal de registro" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Modal_Registro_241014.png">
+4. **Búsqueda de Productos con Filtros**  
+   <img alt="Búsqueda de Productos con Filtros" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Busqueda_Productos_Filtros_241014.png">
 
-5. **Carrito de Compras**
-<img alt="Carrito de Compras" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Carrito_241014.png">
-    
-6. **Vista Administrador - Inventario**
-<img alt="Vista Administrador - Inventario" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Inventario_Administrador_241014.png">
+5. **Detalle de Producto**  
+   <img alt="Detalle de Producto" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Detalle_Producto_241014.png">
 
-7. **Vista Administrador - Reportes**
-<img alt="Vista Administrador - Reportes" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Reportes_Administrador_241014.png">
+6. **Carrito de Compras**  
+   <img alt="Carrito de Compras" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Carrito_241014.png">
+
+7. **Proceso de Compra - Paso 1**  
+   <img alt="Proceso de Compra - Paso 1" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Checkout1_241118.png">
+
+8. **Proceso de Compra - Paso 2**  
+   <img alt="Proceso de Compra - Paso 2" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Checkout2_241118.png">
+
+9. **Compra Exitosa**  
+   <img alt="Compra Exitosa" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Compra_Exitosa_241118.png">
+
+10. **Historial de Compras**  
+    <img alt="Historial de Compras" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Historial_compras_241118.png">
+
+11. **Detalle de Entrega**  
+    <img alt="Detalle de Entrega" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Detalle_Entrega_compra_241118.png">
+
+12. **Perfil de Usuario**  
+    <img alt="Perfil de Usuario" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Perfil_Usuario_241118.png">
+
+13. **Panel de Administración**  
+    <img alt="Panel de Administración" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Dashboard_Development_241118.png">
+
+14. **Gestión de Inventario**  
+    <img alt="Gestión de Inventario" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Inventario_Administrador_241014.png">
+
+15. **Reportes Conjuntos del Administrador**  
+    <img alt="Reportes Conjuntos del Administrador" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Reportes_Conjunto_Administrador_241118.png">
+
+16. **Reportes Individuales del Administrador**  
+    <img alt="Reportes Individuales del Administrador" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Reportes_Individuales_Administrador_241014.png">
+
+17. **Detalle de Ventas en Reportes**  
+    <img alt="Detalle de Ventas en Reportes" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Vistas/2A_Detalle_Ventas_Reporte_241118.png">
 
 **Resumen de Vistas**
 [Video](https://www.youtube.com/watch?v=Qvt7hDnW-MU&ab_channel=JuanDiegoRoaPorras)
@@ -83,14 +113,25 @@ El diseño de las interfaces del sistema se realizó en [Figma](https://www.figm
 ---
 
 ## Cronograma de Sprints
-<img alt="Cronograma de Sprints" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/2A_Cronograma_Sprints_241004.png">
+<img alt="Cronograma de Sprints" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Cronograma_sprints_V3_24118.png">
+
+---
+
+## Diagrama de Arquitectura
+<img alt="Cronograma de Sprints" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Diagrama_de_Arquitectura_241118.png">
+
+---
+
+## Diagrama casos de uso
+<img alt="Cronograma de Sprints" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Diagrama_Casos_Uso_241118.png">
 
 ---
 
 ## Documentación Adicional
 La documentación detallada del proyecto, incluyendo el **plan de pruebas**, las **épicas y H.U.**, y el **diagrama de actividades**, se encuentra disponible en los siguientes enlaces:
-- [Documentación del Proyecto](https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/2A_Mockups_Cronograma_DB_241004.pdf)
-- [Épicas y H.U. - Diagrama de Actividades](https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/2A_Scrum_Trace_241004.xlsx)
+- [Plan de pruebas](https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Plan_De_Pruebas_241118.pdf)
+- [Scrum Trace](https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Scrum_Trace_241118.xlsx)
+- [Épicas y H.U. - Diagrama de Actividades](https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Diagrama_Actividades_V3_24118.png)
 
 ---
 
