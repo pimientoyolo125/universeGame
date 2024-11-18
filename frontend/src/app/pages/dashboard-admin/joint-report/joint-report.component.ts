@@ -84,7 +84,7 @@ export class JointReportComponent implements OnInit{
       //Verificamos que la nueva fecha no sea despues de hoy
       if (this.convertObjectToDate(this.earliestDate) > this.convertObjectToDate(this.getToday())) {
         alert("There are not sales reports in the FUTURE!");
-        
+
         if (this.convertObjectToDate(this.getToday()) > this.convertObjectToDate(this.latestDate)) {
           //Se igualan las fechas
           this.earliestDate = this.latestDate;
@@ -100,8 +100,14 @@ export class JointReportComponent implements OnInit{
       //Verificamos que la nueva fecha no sea despues del limite superior del rango
       if (this.convertObjectToDate(this.earliestDate) > this.convertObjectToDate(this.latestDate)) {
         alert("Please select a valid Date Range!")
-        this.earliestDate = this.getToday();
-
+        
+        if (this.convertObjectToDate(this.getToday()) > this.convertObjectToDate(this.latestDate)) {
+          //Se igualan las fechas
+          this.earliestDate = this.latestDate;
+        }else {
+          this.earliestDate = this.getToday();
+        }
+        
         //Como cambio la fecha actualizamos las ventas
         this.getSales();
         return;
@@ -159,21 +165,33 @@ export class JointReportComponent implements OnInit{
   }
 
 
-  onBranchChange(event: Event) {
+  onBranchChange(event: Event, index: number) {
+    const target = event.target as HTMLInputElement;
+
+    // Si el checkbox está por desmarcarse
+    if (!target.checked) {
+        // Verifica cuántas ramas están seleccionadas
+        const selectedCount = this.branches.filter(branch => branch.selected).length;
+
+        // Si es la última rama seleccionada y la nuestra, evita el cambio
+        if (selectedCount === 1 && index===0) {
+            alert("Select at least one branch!");
+            event.preventDefault(); // Detener el cambio visual del checkbox
+            return;
+        }else if (selectedCount === 1) {
+          alert("Select at least one branch!");
+          this.branches[0].selected = true; //Seleccionamos por default la nuestra
+        }
+    }
+
+    // Actualiza el estado del checkbox
+    this.branches[index].selected = target.checked;
+
     this.selectedBranches = this.branches
         .filter(branch => branch.selected)
         .map(branch => branch.branch);
 
-    //Forzar a que minimo nuestra Branch Siempre este seleccionada
-    if (this.selectedBranches.length == 0) {
-      alert("Select at least One Branch!")
-      this.branches[0].selected = true;
-      this.selectedBranches = ["2A"]
-    }
-
     this.getSales();
-
-    //console.log(this.selectedBranches)
   }
 
   onTotalChange(event: Event) {

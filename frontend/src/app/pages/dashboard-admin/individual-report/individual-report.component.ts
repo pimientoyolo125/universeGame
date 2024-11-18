@@ -68,7 +68,13 @@ export class IndividualReportComponent implements OnInit{
       //Verificamos que la nueva fecha no sea despues del limite superior del rango
       if (this.convertObjectToDate(this.earliestDate) > this.convertObjectToDate(this.latestDate)) {
         alert("Please select a valid Date Range!")
-        this.earliestDate = this.getToday();
+        
+        if (this.convertObjectToDate(this.getToday()) > this.convertObjectToDate(this.latestDate)) {
+          //Se igualan las fechas
+          this.earliestDate = this.latestDate;
+        }else {
+          this.earliestDate = this.getToday();
+        }
         
         //Como cambio la fecha actualizamos las ventas
         this.getSales();
