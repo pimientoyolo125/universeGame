@@ -81,13 +81,13 @@
     </div>
 
     <div class="row align-items-start" style="margin-bottom: 5px;">
-        <div class="col-auto" *ngFor="let branch of branches" style="margin: 0 12px;">
+        <div class="col-auto" *ngFor="let branch of branches; let i = index" style="margin: 0 12px;">
           <div class="form-check">
             <input 
               class="form-check-input" 
               type="checkbox" 
               [(ngModel)]="branch.selected"
-              (ngModelChange)="onBranchChange($event)" 
+              (click)="onBranchChange($event, i)" 
               id="{{branch.location}}"
             />
             <label class="form-check-label" for="{{branch.location}}">
