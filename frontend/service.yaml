@@ -4,10 +4,11 @@ metadata:
   name: frontend-service
   namespace: default
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: frontend-app
   ports:
     - protocol: TCP
       port: 4200 # Puerto en el que el servicio escucha
       targetPort: 4200  # Puerto del contenedor
+      NodePort: 34200

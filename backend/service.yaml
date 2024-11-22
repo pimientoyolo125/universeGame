@@ -4,10 +4,11 @@ metadata:
   name: backend-service
   namespace: default
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: backend-app
   ports:
     - protocol: TCP
       port: 8080     # Puerto en el que el servicio escucha
       targetPort: 8080  # Puerto del contenedor
+      NodePort: 38080
