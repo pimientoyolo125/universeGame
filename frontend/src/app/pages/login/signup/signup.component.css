@@ -1,0 +1,76 @@
+form i {
+    margin-left: -30px;
+    cursor: pointer;
+    color: #FA8232;
+    font-size: 20px;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #FA8232; 
+}
+
+.btn {
+    background-color: #FA8232;
+    font-weight: 500;
+    font-size: 18px;
+    height: fit-content;
+    border: 0px;
+    border-radius: 0px;
+}
+
+.otherButton {
+    background-color: white;
+    color: rgba(138, 129, 129, 0.849);
+    border: 1px solid rgb(214, 212, 212);
+}
+
+.otherButton > i {
+    align-self:flex-start;
+}
+
+.form-check-input:checked {
+    background-color: #FA8232;
+    box-shadow: none;
+}
+
+.form-check-input:before, .form-check-input:hover, .form-check-input:after, .form-check-input{
+    box-shadow: none;
+    border: 1px solid rgb(222, 226, 230)
+}
+
+p > a {
+    color: #2DA5F3;
+    cursor: pointer;
+}
+
+p > a:hover {
+    color: #FA8232;
+}
+
+
+
+/* Animación de rotación para el ícono */
+#spinning-loading-arrow.spin {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilo para el texto de "Loading..." */
+.loading-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+    /* Cambia el color del texto */
+}

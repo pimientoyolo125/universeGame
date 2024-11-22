@@ -1,0 +1,92 @@
+* {
+    font-family: 'Public Sans', sans-serif !important;
+}
+
+#footer-content {
+    display: flex;
+    justify-content:space-evenly;
+    width: 100vw;
+    flex-wrap: wrap; /* Permite que las columnas se ajusten en varias líneas si el espacio es pequeño */
+    background-color: #191C1F;
+}
+
+#footer-content > div {
+    min-width: 150px; /* Evita que las columnas sean demasiado pequeñas */
+    margin: 10px; /* Añade espacio alrededor de cada columna */
+}
+
+#icon {
+    display: flex;
+    align-items: center;
+}
+
+#icon > h5 {
+    margin-bottom: 0px;
+}
+
+#column-2 > a, #column-3 > a{
+    color: #77878F;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+} 
+
+#column-2 > a:hover, #column-3 > a:hover{
+    color: #FA8232;
+    cursor: pointer;
+} 
+
+.icon-text-button {
+    display: flex; /* Usamos flex para dividir el icono y el texto en columnas */
+    align-items: center; /* Alinea el contenido verticalmente */
+    background-color: #303639; /* Color de fondo del botón */
+    border: 0px;
+    color: white; /* Color del texto */
+    cursor: pointer; /* Manito cuando se pasa por encima */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: left;
+    width: 126px;
+}
+  
+.icon-left {
+    margin-left: 2.5px;
+    margin-right: 2.5px; /* Espaciado entre el icono y el texto */
+}
+  
+.icon-text-button:hover {
+    background-color: #77878F; /* Cambia de color cuando se pasa el mouse */
+}
+  
+.text-right {
+    box-sizing: border-box;
+    align-content: center;
+}  
+
+.text-right > p{
+    margin: 0px;
+    padding: 0px; 
+}  
+
+#column-5 {
+    max-width: 200px;
+}
+
+.popular-tag {
+    border-radius: 5px;
+    border: 1px solid #77878F;
+    color: white;
+    font-size: 13px;
+    background-color: #191C1F;
+    margin: 4px;
+}
+
+.popular-tag:hover {
+    background-color: #77878F;
+    font-weight: bold;
+}
+
+@media (max-width: 368px) {
+    #footer-content {
+        flex-direction: column; /* Las columnas se apilan verticalmente en pantallas pequeñas */
+    }
+}

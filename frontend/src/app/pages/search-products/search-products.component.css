@@ -1,0 +1,85 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;     
+    overflow-x: hidden;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#page-content {
+    flex: 1;               
+    display: flex;   
+    justify-content:space-around;
+}
+
+#brands, .brands-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    width: 250px;
+}
+
+.form-select:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #FA8232; 
+    box-shadow: 1px 1px 1px #FA8232;
+}
+
+.form-select:hover {
+    border-color: #FA8232; 
+    box-shadow: 1px 1px 1px #FA8232;
+}
+  
+.form-check {
+    width: 50%; /* Cada checkbox ocupará el 50% del ancho, creando 2 columnas */
+    box-sizing: border-box; 
+}
+  
+.form-check-input:checked {
+    background-color: #FA8232;
+    box-shadow: none;
+}
+
+.form-check-input:before, .form-check-input:after, .form-check-input{
+    box-shadow: none;
+    border: 1px solid rgb(222, 226, 230)
+}
+
+.form-check-input:hover {
+    border: 1px solid #FA8232;
+    box-shadow: 1px 1px 1px #FA8232;
+}
+
+.row {
+    margin-bottom: 20px;
+    justify-content: left;
+}
+
+@media (max-width: 754px) {
+    #page-content{
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .row {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .col-md-6 {
+        width: 100%; 
+    }
+
+    .row {
+        margin: 0; 
+    }
+}

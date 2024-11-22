@@ -1,0 +1,101 @@
+<div class="card">
+    <img src={{this.product.imagen}} class="card-img-top" alt="..." (click)="openInfoModal(modal)">
+    <div class="card-body">
+        <div id="modalArea" (click)="openInfoModal(modal)">
+            <div id="titleContainer">
+                <p class="title">{{this.product.nombre}}</p>
+            </div>
+
+            <p class="price" style="color: #2DA5F3; font-weight: 500;">COP ${{redondearPrecio()}}</p>
+        </div>
+
+        <div class="quantity">
+            <button (click)="disminuirCantidad()">—</button>
+            <p>Quantity: {{this.cantidadComprar}}</p>
+            <button (click)="aumentarCantidad()">+</button>
+        </div>
+
+        <div class="row">
+            <button (click)="openVerifModal(1)">ADD TO <i class="bi bi-cart icon-large"></i></button>
+            <button (click)="openVerifModal(2)">BUY NOW</button>
+        </div>
+    </div>
+
+    <ng-template #modal let-modal>
+        <div class="modal-body">
+            <button type="button" class="btn-close"  (click)="modal.dismiss()"></button>
+            <div id="modalContainer">
+                <div class="col-md-6">
+                    <div id="img-container">
+                        <img src={{this.product.imagen}}>
+                    </div>
+                    
+                </div>
+                <div style="border-right: 1px solid black; margin: 0px 2.5px;"></div>
+                <div class="col-md-6">
+                    <h6 style="font-weight: 500">{{product.nombre}}</h6>
+                    <div class="row">
+                        <div class="col">
+                            <p>Model: </p>
+                            <p style="font-weight: 500"> {{product.modelo}}</p>
+                        </div>
+                        <div class="col">
+                            <p>Availability: </p>
+                            <p style="font-weight: 500" [style.color]="getStock().color">{{ getStock().nombre }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <p>Brand:</p>
+                            <p style="font-weight: 500"> {{product.marca}}</p>
+                        </div>
+                        <div class="col">
+                            <p>Category:</p>
+                            <p style="font-weight: 500; text-align: center;"> {{product.tipoProducto.nombre}}</p>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col">
+                            <p style="margin: 0px;">Color:</p>
+                            <p style="font-weight: 500; text-align: center;">{{product.color}}</p>
+                        </div>
+                        <div class="col">
+                            <p>State:</p>
+                            <p style="font-weight: 500"> {{this.estado}}</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: center; margin-top: 10px;">
+                        <h6 style="display: inline; font-weight: 500; margin-right: 5px;">Price:</h6>
+                        <h6 class="price" style="color: #2DA5F3; font-weight: 500; display: inline;"> COP${{redondearPrecio()}}</h6>
+                    </div>
+
+                    <div class="row" style="margin-left: 15px;">
+                        <p style="font-weight: 500; margin-bottom: 2px;"> About this Product:</p>
+                        <p style="text-align:justify;">{{product.descripcion}}</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="quantity">
+                                <button (click)="disminuirCantidad()">—</button>
+                                <p>x{{this.cantidadComprar}}</p>
+                                <button (click)="aumentarCantidad()">+</button>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <button (click)="openVerifModal(1)">ADD TO <i class="bi bi-cart icon-large"></i></button>
+                        </div>
+
+                        <div class="col">
+                            <button (click)="openVerifModal(2)">BUY NOW</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>

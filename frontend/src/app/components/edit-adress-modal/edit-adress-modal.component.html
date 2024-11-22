@@ -1,0 +1,43 @@
+<div class="modal" id="editAddressModal" tabindex="-1" aria-labelledby="editAddressLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="titleModalLabel"><b style="font-weight: 500;">Edit Billing Address</b></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="activeModal.close()"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="mb-3">
+                    <p class="form-label">Country:</p>
+                    <input type="text" class="form-control" id="pais" [(ngModel)]="address.pais" name="pais" placeholder="Colombia">
+                </div>
+
+                <div class="mb-3">
+                    <p class="form-label">Region/State:</p>
+                    <input type="text" class="form-control" id="region/State" [(ngModel)]="address.region" name="region/State" placeholder="Santander">
+                </div>
+
+                <div class="mb-3">
+                    <p class="form-label">City:</p>
+                    <input type="text" class="form-control" id="ciudad" [(ngModel)]="address.ciudad" name="ciudad" placeholder="Bucaramanga">
+                </div>
+
+                <div class="mb-3">
+                    <p class="form-label">Address:</p>
+                    <input type="text" class="form-control" id="direccion" [(ngModel)]="address.direccion" name="direccion" placeholder="Cra 01 #01-01 Building Example - Apto 101">
+                    <p *ngIf="strError != ''" style="color: red; font-weight: 500; margin-top: 3px;">*{{strError}}*</p>
+                </div>
+
+                <div class="d-flex justify-content-center" style="width: 100%;">
+                    <button type="button" class="btn btn-success" style="font-weight: 500;" (click)="updateDireccion()">¡Edit Address Info!</button>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeVerifModal()"
+                    data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

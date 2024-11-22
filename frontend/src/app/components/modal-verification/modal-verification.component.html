@@ -1,0 +1,22 @@
+<div class="modal" id="verifModal" tabindex="-1" aria-labelledby="verifModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i id="headerVerifIcon" class="bi bi-patch-question"></i>
+                <h1 class="modal-title" id="titleModalLabel">Are you Sure?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="activeModal.close()"></button>
+            </div>
+            <div class="modal-body">
+                <p style="font-weight: 500;" [innerHTML]="verificationText" [ngClass]="modalClass"></p>
+                <div class="d-flex justify-content-center" style="width: 100%;">
+                    <button type="button" class="btn btn-success" (click)="onButtonClick()">Confirm</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeVerifModal()"
+                    data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

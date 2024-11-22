@@ -1,0 +1,41 @@
+html, body {
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    overflow-y: auto;     
+    overflow-x: hidden;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#page-content {
+    flex: 1;               
+    display: flex;   
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+div > p {
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+div > button {
+    border: 1px solid #FA8232;
+    background-color: #FA8232;
+    color: white;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+div > button:hover {
+    background-color: #1B6392;
+    border: 1px solid #1B6392;
+}

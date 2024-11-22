@@ -1,0 +1,66 @@
+<div id="container" style="margin-top: 25px; margin-left: 15px; margin-right: 15px; min-width: 555px;">
+    <p style="font-size: 20; font-weight: 500;">INVENTORY</p>
+
+    <div style="width: 100%; border-bottom: 1px solid rgb(214, 212, 212); margin-bottom: 5px;"></div>
+
+    <div class="row align-items-center" style="margin-bottom: 10px;">
+        <div class="col-md-6">
+            <p>Search by name:</p>
+            <div class="input-group">
+                <input type="search" id="buscadorFiltro" [(ngModel)]="searchedString" (keydown)="onKeydown($event)"
+                    class="form-control" aria-label="Search" aria-describedby="search-addon" />
+                <button (click)="filterProducts()" type="button" class="btn" data-mdb-ripple-init>
+                    <i class="bi bi-search icon-large"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <p>Category:</p>
+            <select class="form-select" [(ngModel)]="selectedCategory"
+                (change)="onCategoryChange($event)" aria-label="Category select" id="selectCategoryInventory">
+                <option value="1" class="categorySelectOptions">All</option>
+                <option *ngFor="let category of categories" [value]="category.id + 1" class="categorySelectOptions">
+                    {{ category.nombre }}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NAME</th>
+                <th scope="col">PRICE</th>
+                <th scope="col">TAX</th>
+                <th scope="col">PRICE AFTER TAXES</th>
+                <th scope="col">STOCK</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of paginatedProducts">
+                <td scope="row">{{ product.id }}</td>
+                <td>{{ product.nombre }}</td>
+                <td>COP ${{ redondearPrecio(product) }}</td>
+                <td>{{ getImpuesto(product)}}%</td>
+                <td>COP ${{ getPrecioImpuesto(product)}}</td>
+                <td>{{ product.cantidad}}</td>
+            </tr>
+            <tr *ngIf="isLoading">
+                <td colspan="6" style="text-align: center;">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <i id="spinning-loading-arrow" class="bi bi-arrow-repeat spin"></i>
+                    <span class="ms-2">Loading...</span>
+                  </div>
+                </td>
+            </tr>
+            <tr *ngIf="!isLoading && products.length === 0">
+                <td colspan="6" style="text-align: center">No products found</td>
+            </tr>
+        </tbody>
+    </table>
+    <ngb-pagination class="d-flex justify-content-center paginator" [(page)]="currentPage" [pageSize]="itemsPerPage"
+        [collectionSize]="products.length" (pageChange)="onPageChange($event)" aria-label="Default pagination">
+    </ngb-pagination>
+</div>

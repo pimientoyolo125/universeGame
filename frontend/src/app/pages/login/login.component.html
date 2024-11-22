@@ -1,0 +1,23 @@
+<div id="content">
+    <div id="header">
+        <app-header></app-header>
+    </div>
+
+    <div id="page-content" style="align-items: center;">
+        <div class="card" style="margin: 20px;">
+            <div class="nav nav-tabs d-flex" style="justify-content: center; height: fit-content;" id="nav-tab" role="tablist">
+                <a class="w-100 nav-item nav-link" id="tabLeft" routerLink="signin" routerLinkActive="active" style="flex: 1">
+                    Sign In
+                </a>
+                <a class="w-100 nav-item nav-link" id="tabRight" routerLink="signup" routerLinkActive="active" style="flex: 1">
+                    Sign Up
+                </a>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+    <div id="footer">
+        <app-footer></app-footer>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;     
+    overflow-x: hidden;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#page-content {
+    flex: 1;               
+    display: flex;  
+}
+
+#BillingInfo {
+    border: 1px solid rgb(214, 212, 212);
+    margin: 25px; 
+    height: fit-content;
+}
+
+#subtotal {
+    min-width: 435px;
+    border: 1px solid rgb(214, 212, 212); 
+    margin: 25px;
+    height: fit-content;
+}
+
+#subtotal > p, #BillingInfo > p {
+    margin: 5px;
+    padding: 0px;
+    padding-left: 2.5px;
+    padding-right: 2.5px;
+}
+
+.d-flex > button {
+    border: 1px solid #FA8232;
+    background-color: #FA8232;
+    color: white;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.d-flex > button:hover {
+    background-color: #1B6392;
+    border: 1px solid #1B6392;
+}
+
+@media (max-width: 1250px) {
+    #page-content {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #BillingInfo {
+        margin: 25px;
+        margin-bottom: 0px;
+        min-width: 435px;
+        height: fit-content;
+    }
+    
+    #subtotal {
+        min-width: 435px;
+        border: 1px solid rgb(214, 212, 212); 
+        margin: 25px;
+        height: fit-content;
+    }
+}

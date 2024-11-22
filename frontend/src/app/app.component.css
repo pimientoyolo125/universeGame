@@ -1,0 +1,15 @@
+:host {
+  overflow: hidden; /* Evita el desbordamiento del contenedor principal */
+}
+
+html, body {
+  height: 100vh; /* Asegura que el html y el body ocupen el 100% de la altura */
+  margin: 0;    /* Elimina márgenes */
+}
+
+.main-container {
+  display: flex;           
+  flex-direction: column;  
+  height: 100vh;        
+  overflow-x: hidden;
+}

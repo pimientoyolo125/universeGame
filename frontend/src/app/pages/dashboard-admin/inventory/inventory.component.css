@@ -1,0 +1,110 @@
+#container {
+    margin-top: 25px;
+    margin-left: 15px;
+    border: 1px solid rgb(214, 212, 212);
+    box-shadow: 5px 5px 5px rgb(214, 212, 212);
+}
+
+#container > p {
+    margin: 5px;
+}
+
+.col-md-6 {
+    margin-left: 5px; 
+    margin-bottom: 10px; 
+    width: fit-content;
+}
+
+.col-md-6 > p{
+    width: fit-content;
+    margin-left: 5px;
+    display: inline;
+    padding-right: 10px;
+}
+
+.col-md-6 > .form-select, .col-md-6 > div{
+    margin-right: 10px; 
+    margin-left: 10px; 
+    width: fit-content;
+}
+
+.input-group {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.input-group > input {
+    margin-left: 0px;
+}
+
+.form-control {
+    display: block;
+    width: 200px;
+    margin: 0px;
+    margin-left: 5px;
+    padding: 2.5px;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #FA8232; 
+}
+
+.input-group > .btn{
+    background-color: white;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color: rgb(214, 212, 212);
+    border-color: rgb(214, 212, 212);
+    color: black;
+}
+
+.input-group >.btn:hover {
+    background-color: #FA8232;
+    border-color: #FA8232;
+    color: white;
+}
+
+.input-group > input:hover {
+    border-color: #FA8232;
+}
+
+.form-select:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #FA8232; 
+    box-shadow: 1px 1px 1px #FA8232;
+}
+
+.form-select:hover {
+    border-color: #FA8232; 
+    box-shadow: 1px 1px 1px #FA8232;
+}
+
+.table {
+    border-top: 1px solid rgb(214, 212, 212);
+    text-align: center;
+}
+
+td, th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+#spinning-loading-arrow.spin {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    color: #FA8232;
+    font-size: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

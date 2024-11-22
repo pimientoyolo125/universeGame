@@ -1,0 +1,33 @@
+<div id="content">
+    <div id="header">
+        <app-header></app-header>
+    </div>
+
+    <div id="page-content">
+        <div id="divider">
+            <h5>Categories</h5>
+            <div id="categoriesContainer">
+                <div id="card-categories" *ngFor="let categorie of categories">
+                    <button class="card" (click)="onSearch(categorie.id)">
+                        <img [src]="categorie.image" class="card-img-top" alt="{{categorie.name}}" width="135" height="190">
+                        <div class="card-body">
+                            <p class="card-text">{{categorie.name}}</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <div id="latest-Products" style="margin-bottom: 20px;">
+                <h5 style="margin-bottom: 20px;">Latest Products</h5>
+                <div class="row" style="display: flex; justify-content: space-evenly; margin-right: 25px;">
+                    <div *ngFor="let product of latestProducts" style="margin-left: 25px; width: fit-content; padding: 0px;">
+                        <app-product [product]="product" style="display: inline-block;"></app-product>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <app-footer></app-footer>
+    </div>
+</div>

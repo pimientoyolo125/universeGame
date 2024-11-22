@@ -1,0 +1,82 @@
+<div style="padding: 10px;">
+    <form>
+        <div class="mb-3">
+            <p class="form-label">Name</p>
+            <input type="text" class="form-control" id="name" [(ngModel)]="regName" name="regName"
+                autocomplete="Default Name" placeholder="Jhon/Jane">
+        </div>
+
+        <div class="mb-3">
+            <p class="form-label">Last Name</p>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="regLastName" name="regLastName" placeholder="Doe">
+        </div>
+
+        <div class="mb-3">
+            <p class="form-label">Telephone Number</p>
+            <input type="text" class="form-control" id="phoneNumber" placeholder="312 3456789"  [(ngModel)]="auxPhoneNumber" name="regPhoneNumber">
+        </div>
+
+        <div class="mb-3">
+            <p class="form-label">Email address</p>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="regEmail"
+                name="regEmail" autocomplete="def@def.com">
+        </div>
+
+        <div class="mb-3">
+            <p class="form-label" style="display: block;">Password</p>
+            <div class="password-toggle" style="display: flex; align-items: center;">
+                <input type="{{ isPasswordVisible ? 'text' : 'password' }}" class="form-control" id="password"
+                    placeholder="8+ Characters" required [(ngModel)]="regPassword" name="regPassword"
+                    (input)="assignPasswordValue($event)" (focus)="onPasswordFocus()">
+                <i class="bi" [ngClass]="isPasswordVisible ? 'bi-eye' : 'bi-eye-slash'"
+                    (click)="togglePasswordVisibility()" style="cursor: pointer;"></i>
+            </div>
+
+
+            <p *ngIf="isPasswordFocused && regPassword.length <= 8" style="color: red; font-weight: 500;">* Password must be more than 8 characters long *</p>
+        </div>
+
+        <div class="mb-3">
+            <p class="form-label" style="display: block;">Confirm Password</p>
+            <div class="password-toggle" style="display: flex; align-items: center;">
+                <input type="{{ isPasswordVisible ? 'text' : 'password' }}" class="form-control" id="confirmPassword"
+                    placeholder="8+ Characters" required [(ngModel)]="regRepPassword" name="regRepPassword"
+                    (input)="assignPasswordValue2($event)" (focus)="onPasswordFocus2()">
+                <i class="bi" [ngClass]="isPasswordVisible ? 'bi-eye' : 'bi-eye-slash'"
+                    (click)="togglePasswordVisibility()" style="cursor: pointer;"></i>
+            </div>
+
+
+            <p *ngIf="isPasswordFocused2 && regRepPassword.length <= 8" style="color: red; font-weight: 500; margin-bottom: 10px;">* Password must be more than 8 characters long *</p>
+
+            <p *ngIf="regPassword !== regRepPassword" style="color: red; font-weight: 500; margin-bottom: 10px;">* Confirm password must be the same as password *</p>
+        </div>
+
+        <div class="d-flex" style="justify-content: center; display: block;">
+            <input class="form-check-input" type="checkbox" (change)="toggleCheckbox()" [checked]="regCheck" name="regCheck" />
+            <p class="form-check-label" style="display: inline; width: fit-content; padding-left: 5px;">
+                Do you agree to UniverseGame <a>Terms of condition</a> and <a>Privacy Policy</a>.
+            </p>
+            
+        </div>
+
+        <p *ngIf="!regCheck" style="color: red; font-weight: 500; margin-left: 15px;">* Please accept Terms and Conditions *</p>
+
+        <div
+                style="display: flex; justify-content: center; align-items: center; margin: 15px 0 15px 0; padding: 0;">
+                <p *ngIf="isLoading" class="loading-text" style="margin: 0;">
+                    <i id="spinning-loading-arrow" class="bi bi-arrow-repeat spin"></i> Loading...
+                </p>
+            </div>
+
+        <button (click)="signup()" class="btn btn-primary" style="width: 100%; margin-bottom: 10px;">Sign Up</button>
+
+
+        <div style="display: flex; justify-content: center; align-items: center; margin: 15px 0 15px 0; padding: 0;">
+            <p *ngIf=" signUpError !== '' " style="color: red; font-weight: 500; margin-left: 15px;">* {{signUpError}} *</p>
+        </div>
+
+
+
+    </form>
+</div>
