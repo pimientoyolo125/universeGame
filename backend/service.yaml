@@ -11,4 +11,4 @@ spec:
     - protocol: TCP
       port: 8080     # Puerto en el que el servicio escucha
       targetPort: 8080  # Puerto del contenedor
-      nodePort: 38080
+      nodePort: 30808

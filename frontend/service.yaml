@@ -11,4 +11,4 @@ spec:
     - protocol: TCP
       port: 4200 # Puerto en el que el servicio escucha
       targetPort: 4200  # Puerto del contenedor
-      nodePort: 34200
+      nodePort: 30420
