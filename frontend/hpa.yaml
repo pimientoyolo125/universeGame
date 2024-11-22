@@ -1,15 +1,15 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: k8s-demo-app-hpa
+  name: frontend-hpa
   namespace: default
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: k8s-demo-app
-  minReplicas: 2  # Número mínimo de réplicas
-  maxReplicas: 10  # Número máximo de réplicas
+    name: frontend-app
+  minReplicas: 1  # Número mínimo de réplicas
+  maxReplicas: 2  # Número máximo de réplicas
   metrics:
   - type: Resource
     resource:
