@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-demo-app
+  namespace: default
+spec:
+  replicas: 2  # Número inicial de réplicas
+  selector:
+    matchLabels:
+      app: k8s-demo-app
+  template:
+    metadata:
+      labels:
+        app: k8s-demo-app
+    spec:
+      containers:
+      - name: k8s-demo-app
+        image: k8s-demo-image:latest  # Nombre de la imagen creada
+        imagePullPolicy: Never  # No se necesita descargar la imagen
+        ports:
+        - containerPort: 8080  # Puerto que expone tu aplicación
+        resources:
+          requests:
+            cpu: 500m  # Requiere al menos 100m de CPU
+            memory: 512Mi  # Requiere al menos 128Mi de memoria
+          limits:
+            cpu: 1000m  # No debe superar los 500m de CPU
+            memory: 1024Mi  # No debe superar los 512Mi de memoria

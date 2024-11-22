@@ -1,0 +1,24 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: k8s-demo-app-hpa
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: k8s-demo-app
+  minReplicas: 2  # Número mínimo de réplicas
+  maxReplicas: 10  # Número máximo de réplicas
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu #tipo de recurso a monitorear puede ser memory
+      target:
+        type: Utilization
+        averageUtilization: 70 #porcentaje de uso de CPU
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 5 #tiempo de espera para escalar hacia abajo
+    scaleUp:
+      stabilizationWindowSeconds: 5 #tiempo de espera para escalar hacia arriba
