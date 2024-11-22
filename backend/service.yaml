@@ -4,7 +4,7 @@ metadata:
   name: backend-service
   namespace: default
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: backend-app
   ports:
