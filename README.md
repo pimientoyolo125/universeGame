@@ -52,6 +52,21 @@ Este proyecto se enfoca en la creación de un sistema web para la gestión de pr
 
 ---
 
+## Cronograma de Sprints
+<img alt="Cronograma de Sprints" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Cronograma_sprints_V3_24118.png">
+
+---
+
+## Diagrama de Arquitectura
+<img alt="Cronograma de Sprints" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Diagrama_de_Arquitectura_241118.png">
+
+---
+
+## Diagrama casos de uso
+<img alt="Cronograma de Sprints" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Diagrama_Casos_Uso_241118.png">
+
+---
+
 ## Mockups del Proyecto
 El diseño de las interfaces del sistema se realizó en [Figma](https://www.figma.com/design/Px9t7FmwK8RroCbln7mFxq/UniverseGame---Templates-V2?node-id=279-19819&node-type=canvas), mostrando las diferentes Vistas del aplicativo web. A continuación, se listan las principales Vistas:
 
@@ -109,21 +124,6 @@ El diseño de las interfaces del sistema se realizó en [Figma](https://www.figm
 **Resumen de Vistas**
 [Video](https://www.youtube.com/watch?v=Qvt7hDnW-MU&ab_channel=JuanDiegoRoaPorras)
 [Figma](https://www.figma.com/design/Px9t7FmwK8RroCbln7mFxq/UniverseGame)
-
----
-
-## Cronograma de Sprints
-<img alt="Cronograma de Sprints" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Cronograma_sprints_V3_24118.png">
-
----
-
-## Diagrama de Arquitectura
-<img alt="Cronograma de Sprints" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Diagrama_de_Arquitectura_241118.png">
-
----
-
-## Diagrama casos de uso
-<img alt="Cronograma de Sprints" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Diagrama_Casos_Uso_241118.png">
 
 ---
 
