@@ -47,6 +47,13 @@ Este proyecto se enfoca en la creación de un sistema web para la gestión de pr
   
 ---
 
+## Video
+<br> [<img src="https://img.youtube.com/vi/3Js4TJkAX5s/0.jpg" width=80% height=80%>](https://youtu.be/3Js4TJkAX5s)
+
+[Youtube video](https://youtu.be/3Js4TJkAX5s)
+
+---
+
 ## Diagrama Entidad-Relación
 <img alt="Diagrama Entidad-Relación" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Diagrama_ER_V3_241118.png">
 
