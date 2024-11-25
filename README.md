@@ -65,7 +65,7 @@ Este proyecto se enfoca en la creación de un sistema web para la gestión de pr
 ---
 
 ## Diagrama de Arquitectura
-<img alt="Cronograma de Sprints" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_3/2A_Diagrama_de_Arquitectura_241118.png">
+<img alt="Diagrama de Arquitectura" src="https://github.com/pimientoyolo125/universeGame/blob/main/Documentacion/Version_4/2A_Diagrama_de_Arquitectura_V2_241120.png">
 
 ---
 
