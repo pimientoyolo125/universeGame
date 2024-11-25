@@ -47,10 +47,16 @@ Este proyecto se enfoca en la creación de un sistema web para la gestión de pr
   
 ---
 
-## Video
-<br> [<img src="https://img.youtube.com/vi/3Js4TJkAX5s/0.jpg" width=80% height=80%>](https://youtu.be/3Js4TJkAX5s)
-
-[Youtube video](https://youtu.be/3Js4TJkAX5s)
+## Video y Diapositivas
+<div align="center">
+  <a href="https://youtu.be/3Js4TJkAX5s">
+    <img src="https://img.youtube.com/vi/3Js4TJkAX5s/0.jpg" width="80%" height="80%">
+  </a>
+</div>
+<div align="center">
+  <a href="https://youtu.be/3Js4TJkAX5s"><b>YouTube Video</b></a>
+  <a href="https://github.com/pimientoyolo125/universeGame/blob/feat/reports/Documentacion/2A_Presentacion-Proyecto-Final_241120.pdf"><b>Diapositivas</b></a>
+</div>
 
 ---
 
